@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:gravity="center"
+  android:orientation="vertical">
+
+  <LinearLayout
+    android:layout_width="332dp"
+    android:layout_height="366dp"
+    android:orientation="vertical"
+    android:background="@mipmap/bg_dialog">
+
+    <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="32dp"
+      android:gravity="center"
+      android:textSize="16sp"
+      android:textColor="#F7DC29"
+      android:text="@string/tip"/>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:layout_marginLeft="50dp"
+      android:layout_marginRight="50dp"
+      android:gravity="center"
+      android:orientation="vertical">
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        android:text="@string/association_match_join_tip"/>
+
+      <TextView
+        android:id="@+id/tvJoinMatchUnits"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        tools:text="中国体育协会职工足球队"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="74dp"
+      android:gravity="center"
+      android:orientation="horizontal">
+
+      <TextView
+        android:id="@+id/tvCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="36dp"
+        android:paddingRight="36dp"
+        android:layout_marginRight="12.5dp"
+        android:gravity="center"
+        android:background="@drawable/selector_radius_gray"
+        android:textColor="#25282C"
+        android:textSize="14sp"
+        android:text="@string/btn_cancel"/>
+
+      <TextView
+        android:id="@+id/tvSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="36dp"
+        android:paddingRight="36dp"
+        android:layout_marginLeft="12.5dp"
+        android:gravity="center"
+        android:background="@drawable/selector_radius_yellow"
+        android:textColor="#25282C"
+        android:textSize="14sp"
+        android:text="@string/btn_ok"/>
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+</LinearLayout>

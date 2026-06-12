@@ -1,0 +1,17 @@
+<resources>
+    <string name="listview_header_hint_normal">下拉刷新</string>
+    <string name="listview_header_hint_release">释放刷新</string>
+    <string name="listview_loading">加载中...</string>
+    <string name="nomore_loading">没有更多需加载</string>
+    <string name="refreshing">刷新中...</string>
+    <string name="refresh_done">刷新完成</string>
+    <string name="loading_done">加载完成</string>
+    <string name="listview_header_last_time">上次更新：</string>
+    <string name="lbl_now">马上</string>
+    <string name="lbl_second">秒前</string>
+    <string name="lbl_min">分前</string>
+    <string name="lbl_hour">小时前</string>
+    <string name="lbl_day">天前</string>
+    <string name="lbl_month">月前</string>
+    <string name="lbl_year">年前</string>
+</resources>

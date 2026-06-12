@@ -1,0 +1,8 @@
+<resources>
+    <string name="btn_ok">Ok</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_connect">Connect</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="btn_confirm2">Confirm</string>
+    <string name="loading_wait">downing....</string>
+</resources>

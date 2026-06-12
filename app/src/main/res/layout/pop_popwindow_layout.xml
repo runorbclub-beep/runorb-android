@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="115dp"
+    android:layout_height="350dp"
+    android:background="@mipmap/mine_score_pop"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <View
+        android:layout_width="115dp"
+        android:layout_height="60dp"/>
+
+    <ListView
+        android:id="@+id/pop_list"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:layout_marginBottom="30dp"
+        android:scrollbarStyle="outsideOverlay"/>
+
+</LinearLayout>
+

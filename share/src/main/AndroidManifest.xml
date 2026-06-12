@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.cloud.runball.share">
+
+  <application>
+    <activity
+      android:name="cloud.runball.bazu.wxapi.WXEntryActivity"
+      android:configChanges="keyboardHidden|orientation|screenSize"
+      android:exported="true"
+      android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+    <provider
+      android:name="androidx.core.content.FileProvider"
+      android:authorities="${PROVIDER_AUTHORITIES}"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        tools:replace="android:resource"
+        android:resource="@xml/share_file_paths" />
+    </provider>
+  </application>
+
+  <queries>
+    <!-- 指定微信包名 -->
+    <package android:name="com.tencent.mm" />
+    <!--        &lt;!&ndash; 指定qq包名 &ndash;&gt;-->
+    <!--        <package android:name="com.tencent.mobileqq" />-->
+    <!--        &lt;!&ndash; 指定微博包名 &ndash;&gt;-->
+    <!--        <package android:name="com.sina.weibo" />-->
+    <!--        &lt;!&ndash; 指定企业微信包名 &ndash;&gt;-->
+    <!--        <package android:name="com.tencent.wework" />-->
+    <!--        &lt;!&ndash; 指定QQ空间包名 &ndash;&gt;-->
+    <!--        <package android:name="com.qzone" />-->
+    <!--        &lt;!&ndash; 指定钉钉包名 &ndash;&gt;-->
+    <!--        <package android:name="com.alibaba.android.rimet" />-->
+    <!--        &lt;!&ndash; 指定支付宝包名 &ndash;&gt;-->
+    <!--        <package android:name="com.eg.android.AlipayGphone" />-->
+    <!--        &lt;!&ndash; 指定instagram包名 &ndash;&gt;-->
+    <!--        <package android:name="com.instagram.android" />-->
+  </queries>
+
+</manifest>

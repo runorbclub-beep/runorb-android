@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/bg_content"
+  android:orientation="vertical">
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    app:navigationIcon="@mipmap/btn_return">
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:layout_gravity="center"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/tvToolBarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        tools:text="@string/association_match_team_chengji" />
+
+      <TextView
+        android:id="@+id/tvMatchStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#B7B7B7"
+        android:textSize="11sp"
+        tools:text="(进行中)" />
+
+    </LinearLayout>
+
+    <ImageView
+      android:id="@+id/ivUpload"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="right"
+      android:layout_marginRight="15dp"
+      android:src="@drawable/ic_sync" />
+
+  </androidx.appcompat.widget.Toolbar>
+
+  <TextView
+    android:id="@+id/tvTeamName"
+    android:layout_width="198dp"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/toolbar"
+    android:layout_centerHorizontal="true"
+    android:gravity="center"
+    android:textColor="#FFFFFF"
+    android:textSize="22sp"
+    tools:text="中国职工足球队云端摇跑比赛" />
+
+  <TextView
+    android:id="@+id/tvNumberSum"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/tvTeamName"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="4dp"
+    android:gravity="center"
+    android:textColor="#B7B7B7"
+    android:textSize="14sp"
+    tools:text="成员数：1222人" />
+
+  <LinearLayout
+    android:id="@+id/layYao"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/tvNumberSum"
+    android:background="#F9E85B"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp"
+    android:padding="10dp"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <TextView
+      android:id="@+id/tvType"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginBottom="6dp"
+      android:textColor="#1E1D1F"
+      android:textSize="16sp"
+      android:textStyle="bold"
+      tools:text="摇跑转速" />
+
+    <TextView
+      android:id="@+id/tvYao"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:textColor="#28272A"
+      android:textSize="14sp"
+      tools:text="所有成员成绩平均值：1321.21（rpm）" />
+
+  </LinearLayout>
+
+  <com.jcodecraeer.xrecyclerview.XRecyclerView
+    android:id="@+id/recyclerview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/lyBottom"
+    android:layout_below="@+id/layYao"
+    android:layout_gravity="center" />
+
+  <RelativeLayout
+    android:id="@+id/ryEmpty"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="150dp"
+    android:visibility="gone">
+
+    <ImageView
+      android:id="@+id/ivEmpty"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:background="@mipmap/rank_empty" />
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="25dp"
+      android:layout_below="@+id/ivEmpty"
+      android:text="@string/lbl_empty2"
+      android:textColor="#ffffffff"
+      android:textSize="15sp" />
+
+  </RelativeLayout>
+
+  <LinearLayout
+    android:id="@+id/lyBottom"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:layout_alignParentBottom="true"
+    android:background="#464A71"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <FrameLayout
+      android:layout_width="55dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical">
+
+      <TextView
+        android:id="@+id/tvRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="1"
+        android:textColor="#ffffffff"
+        android:textSize="14sp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+      <ImageView
+        android:id="@+id/ivRank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        android:background="@mipmap/match_range_1"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    </FrameLayout>
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_gravity="center_vertical"
+      android:orientation="horizontal">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="-25dp"
+        android:layout_toRightOf="@+id/fyHead"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="33dp"
+          android:layout_marginRight="14dp"
+          android:gravity="center_vertical"
+          android:orientation="horizontal">
+
+          <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:textColor="#ffffffff"
+            android:textSize="13sp"
+            tools:drawableRight="@mipmap/ic_man"
+            tools:text="笑对人生" />
+
+          <TextView
+            android:id="@+id/tvShow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textColor="#F5BE0A"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:text="342.33"
+            tools:visibility="visible" />
+
+          <TextView
+            android:id="@+id/tvUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F5BE0A"
+            android:textSize="10sp"
+            android:visibility="gone"
+            tools:text="（rpm）"
+            tools:visibility="visible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="33dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginRight="14dp"
+          android:gravity="center_vertical"
+          android:orientation="horizontal">
+
+          <TextView
+            android:id="@+id/tvArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/local_red"
+            android:textColor="#C7C7C7"
+            android:textSize="9sp"
+            tools:text="深圳" />
+
+          <View
+            android:id="@+id/vDivider"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="1dp"
+            android:background="#C7C7C7" />
+
+          <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#C7C7C7"
+            android:textSize="9sp"
+            android:visibility="gone"
+            tools:text="2012-02-02 12:12:12"
+            tools:visibility="visible" />
+
+        </LinearLayout>
+
+      </LinearLayout>
+
+      <FrameLayout
+        android:id="@+id/fyHead"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/border_ranking_portrait_top">
+
+        <ImageView
+          android:id="@+id/ivHead"
+          android:layout_width="48dp"
+          android:layout_height="48dp"
+          android:layout_gravity="center"
+          android:layout_margin="1dp"
+          android:adjustViewBounds="true" />
+
+      </FrameLayout>
+
+    </RelativeLayout>
+
+
+    <!--    <TextView-->
+    <!--      android:id="@+id/tvRankNum"-->
+    <!--      android:layout_width="wrap_content"-->
+    <!--      android:layout_height="wrap_content"-->
+    <!--      android:layout_marginLeft="21dp"-->
+    <!--      android:gravity="center_vertical"-->
+    <!--      android:textColor="#fff9e85b"-->
+    <!--      android:textSize="12sp"-->
+    <!--      tools:text="101" />-->
+
+    <!--    <LinearLayout-->
+    <!--      android:layout_width="match_parent"-->
+    <!--      android:layout_height="wrap_content"-->
+    <!--      android:layout_marginLeft="9dp"-->
+    <!--      android:orientation="horizontal"-->
+    <!--      android:paddingRight="14dp">-->
+
+    <!--      <TextView-->
+    <!--        android:id="@+id/tvUserName"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_weight="1"-->
+    <!--        android:drawablePadding="5dp"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:textColor="#FFFFFF"-->
+    <!--        android:textSize="13sp"-->
+    <!--        tools:text="笑看人生" />-->
+
+    <!--      <TextView-->
+    <!--        android:id="@+id/tvUserSpeed"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textColor="#F5BE0A"-->
+    <!--        android:textSize="12sp"-->
+    <!--        tools:text="342.33(rpm)" />-->
+
+    <!--    </LinearLayout>-->
+
+  </LinearLayout>
+
+</RelativeLayout>

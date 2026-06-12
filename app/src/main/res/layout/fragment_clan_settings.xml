@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:paddingTop="5dp"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:layout_marginBottom="5dp"
+      app:cardBackgroundColor="#28272A"
+      app:cardCornerRadius="6dp"
+      app:cardElevation="2dp">
+
+      <TextView
+        android:id="@+id/tvClanContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:text="@string/format_clan_contact"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:layout_marginBottom="5dp"
+      app:cardBackgroundColor="#28272A"
+      app:cardCornerRadius="6dp"
+      app:cardElevation="2dp">
+
+      <TextView
+        android:id="@+id/tvClanCreateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:text="@string/format_clan_create_time"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+      android:id="@+id/layEditClan"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:layout_marginBottom="5dp"
+      app:cardBackgroundColor="#28272A"
+      app:cardCornerRadius="6dp"
+      app:cardElevation="2dp"
+      android:visibility="gone"
+      tools:visibility="visible">
+
+      <TextView
+        android:id="@+id/tvEditClan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:drawableEnd="@mipmap/item_more"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:text="@string/clan_edit"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+      android:id="@+id/layTransferAdmin"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:layout_marginBottom="5dp"
+      app:cardBackgroundColor="#28272A"
+      app:cardCornerRadius="6dp"
+      app:cardElevation="2dp"
+      android:visibility="gone"
+      tools:visibility="visible">
+
+      <TextView
+        android:id="@+id/tvTransferAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:drawableEnd="@mipmap/item_more"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:text="@string/clan_transfer_admin"/>
+
+    </androidx.cardview.widget.CardView>
+
+  </LinearLayout>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/layExitClan"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="13dp"
+    android:layout_marginBottom="13dp"
+    android:layout_gravity="center_horizontal"
+    app:cardBackgroundColor="#ADADAD"
+    app:cardCornerRadius="19dp"
+    app:cardElevation="2dp"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <TextView
+      android:id="@+id/tvExitClan"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingTop="9dp"
+      android:paddingBottom="9dp"
+      android:paddingStart="72dp"
+      android:paddingEnd="72dp"
+      android:gravity="center"
+      android:textStyle="bold"
+      android:textColor="#1E1D1F"
+      android:textSize="14sp"
+      android:text="@string/exit_clan"/>
+
+  </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="10dp"
+  android:layout_marginBottom="10dp"
+  android:background="@drawable/bg_item_pk_result">
+
+  <ImageView
+    android:layout_width="215dp"
+    android:layout_height="81dp"
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/parallelogram" />
+
+  <TextView
+    android:id="@+id/tvPkDatetime"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:background="@mipmap/bg_pk_result_datetime_win"
+    android:gravity="center"
+    tools:text="2021-3-30 10:10"
+    android:textColor="#1E1D1F"
+    android:textSize="9sp" />
+
+  <LinearLayout
+    android:id="@+id/layResult"
+    android:layout_width="47dp"
+    android:layout_height="47dp"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="22dp"
+    android:background="@drawable/bg_pk_result_circular_win"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+      android:id="@+id/tvPkResult"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="@string/pk_win"
+      android:textColor="#1E1D1F"
+      android:textSize="21sp" />
+
+    <TextView
+      android:id="@+id/tvPkType"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      tools:text="@string/pk_type_team"
+      android:textColor="#1E1D1F"
+      android:textSize="10sp" />
+
+  </LinearLayout>
+
+  <TextView
+    android:id="@+id/tvLeftMark"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_pk_result_mark_left_win"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:text="@string/pk_result_mark_mine"
+    android:textColor="#1E1D1F"
+    android:textSize="11sp" />
+
+  <TextView
+    android:id="@+id/tvRightMark"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:background="@drawable/bg_pk_result_mark_right_fail"
+    android:layout_marginRight="2dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:text="@string/pk_result_mark_other"
+    android:textColor="#1E1D1F"
+    android:textSize="11sp" />
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="25dp"
+    android:layout_toLeftOf="@+id/layResult"
+    android:gravity="left|center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="16dp">
+
+    <ImageView
+      android:id="@+id/ivPortraitLeft"
+      android:layout_width="34dp"
+      android:layout_height="34dp"
+      android:background="@drawable/border_portrait"
+      android:padding="2dp"
+      android:visibility="gone" />
+
+    <TextView
+      android:id="@+id/tvPortraitLeft"
+      android:layout_width="34dp"
+      android:layout_height="34dp"
+      android:background="@drawable/border_portrait"
+      android:gravity="center"
+      android:textColor="#F7DC29"
+      android:textSize="14sp"
+      android:visibility="visible"
+      tools:text="2人" />
+
+    <TextView
+      android:id="@+id/tvDistanceLeft"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:textColor="#FDE833"
+      android:textSize="16sp"
+      tools:text="4.219km" />
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:layout_marginRight="25dp"
+    android:layout_centerVertical="true"
+    android:layout_alignParentRight="true"
+    android:layout_toRightOf="@+id/layResult"
+    android:gravity="right|center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+      android:id="@+id/tvDistanceRight"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="5dp"
+      android:textColor="#ADADAD"
+      android:textSize="16sp"
+      tools:text="4.219km"/>
+
+    <ImageView
+      android:id="@+id/ivPortraitRight"
+      android:layout_width="34dp"
+      android:layout_height="34dp"
+      android:padding="2dp"
+      android:background="@drawable/border_portrait"
+      android:visibility="gone"/>
+
+    <TextView
+      android:id="@+id/tvPortraitRight"
+      android:layout_width="34dp"
+      android:layout_height="34dp"
+      android:background="@drawable/border_oval_gray"
+      android:visibility="visible"
+      android:gravity="center"
+      android:textColor="#ADADAD"
+      android:textSize="14sp"
+      tools:text="2人"/>
+
+  </LinearLayout>
+
+</RelativeLayout>

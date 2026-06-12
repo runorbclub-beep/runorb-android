@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="56dp"
+  android:background="#28272A"
+  android:layout_marginTop="5dp"
+  android:layout_marginBottom="5dp"
+  android:gravity="center_vertical"
+  android:orientation="horizontal">
+
+  <FrameLayout
+    android:layout_width="55dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical">
+
+    <TextView
+      android:id="@+id/tvRank"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="1"
+      android:textColor="#ffffffff"
+      android:textSize="14sp" />
+
+    <ImageView
+      android:id="@+id/ivRank"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:adjustViewBounds="true"
+      android:background="@mipmap/match_range_1" />
+
+  </FrameLayout>
+
+  <LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:layout_marginRight="14dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:gravity="center_vertical"
+        android:textColor="#ffffffff"
+        android:textSize="13sp"
+        tools:text="笑对人生" />
+
+      <TextView
+        android:id="@+id/tvJoinSum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:gravity="center_vertical"
+        android:textColor="#C7C7C7"
+        android:textSize="9sp"
+        tools:text="成员数量：33人" />
+
+    </LinearLayout>
+
+    <TextView
+      android:id="@+id/tvShow"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:gravity="right"
+      android:textColor="#F5BE0A"
+      android:textSize="12sp"
+      tools:text="342.33" />
+
+    <TextView
+      android:id="@+id/tvUnit"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:gravity="right"
+      android:textColor="#F5BE0A"
+      android:textSize="10sp"
+      tools:text="(rpm)" />
+
+  </LinearLayout>
+
+  <ImageView
+    android:layout_width="20dp"
+    android:layout_height="20dp"
+    android:layout_marginRight="15dp"
+    android:src="@mipmap/arrow_right_gray"/>
+
+</LinearLayout>

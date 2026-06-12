@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item android:id="@+id/action_rule"
+        android:title="@string/lbl_setting"
+        android:icon="@mipmap/match_pk_rule2"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"/>
+</menu>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:clickable="true"
+    android:background="@drawable/shape_func_item"
+    android:focusable="true">
+
+    <TextView
+        android:id="@+id/tv_device_info_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center|left"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:text="@string/device_name"
+        android:textColor="#ffffffff"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvBelong"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1.0"
+        android:gravity="center|left"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:textColor="#FFFD9833"
+        android:textSize="16sp"
+        android:text="@string/device_belong" />
+
+    <TextView
+        android:id="@+id/tv_device_info_connected"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:text="@string/state_disconnected"
+        android:textColor="#FFFD9833"
+        android:textSize="16sp" />
+
+</LinearLayout>

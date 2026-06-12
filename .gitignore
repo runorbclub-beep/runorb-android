@@ -1,8 +1,41 @@
+# Built application files
 *.apk
 *.aab
+*.ap_
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
 build/
+
+# Gradle files
 .gradle/
 local.properties
+
+# Android Studio
 .idea/
 *.iml
+.navigation/
+
+# Keystore files (keep release.jks for now as it's in the source)
+# *.jks
+
+# Log Files
+*.log
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# NDK
+obj/
+
+# Output
+output.zip

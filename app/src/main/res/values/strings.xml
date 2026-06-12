@@ -1,0 +1,880 @@
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+    <string name="app_name">全运动</string>
+    <string name="app_desc">随时随地 摇出健康</string>
+    <string name="app_vice">摇跑球</string>
+    <string name="app_me_around">我在你身边</string>
+
+
+    <string name="app_location">使用基于地理位置服务</string>
+    <string name="app_location_desc">为了使用摇跑球硬件，我们必须通过BLE蓝牙进行连接，而使用BLE蓝牙需要使用到地理位置权限，因此必须开启地理位置权限才可使用，我们不会去收集相关用户地理位置信息</string>
+    <string name="app_cancel">取消</string>
+    <string name="app_next">跳过</string>
+
+    <string name="app_privacy_url">https://hisport.cloud/privacy</string>
+    <string name="app_protocol_url">https://hisport.cloud/protocol</string>
+
+    <string name="tab_rate">竞速</string>
+    <string name="tab_mine">我的</string>
+    <string name="tab_match">对抗赛</string>
+    <string name="tab_match2">锦标赛</string>
+    <string name="my_ranks_1">我的排名：%1$s</string>
+    <string name="my_ranks">我的团队排名：%1$s</string>
+    <string name="my_ranks_progress_reach">已跑完总距离的%1$s %%，还差%2$s到达终点</string>
+    <string name="lbl_rank_score">成绩:</string>
+    <string name="lbl_rank_time">时间:</string>
+    <string name="lbl_rank_index">指数:</string>
+    <string name="lbl_rank_distance">距离:</string>
+    <string name="title_mine_match">我的赛事</string>
+    <string name="lbl_match_cancel_registration">取消报名</string>
+    <string name="lbl_match_attend">已报名</string>
+    <string name="lbl_match_over">已结束</string>
+    <string name="lbl_match_sign_now">立即报名</string>
+    <string name="lbl_match_sign_now2">即将开始</string>
+    <string name="lbl_match_right_now">立即比赛</string>
+    <string name="lbl_match_ranking">排行榜</string>
+    <string name="lbl_match_vip">摇跑会员申请</string>
+    <string name="lbl_match_market">购买渠道</string>
+    <string name="lbl_match_ranking_check">排行榜</string>
+    <string name="lbl_match_sign_num">已报名%1$d人</string>
+
+    <!-- 切换服务器-->
+    <string name="title_server">切换服务器</string>
+    <string name="lbl_china_server">中国服务器</string>
+    <string name="lbl_other_server">国际服务器</string>
+    <string name="lbl_select_server">当前</string>
+
+    <!--竞速页面-->
+    <string name="update_tip">升级提示</string>
+    <string name="tip">温馨提示</string>
+    <string name="tip_warn">警告</string>
+    <string name="tip_data_error">数据发生错误，请退出重新尝试!</string>
+    <string name="tip_country_codes">获取不到国际码信息</string>
+    <string name="tip_server">切换到新服务器，需要创建新的账号，原服务器数据仍然保留，并未丢失。您确定要切换吗？</string>
+    <string name="rank_all_1">成年榜</string>
+    <string name="rank_all_2">青少年排行</string>
+
+
+    <string name="data_err_tip">发现数据异常</string>
+    <string name="notice_tip">摇跑3分钟的距离/摇跑半马的时间</string>
+    <string name="tv_run_notice_tip_time">上榜时间:</string>
+    <string name="tv_run_notice_tip_cur">当前活力指数：%1$s</string>
+    <string name="tv_run_notice_tip_0">活力指数(ei)：%1$s</string>
+    <string name="tv_run_notice_tip_1">摇跑3分钟，%1$s km</string>
+    <string name="tv_run_notice_tip_2">摇跑半马拉松，%1$s</string>
+    <string name="tv_run_notice_tip_3">摇跑马拉松，%1$s</string>
+    <string name="tv_run_notice_tip_4">摇跑%1$s分钟的距离，%2$s km</string>
+    <string name="tv_run_notice_tip_5">摇跑%1$s公里的时间，%2$s</string>
+    <string name="title_rank_prex">排行</string>
+    <string name="lbl_match_rank_my_grade">我的排名:</string>
+
+    <string name="turn_speed_3">最高转速(rpm)</string>
+    <string name="turn_speed_2">最高转速</string>
+    <string name="turn_speed_unit_2">(rpm)</string>
+    <string name="turn_one_minute_3">摇跑一分钟(km)</string>
+    <string name="turn_one_minute_2">摇跑一分钟</string>
+    <string name="turn_one_minute_unit_2">(km)</string>
+    <string name="turn_exponent_2">活力指数</string>
+    <string name="turn_exponent_unit_2">(ei)</string>
+    <string name="turn_marathon_2">摇跑马拉松</string>
+    <string name="turn_marathon_unit_2">(time)</string>
+    <string name="turn_duration">摇跑时间</string>
+
+    <string name="turn_speed">最高(rpm)</string>
+    <string name="turn_metre">距离(km)</string>
+    <string name="turn_time">时间(s)</string>
+    <string name="refuse_ble"> 位置访问权限被拒绝将无法搜索到ble设备,请跳转到设置界面进行设置</string>
+    <string name="location_ble"> 只有允许访问位置才能搜索到蓝牙设备</string>
+    <string name="location_ble_tip">本APP硬件设备需要使用地理位置权限，才可以使用并搜索ble蓝牙设备并与之通信</string>
+    <string name="location_service"> 位置服务未开启，将无法搜索到ble设备,请跳转到设置界面进行设置</string>
+    <string name="connected_device_to_play">蓝牙%1$s连接成功,请确认是否开始运动</string>
+    <string name="connected_device_finished2">摇跑球：%1$s</string>
+    <string name="network_error">当前网络不可用，请检查你的网络设置</string>
+    <string name="wall_ball_disabled">蓝牙正在连接中...</string>
+    <string name="wall_ball_disconnected">摇跑球已经断开连接</string>
+    <string name="wall_ball_to_connected">未连接设备</string>
+    <string name="wall_ball_no_connected">摇跑球：(未连接)</string>
+    <string name="connected_success">蓝牙连接成功</string>
+    <string name="tip_bluetooth_disconnected">您的蓝牙设备已断开，请重新连接</string>
+    <string name="bluetooth_ble_tip">本APP硬件设备需要使用蓝牙权限，才可以使用并搜索ble蓝牙设备并与之通信</string>
+
+    <!--赛事页面-->
+    <string name="search_match_hit">搜索赛事</string>
+    <string name="search_match_edt_hit">搜索赛事</string>
+    <string name="search_name_hit">搜索用户名称</string>
+    <string name="match_detail_title">赛事详情</string>
+    <string name="exit_app_tip">再按一次退出程序</string>
+    <string name="match_check_sign_up">查看报名</string>
+    <string name="match_sign_up">立即报名</string>
+    <string name="match_check_rank">查看排名</string>
+    <string name="match_enter_match">立即比赛</string>
+
+    <string name="match_100">100米</string>
+    <string name="match_200">200米</string>
+    <string name="match_800">800米</string>
+    <string name="match_1000">1000米</string>
+    <string name="match_1500">1500米</string>
+    <string name="match_3000">3000米</string>
+    <string name="match_10000">10000米</string>
+    <string name="match_half">半马</string>
+    <string name="match_full">全马</string>
+
+    <!-- 赛事-->
+    <string name="match_sub_title">2021年第一季度季后赛</string>
+    <string name="match_prize">奖金/奖品</string>
+    <string name="match_point">积分</string>
+    <string name="match_registered">已报名</string>
+    <string name="match_attend">已关注</string>
+    <string name="match_registration_requirements">报名要求</string>
+    <string name="match_tournament_desc">赛事说明</string>
+    <string name="match_phone">联系方式</string>
+
+    <!-- 竞速 -->
+    <string name="title_double_match">发起双人比赛</string>
+    <string name="lbl_double_match_time">分钟</string>
+    <string name="title_team_match">发起团队比赛</string>
+    <string name="title_add_match">加入比赛</string>
+    <string name="title_add_match_board">加入比赛</string>
+    <string name="lbl_input_match_tip">尚未有信息未输入,请重新填写</string>
+    <string name="lbl_input_match_person_tip">报名人数限制在10个</string>
+    <string name="lbl_input_clip_error_tip">黏贴版内容有误,请重新去黏贴</string>
+    <string name="lbl_error_room_num_tip">房间号没有，请退出重新输入房间号</string>
+    <string name="title_match_team">比赛</string>
+    <string name="lbl_exit_the_pk">您是否确认退出本次PK</string>
+    <string name="lbl_not_find_pk_id">找不到房间ID，请退出重新再试！</string>
+    <string name="lbl_ready_pk">准备</string>
+    <string name="lbl_ready_cancel">取消准备</string>
+    <string name="title_pk_rule">比赛规则</string>
+    <string name="lbl_set_wound">请上紧发条！</string>
+    <string name="lbl_pk_offline">已掉线</string>
+    <string name="lbl_pk_wait_other">等待对方进入…</string>
+    <string name="lbl_pk_net_error">网络不佳,请重新再试</string>
+    <string name="lbl_pk_match_2">双人比赛</string>
+    <string name="lbl_pk_match_team">团队比赛</string>
+    <string name="title_match_record">PK记录</string>
+    <string name="lbl_detail">查看详情</string>
+    <string name="lbl_detail2">查看详情</string>
+    <string name="lbl_speed_max">最大转速</string>
+    <string name="title_match_data_detail">数据详情</string>
+    <string name="lbl_finish_market">比赛结束 \n 请耐心等待结果</string>
+    <string name="lbl_exit_tip">比赛还未结束确认退出吗？</string>
+    <string name="lbl_match_pk_id">比赛ID：</string>
+    <string name="lbl_match_pk_id_no">比赛ID</string>
+    <string name="turn_speed_match">最大转速</string>
+    <string name="turn_metre_match">距离</string>
+    <string name="lbl_refresh_id">点击刷新</string>
+    <string name="lbl_team_name">我方队名</string>
+    <string name="lbl_other_team_name">对方队名</string>
+    <string name="lbl_match_time">时间</string>
+    <string name="lbl_match_max_person">队伍人数</string>
+    <string name="lbl_match_input_name">请输入我方队名</string>
+    <string name="lbl_match_input_name2">请输入对方队名</string>
+    <string name="lbl_match_paste">点击黏贴</string>
+    <string name="lbl_input_match_person">输入队伍人数</string>
+    <string name="lbl_input_match_horse">%1$d号%2$s</string>
+    <string name="lbl_input_match_horse_selected">是否确定选择%1$d号%2$s?</string>
+    <string name="lbl_input_match_person_num">%1$s人</string>
+    <string name="lbl_match_break_off">断线重连中，请稍后…</string>
+    <string name="lbl_match_click_fresh">点击刷新</string>
+    <string name="lbl_mine_total_distance">我方总距离（km）</string>
+    <string name="lbl_other_total_distance">对方总距离（km）</string>
+    <string name="lbl_pk_rule">1、俱乐部更换 \n 若选错俱乐部，请退出房间，重新进入选择 俱乐部。 \n \n 2、开始游戏 \n  创建者请与参赛者协商好时间，再点击 “开始”。 \n \n 3、上发条 \n 请在游戏开始前上紧发条。 \n \n 4、摇球 \n 在比赛正式开始前，请勿摇球。 \n\n 5.掉线 \n 若参赛者掉线30S仍未上线，视为退出房间。</string>
+
+    <!--锦标赛-->
+<!--    <string name="lbl_exit_match_message">是否暂离比赛？</string>-->
+    <string name="lbl_exit_match_message">是否离开？</string>
+    <string name="lbl_match_before">未开始</string>
+    <string name="lbl_match_ing">进行中</string>
+    <string name="lbl_match_over2">已结束</string>
+    <string name="lbl_match_person">个人赛</string>
+    <string name="lbl_match_group">团队赛</string>
+    <string name="lbl_match_tab_1">对抗赛</string>
+    <string name="lbl_match_tab_2">锦标赛</string>
+
+    <string name="lbl_match_tab_rank_1">活力指数</string>
+    <string name="lbl_match_tab_rank_2">摇跑最高转速</string>
+    <string name="lbl_match_tab_rank_3">摇跑1分钟</string>
+    <string name="lbl_match_tab_rank_4">摇跑马拉松</string>
+    <string name="lbl_match_tab_rank_5">摇跑转速</string>
+
+
+    <string name="lbl_match_attend_title">恭喜</string>
+    <string name="lbl_match_attend_complete">完成挑战</string>
+    <string name="lbl_match_attend_persons">参与人数%1$s人</string>
+    <string name="lbl_match_attend_distance">总距离%1$skm</string>
+    <string name="lbl_match_no_match">当前没有进行中的比赛</string>
+    <string name="lbl_match_stage_info">赛段信息</string>
+    <string name="lbl_match_status_info_1">未报名</string>
+    <string name="lbl_match_status_info_2">已报名</string>
+    <string name="lbl_match_status_info_3">已结束</string>
+    <string name="lbl_match_corner_tip_1">个人</string>
+    <string name="lbl_match_corner_tip_2">双人</string>
+    <string name="lbl_match_corner_tip_3">机构</string>
+    <string name="lbl_match_main_total_time">个人累计时间</string>
+    <string name="lbl_match_main_total_distance">个人累计距离</string>
+    <string name="lbl_match_main_total_countdown">比赛倒计时</string>
+    <string name="lbl_match_main_total_distance2">比赛总距离</string>
+    <string name="lbl_match_main_stage_rule">赛段规则：</string>
+
+
+    <!--我的-->
+    <string name="lbl_mine_portrait">我的头像</string>
+    <string name="profile_subtitle">多运动更健康，大家快来一起运动吧！</string>
+    <string name="lbl_default_name">小A</string>
+    <string name="lbl_default_sign">大家一起来运动</string>
+    <string name="title_language">语言选择</string>
+    <string name="mine_info_badge">我的徽章</string>
+    <string name="mine_follow">我的关注</string>
+    <string name="mine_fans">我的粉丝</string>
+    <string name="mine_match">PK记录</string>
+    <string name="mine_device">管理设备</string>
+    <string name="mine_socre">我的成就</string>
+    <string name="mine_data">我的数据</string>
+    <string name="all_piece">共%1$d枚</string>
+    <string name="score_tip">积分将可兑换礼品哟</string>
+    <string name="score_btn">兑换</string>
+    <string name="item_mine_dynamic">我的动态</string>
+    <string name="item_clan">我的俱乐部</string>
+    <string name="item_medal">我的勋章</string>
+    <string name="item_record">我的记录</string>
+    <string name="item_device">管理设备</string>
+    <string name="item_feedback">反馈与帮助</string>
+    <string name="item_about">关于我们</string>
+
+    <string name="title_mine_ranking_record">我的打榜</string>
+    <string name="title_mine_pk_record">我的PK</string>
+    <string name="title_mine_upup_record">我的摇加油</string>
+    <string name="title_mine_match_record">我的赛事</string>
+
+    <string name="pk_select_mode">请选择房间类型</string>
+    <string name="pk_mode_double">双人PK</string>
+    <string name="pk_mode_team">团队PK</string>
+    <string name="all">全部</string>
+    <string name="pk_win_count">胜场数</string>
+    <string name="pk_win_percentage">胜率</string>
+    <string name="pk_create">创建房间</string>
+    <string name="pk_join">加入房间</string>
+    <string name="title_pk_data_detail">pk详情</string>
+    <string name="pk_result_mark_mine">我方</string>
+    <string name="pk_result_mark_other">对方</string>
+    <string name="pk_win">胜</string>
+    <string name="pk_fail">负</string>
+    <string name="pk_type_personal">个人</string>
+    <string name="pk_type_team">团队</string>
+
+    <string name="mine_data_ranking_global_ranking">全国排名</string>
+    <string name="mine_data_ranking_project">项目</string>
+    <string name="mine_data_ranking_achievement">成绩</string>
+    <string name="mine_data_ranking_datetime">上榜时间</string>
+
+    <string name="lbl_notify">消息通知</string>
+    <string name="lbl_phone">手机号</string>
+    <string name="lbl_wechat">微信</string>
+    <string name="lbl_weibo">微博</string>
+    <string name="lbl_qq">QQ</string>
+    <string name="lbl_douyin">抖音</string>
+
+    <!-- s 我的记录 -->
+    <string name="title_mine_record">我的记录</string>
+    <string name="mine_record_source">(来源：%s)</string>
+    <string name="data_error_speed">数据异常：起步速度过高！</string>
+    <string name="tab_play_data">摇跑数据</string>
+    <string name="tab_play_mode">摇跑模式</string>
+    <!-- e 我的记录 -->
+
+    <!-- 设置 -->
+    <string name="lbl_setting">设置</string>
+    <string name="lbl_user_info">个人信息</string>
+    <string name="lbl_group_info">团队信息</string>
+    <string name="lbl_language_info">语言选择</string>
+    <string name="lbl_account">账号管理</string>
+    <string name="lbl_privacy">隐私政策</string>
+    <string name="lbl_service">服务条款</string>
+    <string name="lbl_server">服务器</string>
+    <string name="lbl_server_china">中国</string>
+    <string name="lbl_server_nation">国际</string>
+    <string name="lbl_feedback">反馈与帮助</string>
+    <string name="lbl_about">关于我们</string>
+    <string name="lbl_about_ver">当前版本V%1$s</string>
+    <string name="lbl_exit">退出登录</string>
+    <string name="lbl_cancel_account">注销账号</string>
+    <string name="tip_cancel_account_title">是否注销该账号</string>
+    <string name="tip_cancel_account">注销账号后，将无法登录账号！</string>
+
+    <!--关于-->
+    <string name="title_about">关于我们</string>
+    <string name="title_change_phone">更换手机号</string>
+    <string name="title_feedback">意见反馈</string>
+    <string name="lbl_feedback_desc">您的意见就是全云动进步的动力!</string>
+    <string name="lbl_email">邮箱反馈</string>
+    <string name="lbl_email_desc">邮箱:</string>
+    <string name="lbl_host_address"> https://Bazu-ranking.cn</string>
+    <string name="lbl_email_address">RunOrbclub@gmail.com</string>
+    <string name="lbl_email_aq">您可以给全云动发送邮件进行反馈!</string>
+    <string name="lbl_click_copy">点击复制</string>
+    <string name="lbl_access_host">访问全云动官网</string>
+    <string name="lbl_access_email">全云动官方邮箱</string>
+    <string name="lbl_check_update">检查更新</string>
+    <string name="lbl_add_qq_qun">加入QQ群</string>
+    <string name="lbl_add_qq_qun_feedback">您可以加入QQ群与专属客服进行反馈！</string>
+    <string name="lbl_add_qq_number">群号：555156070</string>
+
+
+    <!--个人信息-->
+    <string name="title_userinfo">个人信息</string>
+
+    <string name="lbl_exptitle">会员到期时间：%1$s</string>
+    <string name="lbl_share_code">我的邀请码：%1$s</string>
+    <string name="lbl_copy">复制</string>
+    <string name="lbl_copy_success">复制成功</string>
+
+    <string name="lbl_sex">性别</string>
+    <string name="tip_lbl_sex">性别1年内可修改3次</string>
+    <string name="format_tip_lbl_sex">性别剩余可修改%s次</string>
+    <string name="lbl_man">男</string>
+    <string name="lbl_feman">女</string>
+    <string name="lbl_name">姓名</string>
+    <string name="lbl_birthday">生日</string>
+    <string name="tip_lbl_lbl_birthday">生日1年内可修改3次</string>
+    <string name="format_tip_lbl_birthday">生日剩余可修改%s次</string>
+    <string name="lbl_birthday_hit">请输入您的出生日期</string>
+    <string name="lbl_high">身高</string>
+    <string name="lbl_high_hit">请输入您的身高</string>
+    <string name="lbl_weight">体重</string>
+    <string name="lbl_weight_hit">请输入您的体重</string>
+    <string name="lbl_weight_error">体重应该在30kg-200kg之间</string>
+    <string name="lbl_weixin">微信号</string>
+    <string name="format_weixin">微信号:%s</string>
+    <string name="lbl_weixin_hit">请输入您的微信号</string>
+    <string name="lbl_city">城市</string>
+    <string name="tip_lbl_city">城市1年内可修改3次</string>
+    <string name="format_tip_lbl_city">城市剩余可修改%s次</string>
+    <string name="lbl_city_hit">请输入您的所在城市</string>
+    <string name="lbl_group_type">选择团体类型</string>
+
+
+
+    <string name="binding_phone">绑定手机号码</string>
+    <string name="binding_phone_desc">为了您的账号安全，请验证手机号码 验证后可直接使用此手机号登录</string>
+    <string name="binding_phone_area">+86</string>
+    <string name="binding_phone_input">请输入手机号</string>
+    <string name="binding_email_input">请输入邮箱</string>
+    <string name="binding_name_input">请输入您的姓名</string>
+    <string name="binding_sex_input">请输入您的性别</string>
+    <string name="binding_name_group">团体名称</string>
+    <string name="binding_name_hit_group">请输入您的团体名称</string>
+    <string name="lbl_my_group_type">我的团体类型</string>
+    <string name="lbl_selected_my_group_type">请选择您的团体类型</string>
+    <string name="lbl_my_group_type_1">青少年团体</string>
+    <string name="lbl_my_group_type_0">成年图体</string>
+    <string name="lbl_nodify_3_times">一年可修改3次</string>
+    <string name="lbl_modify_over_times">已超过可修改次数</string>
+    <string name="lbl_intro">简介</string>
+    <string name="binding_sign_input">填写简介更容易获得别人关注哦</string>
+    <string name="binding_phone_send_sms_code">发送短信验证码</string>
+    <string name="phone_valid_code">输入验证码</string>
+    <string name="phone_valid_code_sended">验证码已发送至</string>
+    <string name="phone_valid_code_send_again">%1$d s后重发</string>
+    <string name="phone_send_again">发送验证码</string>
+    <string name="lbl_change_phone">更换新手机号码</string>
+    <string name="lbl_one_photo">拍一张</string>
+    <string name="lbl_album">从相册选择</string>
+    <string name="lbl_big_photo">查看大图</string>
+    <string name="toast_phone_sms_error">手机号或者验证码不全</string>
+    <string name="toast_email_sms_error">邮箱或者验证码不全</string>
+    <string name="toast_check_protocol">阅读并同意《服务协议》和《隐私政策》后方可登录</string>
+    <string name="title_privacy">全云动隐私政策</string>
+    <string name="title_service">全云动服务条款</string>
+    <string name="lbl_privacy_service">隐私政策</string>
+    <string name="lbl_exit_message"> 您是确定要退出登录？</string>
+    <string name="hot">热卖</string>
+    <string name="category">分类</string>
+    <string name="cart">购物车</string>
+    <string name="mine">我的</string>
+    <string name="title_data_detail">数据详情</string>
+    <string name="title_mine_score">我的成就</string>
+    <string name="title_mine_data">我的数据</string>
+    <string name="title_mine_edit">更改信息</string>
+    <string name="title_mine_add_device">选择设备</string>
+    <string name="title_mine_mgr_device">管理设备</string>
+    <string name="title_login_mobile">手机登录</string>
+    <string name="title_login_other">其他登录</string>
+    <string name="title_activity_cat">CatActivity</string>
+    <string name="title_sign_up">报名信息</string>
+    <string name="title_setting">我的设置</string>
+    <string name="title_notify">我的通知</string>
+    <string name="title_mine_badge">我的徽章</string>
+    <string name="please_checked">请勾选上述</string>
+
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+
+    <string name="nickname_change">编辑</string>
+    <string name="title_edit_nickname">编辑名称</string>
+    <string name="no_nickname">无自定义名称</string>
+    <string name="conn_device_self">(已连接)</string>
+    <string name="no_conn_device_self">(未连接)</string>
+
+    <string name="device_name">设备名字</string>
+    <string name="device_belong">(自己)</string>
+    <string name="state_connected">已连接</string>
+    <string name="state_disconnected">未连接</string>
+    <string name="state_bind">已绑定</string>
+    <string name="state_disbind">未绑定</string>
+    <string name="connected_devices">选择设备</string>
+    <string name="disconnected">断开</string>
+    <string name="scanning">扫描中...</string>
+    <string name="connecting">连接中...</string>
+    <string name="disconnecting">正在断开...</string>
+
+
+    <string name="facebook_app_id" translatable="false">你的facebook_app_id</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb你的facebook_app_id</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="login">登录</string>
+    <string name="finish">完成</string>
+    <string name="save">保存</string>
+    <string name="add">添加</string>
+    <string name="delete">删除</string>
+
+    <string name="week">周</string>
+    <string name="month">月</string>
+    <string name="year">年</string>
+
+    <string name="lbl_duration">单次最长时间</string>
+    <string name="lbl_speex">单次最高转速(rpm)</string>
+    <string name="lbl_circle">单次最高圈数(万圈)</string>
+    <string name="lbl_distance">单次最大距离(km)</string>
+    <string name="lbl_endurance">单次最大耐力(s)</string>
+    <string name="lbl_win_times">战胜对手次数(times)</string>
+
+    <string name="nodifySuccess">修改信息成功</string>
+
+    <string name="topTab_year">%1$d年</string>
+    <string name="topTab_month">%1$d月</string>
+    <string name="all_device">共%1$d个设备</string>
+    <string name="wcircleUnit">%1$srpm</string>
+    <string name="all_selected">全选</string>
+    <string name="lbl_empty">暂无内容</string>
+
+    <string name="tip_play_desc">请按箭头指示方向，滑动3圈直至摇跑球蓝牙指示灯闪烁一秒</string>
+    <string name="tip_play_desc2"> 请保持摇跑球球芯轻微的 \n 摇动或者转动</string>
+
+
+    <string name="all_know">已确认上述操作</string>
+    <string name="next_step">下一步</string>
+
+    <string name="up_pull_load_more">上拉加载更多...</string>
+    <string name="load_more">加载更多</string>
+
+    <string name="please_fill_nick_short">昵称超过6个汉字</string>
+    <string name="please_fill_sign_short">签名超过36个汉字</string>
+    <string name="please_fill_nick_or_sign">请填写昵称或者签名</string>
+    <string name="please_fill_nick_or_sign2">还有资料未填写</string>
+    <string name="loading_wait">正在下载中,请稍后</string>
+    <string name="item_applicants">已报名%1$d人</string>
+    <string name="btn_connect">连接</string>
+    <string name="btn_confirm">确定</string>
+    <string name="btn_confirm2">确认</string>
+    <string name="btn_ok">确定</string>
+    <string name="btn_cancel">取消</string>
+    <string name="lbl_select_birthday">选择生日</string>
+    <string name="lbl_select_city">选择城市</string>
+    <string name="lbl_select_weight">选择体重</string>
+
+
+    <string name="menu_today">今天</string>
+    <string name="menu_week">周最佳</string>
+    <string name="menu_month">月最佳</string>
+    <string name="menu_year">年最佳</string>
+
+    <string name="mine_name">名称</string>
+    <string name="mine_sign">签名</string>
+    <string name="lbl_all_checked">全选</string>
+
+    <string name="lbl_speed_chart">转速曲线</string>
+    <string name="lbl_speed_between">转速区间</string>
+    <string name="lbl_speed_time">时长</string>
+
+
+    <string name="lbl_circle_unit">0万圈</string>
+    <string name="lbl_speed_desc">最大转速(rpm)</string>
+    <string name="lbl_endurance_desc">耐力(s)</string>
+    <string name="lbl_time_desc">用时</string>
+
+    <string name="lbl_badge_tip">小有成就</string>
+    <string name="lbl_badge_circle_tip">圈数在1000-3000</string>
+    <string name="lbl_badge_dese_tip"> 炫耀一下</string>
+
+    <!-- 分享面板 -->
+    <string name="lbl_share_more">更多成绩</string>
+    <string name="lbl_share_btn">立即分享</string>
+    <string name="lbl_share_text">分享</string>
+    <string name="lbl_share">分享到</string>
+    <string name="lbl_share_qq">QQ</string>
+    <string name="lbl_share_qqzone">QQ空间</string>
+    <string name="lbl_share_wechat">微信好友</string>
+    <string name="lbl_share_wechat_circle">朋友圈</string>
+    <string name="lbl_share_album">保存至相册</string>
+
+    <string name="share_qr_code_tip">扫码加入摇跑</string>
+
+    <string name="lbl_title_msg">消息</string>
+    <string name="lbl_title_notify">通知</string>
+    <string name="hint_search">搜索</string>
+
+    <string name="search_label">搜索赛事与用户</string>
+    <string name="search_hint">搜索赛事与用户</string>
+
+    <!--登录注册-->
+    <string name="tip_login_welcome">欢迎加入！</string>
+    <string name="lbl_login_phone">手机快捷登录</string>
+    <string name="lbl_login_phone_desc">未注册过的手机号将自动创建账号</string>
+    <string name="lbl_login_email">邮箱账号登录</string>
+    <string name="lbl_login_email_desc">你可以通过邮箱及验证码完成登录</string>
+    <string name="lbl_login_mode_phone">手机号登录</string>
+    <string name="lbl_login_mode_email">邮箱登录</string>
+    <string name="lbl_login_email_error">请输入正确的邮箱</string>
+    <string name="lbl_privacy_pre">我已阅读并同意</string>
+    <string name="lbl_privacy_and">和</string>
+    <string name="lbl_privacy_privacy">用户协议</string>
+
+    <string name="lbl_privacy_content">感谢您信任并使用全云动App，我们将基于蓝牙提供运动方案,因此需要蓝牙以及地理位置数据，你可阅读《全云动用户协议》和《全云动隐私政策》如果你同意，请点击‘同意’开始接受我们的服务</string>
+    <string name="lbl_privacy_agress">同意</string>
+    <string name="lbl_privacy_noagress">暂不使用</string>
+    <string name="lbl_privacy_1">《全云动用户协议》</string>
+    <string name="lbl_privacy_2">《全云动隐私政策》</string>
+
+
+
+    <string name="lbl_progress_s">%1$d 秒</string>
+    <string name="lbl_hot_search">热门搜索</string>
+    <string name="lbl_dialog_reg_success">报名成功 ！</string>
+    <string name="lbl_dialog_return_home">返回首页</string>
+    <string name="no_support_ble">不支持BLE蓝牙,将不可运行本软件</string>
+
+    <!-- 添加榜单-->
+    <string name="title_add_rank">添加榜单</string>
+    <string name="lbl_select_cur">当前:</string>
+    <string name="lbl_age_between">年龄阶段</string>
+    <string name="lbl_age_between_1">成年</string>
+    <string name="lbl_age_between_2">青少年</string>
+    <string name="lbl_age_between_3">全部</string>
+    <string name="lbl_group_between">团体类型</string>
+    <string name="lbl_group_between_1">个人</string>
+    <string name="lbl_group_between_2">团体</string>
+    <string name="lbl_group_between_3">全部</string>
+    <string name="lbl_reset">重置</string>
+    <string name="lbl_empty2">暂时没有数据</string>
+    <string name="tip_message">是否删除当前榜单</string>
+
+    <string name="lbl_rank_recommend">推荐榜单</string>
+    <string name="lbl_rank_custom">自定义榜单</string>
+    <string name="lbl_km_unit">千米</string>
+
+    <string name="tab_personal_rank">个人排行榜</string>
+    <string name="tab_clan_rank">俱乐部排行榜</string>
+
+    <string name="lbl_other_match">摇加油</string>
+    <string name="lbl_other_match_achievement">本次成绩</string>
+    <string name="lbl_other_match_flag">摇加油</string>
+    <string name="lbl_other_match_status_0">未开始</string>
+    <string name="lbl_other_match_status_1">进入比赛</string>
+    <string name="lbl_other_match_status_2">即将开始</string>
+    <string name="lbl_other_match_status_3">已结束</string>
+    <string name="tip_other_match_status_0">今天的摇加油还未开始，请耐心等待</string>
+    <string name="tip_other_match_status_1_format">快给您选择的%s号%s加油助力吧！</string>
+    <string name="tip_other_match_status_1">今天的摇加油正在火热进行中</string>
+    <string name="tip_other_match_status_2">今天的摇加油即将开始</string>
+    <string name="tip_other_match_status_3">今天的摇加油已结束，期待明天继续加油</string>
+    <string name="lbl_other_match_record">历史记录</string>
+    <string name="lbl_recent_record">近期记录</string>
+    <string name="lbl_match_score">摇跑积分：</string>
+    <string name="title_match_horse_record">赛马记录</string>
+    <string name="title_match_horse_result_detail">比赛结果</string>
+    <string name="lbl_main_match_record_score">获得积分：</string>
+    <string name="lbl_main_match_record_score_self">参与积分：</string>
+    <string name="lbl_main_match_record_help_score_self">助力积分：</string>
+    <string name="lbl_main_match_record_distance_self">助力距离：</string>
+    <string name="lbl_main_match_record_distance">距离：%1$s km</string>
+    <string name="lbl_main_match_record_distance2">距离：%1$s</string>
+    <string name="lbl_main_match_record_speed">最高转速：%1$s</string>
+    <string name="lbl_main_match_record_score_1">积分：%1$s</string>
+    <string name="lbl_main_match_record_person_1">%1$d人助力</string>
+    <string name="lbl_main_match_record_person_2">%1$s人助力</string>
+    <string name="lbl_match_main_total_integral">积分总奖池</string>
+    <string name="lbl_main_match_index">%1$d号</string>
+    <string name="lbl_match_main_total_countdown2">开始倒计时</string>
+    <string name="lbl_main_match_player_horse">助力马匹</string>
+    <string name="lbl_main_match_player_count">%s人</string>
+    <string name="lbl_main_match_record_my_distance">我的助力距离：%s</string>
+    <string name="lbl_main_match_match_half_time">半马用时：%s</string>
+    <string name="lbl_main_match_match_full_time">全马用时：%s</string>
+    <string name="format_helper_count">助力人数：%s</string>
+    <string name="format_helper_score">积分奖池：%s</string>
+
+    <string name="lbl_main_match_match_help_players_label">人数：</string>
+    <string name="lbl_main_match_match_help_distance_label">距离：</string>
+    <string name="lbl_main_match_match_ranking_label">排名：</string>
+
+    <string name="title_match_helper_detail">助力详情</string>
+
+    <string name="title_go_module_all">全部类型</string>
+    <string name="title_go_module_ranking">摇跑打榜</string>
+    <string name="title_go_module_pk">摇跑PK</string>
+    <string name="title_go_module_upup">摇加油</string>
+    <string name="title_go_module_events">摇跑赛事</string>
+    <string name="title_go_module_free_style">随手摇</string>
+
+    <string name="title_vice_go_module_free_style">Free style</string>
+    <string name="title_vice_go_module_ranking">Ranking</string>
+    <string name="title_vice_go_module_pk">Pk room</string>
+    <string name="title_vice_go_module_upup">Up Up</string>
+    <string name="title_vice_go_module_events">Events</string>
+
+    <string name="tip_today_distance_sum">今日累计摇跑</string>
+
+    <string name="tab_rank">排行榜</string>
+    <string name="tab_go">GO</string>
+    <string name="tab_me">我的</string>
+
+    <string name="tip_no_tourist_enter_rank">游客账号无法筛选排行榜</string>
+    <string name="filter">筛选</string>
+
+    <string name="global">全国</string>
+    <string name="global_general_list">全球总榜</string>
+    <string name="global_general_list_man">全球男性总榜</string>
+    <string name="global_general_list_women">全球女性总榜</string>
+
+    <string name="national_general_list">全国总榜</string>
+    <string name="national_general_list_man">全国男性总榜</string>
+    <string name="national_general_list_women">全国女性总榜</string>
+
+    <string name="tip_select_sex">请选择性别\n以获取更好的体验</string>
+
+    <string name="tip_ranking_exit">是否确认退出？</string>
+
+    <string name="my">我的：</string>
+    <string name="person_count">人</string>
+
+    <string name="title_data_synchronization">数据同步</string>
+
+    <string name="data_synchronization_date">记录日期</string>
+    <string name="data_synchronization_speed">转速</string>
+    <string name="data_synchronization_distance">距离（km）</string>
+    <string name="data_synchronization_duration">时长</string>
+
+    <string name="tip_come_on">加油</string>
+    <string name="tip_no_conn_device">未连接摇跑球</string>
+    <string name="tip_pleas_play_device">请发动摇跑球</string>
+    <string name="tip_pleas_speed_up">加速！展示出你的爆发力！</string>
+    <string name="tip_pleas_sprint_to_the_goal">加油！向目标冲刺！</string>
+    <string name="tip_test_your_endurance">是时候考验你的耐力了！</string>
+    <string name="tip_uploading_result">正在上传成绩</string>
+    <string name="tip_upload_result_fail">成绩上传失败，是否重新上传</string>
+    <string name="tip_please_stop_and_wind_up_the_ball">请将球停下，并上紧发条</string>
+    <string name="tip_whether_to_exit_free_style_mode">是否退出随手摇模式</string>
+    <string name="tip_whether_to_exit_ranking_mode">是否退出打榜模式</string>
+    <string name="tip_whether_to_exit_match_mode">是否退出比赛模式</string>
+    <string name="tip_no_data">暂无数据</string>
+    <string name="tip_are_you_sure_to_cancel_your_registration">是否确定取消报名</string>
+    <string name="tip_confirm_whether_to_select_join">是否确认加入</string>
+
+    <string name="btn_upload">上传</string>
+    <string name="btn_upload_again">重新上传</string>
+    <string name="btn_upload_later">稍后重传</string>
+    <string name="btn_once_more">再来一次</string>
+    <string name="btn_exit">退出</string>
+    <string name="btn_go_to_connect">去连接</string>
+    <string name="btn_done">完成</string>
+    <string name="btn_back">返回</string>
+    <string name="btn_synchronous">同步</string>
+
+
+    <string name="association_match_join_tip">报名本活动仅限于</string>
+    <string name="association_select_team_tip">请选择您的团队</string>
+    <string name="association_tab_ranking_personal">个人排行</string>
+    <string name="association_tab_ranking_team">分组排行</string>
+    <string name="association_tab_name_list_personal">个人名单</string>
+    <string name="association_tab_name_list_team">团队名单</string>
+    <string name="association_match_status_playing_multiple_stage">正在进行：</string>
+    <string name="association_match_status_playing_single_stage">进行中</string>
+    <string name="association_match_ranking_sign_up">参赛名单</string>
+    <string name="association_match_ranking">排行榜</string>
+    <string name="association_match_check_ranking">查看排名</string>
+    <string name="association_match_team_chengji">团队成绩</string>
+    <string name="association_match_team_menber">团队成员</string>
+    <string name="association_match_join_sum">成员数%s人</string>
+    <string name="hint_dialog_search_team">搜索团队名称</string>
+    <string name="my_team">我的团队</string>
+    <string name="members_average_result">所有成员成绩平均值</string>
+
+    <string name="association_match_status_all">全部</string>
+    <string name="association_match_status_near">近期</string>
+    <string name="association_match_status_previous">往期</string>
+
+    <string name="dialog_text_playing_bluetooth_disconnected">摇跑球蓝牙已断开，是否停止记录数据</string>
+    <string name="dialog_text_playing_stop">摇跑球已停下，是否停止记录数据</string>
+    <string name="dialog_text_stop">是否停止记录数据</string>
+
+    <string name="dialog_btn_text_continue">继续记录</string>
+    <string name="dialog_btn_text_continue_stop">停止记录</string>
+    <string name="dialog_btn_text_connect">连接蓝牙</string>
+    <string name="dialog_btn_text_shape">分享成绩</string>
+
+    <string name="association_match_status_no_start">未开始</string>
+    <string name="association_match_status_playing">进行中</string>
+    <string name="association_match_status_finish">已结束</string>
+
+    <string name="association_match_join_type_open">开放报名</string>
+    <string name="association_match_join_close">关闭报名</string>
+    <string name="association_match_join_vip">会员报名</string>
+    <string name="label_association_match_join">报名要求</string>
+    <string name="limit">指定</string>
+    <string name="join">报名</string>
+
+    <string name="start">开始</string>
+
+    <string name="title_runOrb_match">摇跑比赛</string>
+
+    <string name="goto_ranking">立即打榜</string>
+
+    <string name="total">统计</string>
+    <string name="achievement">成就</string>
+
+
+    <string name="title_page_clock_in">摇跑打卡</string>
+    <string name="label_clock_in_target">打卡目标</string>
+    <string name="more_plan">更多</string>
+    <string name="btn_goto_clock_in">前往打卡</string>
+    <string name="btn_add_target">添加目标</string>
+    <string name="btn_no_target">无目标</string>
+    <string name="infinite">无限</string>
+    <string name="continuity">连续</string>
+    <string name="n_month">个月</string>
+    <string name="monthly">每月</string>
+    <string name="day">天</string>
+    <string name="every_day">每天</string>
+    <string name="source">来源:%s</string>
+    <string name="upload_success">上传成功</string>
+    <string name="upload_fail">上传失败</string>
+
+    <string name="play_board_speed">转速</string>
+    <string name="play_board_speed_unit">(rpm)</string>
+    <string name="play_board_label_max_speed">转速(rpm)</string>
+    <string name="play_board_label_turn_time">时间(time)</string>
+    <string name="play_board_label_turn_distance">距离(km)</string>
+
+    <string name="format_start_year_month">yyyy年MM月开始</string>
+    <string name="format_month">MM月</string>
+    <string name="format_year">yyyy年</string>
+    <string name="format_year_month">yyyy年MM月</string>
+    <string name="format_year_month_day">yyyy年MM月dd日</string>
+
+    <string name="target_day_num">目标%s天</string>
+    <string name="target_day_distance">每天%skm</string>
+
+    <string name="total_distance">累计距离：</string>
+
+    <string name="tip_no_load_data">您有未上传的运动记录！</string>
+
+    <string name="progress_in">进行中</string>
+
+    <string name="tip_api_error">操作失败</string>
+
+    <string name="format_brackets">（%s）</string>
+
+    <!-- 俱乐部 -->
+    <string name="label_clan_mine">俱乐部</string>
+    <string name="label_clan_dynamic">动态</string>
+    <string name="title_page_clan_detail">俱乐部详情</string>
+    <string name="label_clan_introduction">俱乐部介绍</string>
+    <string name="label_clan_average_score">平均成绩</string>
+    <string name="label_clan_average_score_vice">（前3名）</string>
+    <string name="label_clan_admin">管理员</string>
+    <string name="label_clan_member">成员</string>
+    <string name="tab_clan_homepage">主页</string>
+    <string name="tab_clan_member">成员</string>
+    <string name="tab_clan_new_member">新成员</string>
+    <string name="tab_clan_settings">更多</string>
+    <string name="title_pending_clan_member">审核成员</string>
+    <string name="clan_team">摇跑俱乐部</string>
+    <string name="clan_create">创建俱乐部</string>
+    <string name="clan_join">加入俱乐部</string>
+    <string name="clan_apply_join">申请加入</string>
+    <string name="hint_clan_apply_join">请输入加入申请信息</string>
+    <string name="title_select_clan">选择俱乐部</string>
+    <string name="title_select_clan_member">选择成员</string>
+    <string name="clan_edit">修改俱乐部信息</string>
+    <string name="clan_transfer_admin">转移队长身份</string>
+    <string name="exit_clan">退出俱乐部</string>
+    <string name="cancel_clan_create">取消申请创建</string>
+    <string name="cancel_clan_join">取消申请加入</string>
+    <string name="tip_clan_apply_join">（每位用户只能加入一个俱乐部）</string>
+    <string name="clan_create_portrait">*俱乐部头像</string>
+    <string name="clan_create_name">*俱乐部名称</string>
+    <string name="hint_clan_create_name">请输入您的俱乐部名称</string>
+    <string name="clan_create_introduction">简介</string>
+    <string name="hint_clan_create_introduction">填写简介更容易获得别人关注哦</string>
+    <string name="clan_create_area">*城市</string>
+    <string name="hint_clan_create_area">请选择您的俱乐部城市</string>
+    <string name="clan_create_contact">*联系方式</string>
+    <string name="hint_clan_create_contact">请输入俱乐部联系方式</string>
+    <string name="clan_create_remark">*申请备注</string>
+    <string name="hint_clan_create_remark">请输入信息以供审核人员查看</string>
+    <string name="format_clan_contact">俱乐部联系方式：%s</string>
+    <string name="format_clan_create_time">俱乐部创建日期：%s</string>
+    <string name="format_clan_member_count">%s个成员</string>
+    <string name="captain">队长</string>
+    <string name="tip_clan_score">（前三名平均成绩）</string>
+    <string name="tip_clan_join_confirm">您只能申请加入1个俱乐部，确认申请加入吗</string>
+    <string name="tip_clan_create_pending">请等待平台审核</string>
+    <string name="tip_clan_join_pending">请等待俱乐部管理员审核</string>
+    <string name="tip_name_is_must_not_empty">名称不能为空</string>
+    <string name="tip_avatar_is_must_not_empty">头像不能为空</string>
+    <string name="tip_area_is_must_not_empty">地区不能为空</string>
+    <string name="tip_contact_is_must_not_empty">联系方式不能为空</string>
+    <string name="tip_remark_is_must_not_empty">备注不能为空</string>
+    <string name="tip_join_remark_is_must_not_empty">备注不能为空</string>
+    <string name="format_join_remark">加入备注:%s</string>
+    <string name="tip_create_join_clan">请加入或创建您的俱乐部</string>
+
+
+    <string name="btn_join">加入</string>
+    <string name="btn_status_pending">审核</string>
+    <string name="btn_pending">审核中</string>
+    <string name="btn_pending_pass">通过</string>
+    <string name="btn_pending_fail">拒绝</string>
+
+    <string name="state_will_pending">待审核</string>
+    <string name="tip_pending_join_in">审核通过后可加入</string>
+
+    <string name="label_introduction_clan">俱乐部介绍</string>
+    <string name="introduction_clan">有专属的俱乐部圈子；\n俱乐部成员共建俱乐部成绩，超过3名成员后可参与俱乐部打榜；\n可参加俱乐部专属赛事，展现俱乐部风采；\n可参加俱乐部PK, 赢取积分；\n可参加线下俱乐部活动；</string>
+    <string name="label_introduction_clan_captain">队长权益</string>
+    <string name="introduction_clan_captain">自定义俱乐部昵称，头像和俱乐部介绍；\n专属个人邀请码，享有邀请和审核队员的权利；\n专属客服，福利活动优先参与；\n邀请好友成为摇跑球会员可获得奖励；\n帮助活跃俱乐部内气氛；\n发起俱乐部PK、报名俱乐部赛事；\n参与策划线下活动服务；</string>
+    <string name="label_introduction_clan_create">创建条件</string>
+    <string name="introduction_clan_create">有热爱运动的圈子的优先；\n企业机构等具备营业执照资质的优先；\n网红达人等具有一定量的粉丝群体优先；</string>
+    <string name="dynamic_content_max_speed">刷新了最高转速成绩：%s rpm</string>
+    <string name="dynamic_content_one_minute">刷新了摇跑1分钟成绩：%sKm</string>
+    <string name="dynamic_content_exponent">刷新了活力指数成绩：%s</string>
+    <string name="dynamic_content_marathon">刷新了摇跑马拉松成绩：%s</string>
+    <string name="dynamic_content_create">加入摇跑运动</string>
+
+    <string name="format_age">%s岁</string>
+
+    <string name="title_homepage_rank_list">摇跑排行榜</string>
+
+    <string name="unknown">未知</string>
+
+    <!-- 新手指引 -->
+    <string name="title_guidance">新手指引</string>
+    <string name="format_guidance_page_index">第%s页/共%s页</string>
+
+    <string name="tip_repeat_clan">您已经加入过1个俱乐部，不可再加入</string>
+
+</resources>

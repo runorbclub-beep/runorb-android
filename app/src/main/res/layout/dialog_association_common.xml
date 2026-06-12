@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:background="#666666"
+  android:gravity="center"
+  android:orientation="vertical">
+
+  <LinearLayout
+    android:layout_width="332dp"
+    android:layout_height="290dp"
+    android:orientation="vertical"
+    android:background="@mipmap/bg_dialog">
+
+    <TextView
+      android:id="@+id/tvTitle"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="47dp"
+      android:gravity="center"
+      android:padding="8dp"
+      android:textSize="16sp"
+      android:textColor="#F7DC29"
+      tools:text="温馨提示"/>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        tools:text="是否离开？"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:id="@+id/layButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="47dp"
+      android:orientation="horizontal">
+
+<!--      <LinearLayout-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="1"-->
+<!--        android:gravity="center">-->
+
+<!--        <TextView-->
+<!--          android:id="@+id/tvCancel"-->
+<!--          android:layout_width="125dp"-->
+<!--          android:layout_height="wrap_content"-->
+<!--          android:paddingTop="8dp"-->
+<!--          android:paddingBottom="8dp"-->
+<!--          android:paddingLeft="36dp"-->
+<!--          android:paddingRight="36dp"-->
+<!--          android:background="@drawable/selector_match_btn_cancel"-->
+<!--          android:gravity="center"-->
+<!--          android:textColor="#25282C"-->
+<!--          android:textSize="14sp"-->
+<!--          android:text="@string/btn_cancel"-->
+<!--          android:visibility="gone"-->
+<!--          tools:visibility="visible"/>-->
+
+<!--      </LinearLayout>-->
+
+<!--      <LinearLayout-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_weight="1"-->
+<!--        android:gravity="center">-->
+
+<!--        <TextView-->
+<!--          android:id="@+id/tvSubmit"-->
+<!--          android:layout_width="125dp"-->
+<!--          android:layout_height="wrap_content"-->
+<!--          android:paddingTop="8dp"-->
+<!--          android:paddingBottom="8dp"-->
+<!--          android:paddingLeft="36dp"-->
+<!--          android:paddingRight="36dp"-->
+<!--          android:background="@drawable/selector_match_btn_submit"-->
+<!--          android:gravity="center"-->
+<!--          android:textColor="#25282C"-->
+<!--          android:textSize="14sp"-->
+<!--          android:text="@string/btn_ok"-->
+<!--          android:visibility="gone"-->
+<!--          tools:visibility="visible"/>-->
+
+<!--      </LinearLayout>-->
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+</LinearLayout>

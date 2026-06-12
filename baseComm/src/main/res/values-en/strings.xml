@@ -1,0 +1,8 @@
+<resources>
+    <string name="btn_ok">确定</string>
+    <string name="btn_cancel">取消</string>
+    <string name="btn_connect">连接</string>
+    <string name="btn_confirm">确定</string>
+    <string name="btn_confirm2">确认</string>
+    <string name="loading_wait">正在下载中,请稍后</string>
+</resources>

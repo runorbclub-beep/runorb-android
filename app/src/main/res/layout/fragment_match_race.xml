@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/icon_match_bg"
+    android:orientation="vertical"
+    android:divider="@mipmap/match_race_line"
+    android:showDividers="middle"
+    android:dividerPadding="35dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0">
+        <Button
+            android:id="@+id/btnDoubleMatch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:drawableTop="@mipmap/icon_match_shuangren"
+            android:gravity="center"
+            android:text="@string/title_double_match"
+            android:textColor="@color/dialog_submit_color"
+            android:textSize="@dimen/text_18" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0">
+        <Button
+            android:id="@+id/btnTeamMatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:drawableTop="@mipmap/icon_match_team"
+            android:gravity="center"
+            android:text="@string/title_team_match"
+            android:textColor="@color/dialog_submit_color"
+            android:textSize="@dimen/text_18" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0">
+        <Button
+            android:id="@+id/btnMatchAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:drawableTop="@mipmap/icon_match_add"
+            android:gravity="center"
+            android:text="@string/title_add_match_board"
+            android:textColor="@color/dialog_submit_color"
+            android:textSize="@dimen/text_18" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fyRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.cloud.runball.widget.MoveSurfaceView
+            android:id="@+id/moveSurfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            android:id="@+id/lyHeader"
+            layout="@layout/header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/img_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:background="@mipmap/match_exit_left"
+            android:clickable="true" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="00:00"
+            android:textColor="#ffffffff"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tvPower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="30dp"
+            android:paddingLeft="10dp"
+            android:background="@mipmap/side_power"
+            android:drawableLeft="@mipmap/side_power_icon"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="0%"
+            tools:text="0%"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:layout_marginLeft="85dp"
+            android:layout_marginRight="85dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvMineNamePk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="我是谁我在哪"/>
+
+            <TextView
+                android:id="@+id/tvOtherNamePk"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="我是谁我在哪" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvMineNameTeam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="130dp"
+                android:gravity="center"
+                android:paddingLeft="25dp"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="我是谁我在哪" />
+
+            <TextView
+                android:id="@+id/tvOtherNameTeam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="130dp"
+                android:layout_marginRight="0dp"
+                android:gravity="center"
+                android:paddingRight="25dp"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:text="我是谁我在哪" />
+
+        </FrameLayout>
+
+
+
+        <FrameLayout
+            android:id="@+id/fy_team"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvMine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="80dp"
+                android:background="@mipmap/match_mine_head_bg"
+                android:gravity="center"
+                android:paddingLeft="25dp"
+                android:text="x1"
+                android:textColor="#ff323a3c"
+                android:textSize="18sp"
+                tools:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tvOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="80dp"
+                android:layout_marginRight="20dp"
+                android:background="@mipmap/match_other_head_bg"
+                android:gravity="center"
+                android:paddingRight="25dp"
+                android:text="x1"
+                android:textColor="#ff323a3c"
+                android:textSize="18sp"
+                tools:visibility="gone"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fy_2pk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/shape_circle_head">
+
+                <ImageView
+                    android:id="@+id/img_mine_avatar"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="70dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_circle_head">
+
+                <ImageView
+                    android:id="@+id/img_other_avatar"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true" />
+            </FrameLayout>
+
+
+        </FrameLayout>
+
+
+        <com.cloud.runball.widget.CarMoveImageView
+            android:id="@+id/carMine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:animTime="500">
+
+        </com.cloud.runball.widget.CarMoveImageView>
+
+        <com.cloud.runball.widget.CarMoveImageView
+          android:id="@+id/carOther"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:animTime="500"></com.cloud.runball.widget.CarMoveImageView>
+
+
+        <LinearLayout
+            android:id="@+id/lySeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:orientation="vertical">
+
+            <SeekBar
+                android:id="@+id/seekBarMine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/match_progress_red"
+                android:splitTrack="false"
+                android:thumb="@mipmap/h_red_car"
+                android:thumbOffset="10dp" />
+
+            <SeekBar
+                android:id="@+id/seekBarOther"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/match_progress_blue"
+                android:splitTrack="false"
+                android:thumb="@mipmap/h_blue_car"
+                android:thumbOffset="10dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/ivBottom"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="-8dp"
+        android:background="@mipmap/match_main_bottom"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/ryBottom"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="-8dp"
+        android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvMaxDistanceTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:paddingRight="50dp"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center|left"
+                android:text="@string/turn_metre_match"
+                android:textStyle="normal"
+                android:textColor="#ffffffff"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvMaxSpeedTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/tvMaxDistanceTag"
+                android:layout_alignLeft="@+id/tvMaxDistanceTag"
+                android:gravity="center|left"
+                android:paddingLeft="20dp"
+                android:text="@string/turn_speed_match"
+                android:textStyle="normal"
+                android:textColor="#ffffffff"
+                android:textSize="14sp" />
+
+            <TextView
+            android:id="@+id/tvMaxDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_alignBaseline="@+id/tvMaxDistanceTag"
+            android:layout_toRightOf="@+id/tvMaxSpeedTag"
+            android:text="0"
+            android:textStyle="normal"
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
+
+            <TextView
+            android:id="@+id/tvMaxSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBaseline="@+id/tvMaxSpeedTag"
+            android:layout_toRightOf="@+id/tvMaxSpeedTag"
+            android:text="0"
+            android:textStyle="normal"
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="-30dp"
+        android:adjustViewBounds="true"
+        android:background="@mipmap/canvas_circle_bg"
+        android:scaleType="fitCenter">
+
+        <com.littlejie.circleprogress.CircleProgress
+            android:id="@+id/circle_progress_bar"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            app:animTime="@integer/animation_duration"
+            app:antiAlias="true"
+            app:arcColors="@array/gradient_arc_color"
+            app:arcWidth="@dimen/small"
+            app:bgArcColor="@color/circle_bg"
+            app:bgArcWidth="@dimen/medium"
+            app:hint=""
+            app:hintColor="#fff7b2"
+            app:hintSize="@dimen/text_size_15"
+            app:maxValue="100"
+            app:startAngle="150"
+            app:sweepAngle="240"
+            app:textOffsetPercentInRadius="0.5"
+            app:unit=""
+            app:unitColor="#fff7b2"
+            app:unitSize="@dimen/text_size_15"
+            app:value="0"
+            app:valueColor="#00fff7b2"
+            app:valueSize="@dimen/text_size_64" />
+
+        <com.cloud.runball.widget.MagicTextView2
+            android:id="@+id/tvSpeedRPMFormat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="0"
+            android:textColor="#fff7b2"
+            android:textSize="@dimen/text_size_14"
+            android:textStyle="bold"
+            app:animTime="@integer/animation_duration" />
+
+        <com.cloud.runball.widget.PointerImageView
+            android:id="@+id/ivPointer"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@mipmap/canvas_circle_pointer"
+            android:rotation="0.0"
+            android:scaleType="fitCenter"
+            app:animTime="@integer/animation_duration" />
+
+       <com.cloud.runball.widget.SpeedCircleImageView
+             android:id="@+id/ivSpeedCircle"
+             android:layout_width="130dp"
+             android:layout_height="130dp"
+             android:layout_gravity="center"
+             android:adjustViewBounds="true"
+             android:background="@mipmap/canvas_circle"
+             android:scaleType="fitCenter"
+             app:animTime="@integer/animation_duration" />
+
+    </FrameLayout>
+
+
+
+</FrameLayout>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    app:navigationIcon="@mipmap/btn_return">
+
+    <TextView
+      android:id="@+id/tvToolBarTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:layout_gravity="center"
+      android:textColor="@android:color/white"
+      android:textSize="16sp"
+      android:text="@string/lbl_user_info"/>
+
+  </androidx.appcompat.widget.Toolbar>
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingStart="15dp"
+      android:paddingEnd="15dp"
+      android:orientation="vertical">
+
+      <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_gravity="center">
+
+        <ImageView
+          android:id="@+id/img_info_avatar"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_gravity="center"
+          android:adjustViewBounds="true"
+          android:background="@drawable/shape_circle_head" />
+
+        <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:adjustViewBounds="true"
+          android:background="@mipmap/ic_camera" />
+
+      </FrameLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:showDividers="middle|end"
+        android:divider="@drawable/divider_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+          <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:drawableStartCompat="@drawable/ic_star"
+            android:text="@string/lbl_name"
+            android:textColor="#ffffffff"
+            android:textSize="16sp" />
+          <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:hint="@string/binding_name_input"
+            android:imeOptions="actionDone"
+            android:background="@null"
+            android:gravity="end"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#ADADAD"
+            android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+          <TextView
+            android:id="@+id/tvLabelWeixin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_weixin"
+            android:textColor="#ffffffff"
+            android:textSize="16sp" />
+          <EditText
+            android:id="@+id/etWeixin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:hint="@string/lbl_weixin_hit"
+            android:imeOptions="actionDone"
+            android:background="@null"
+            android:gravity="end"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#ADADAD"
+            android:textSize="14sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+          <TextView
+            android:id="@+id/tvLabelSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:drawableStartCompat="@drawable/ic_star"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:text="@string/lbl_sex" />
+
+          <TextView
+            android:id="@+id/tvSexTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvLabelSex"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/tip_lbl_sex"
+            android:textColor="#888888"
+            android:textSize="10sp" />
+          <TextView
+            android:id="@+id/tvSex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:layout_toEndOf="@+id/tvLabelSex"
+            android:layout_alignParentEnd="true"
+            app:drawableEndCompat="@mipmap/item_more"
+            android:background="@null"
+            android:gravity="end"
+            android:textColor="#CBCBCB"
+            android:textSize="14sp"
+            tools:text="男" />
+        </RelativeLayout>
+
+        <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+          <TextView
+            android:id="@+id/tvLabelCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:drawableStartCompat="@drawable/ic_star"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:text="@string/lbl_city" />
+
+          <TextView
+            android:id="@+id/tvCityTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvLabelCity"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/tip_lbl_city"
+            android:textColor="#888888"
+            android:textSize="10sp" />
+
+          <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tvLabelCity"
+            android:background="@null"
+            android:gravity="end"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textColor="#CBCBCB"
+            android:textSize="14sp"
+            app:drawableEndCompat="@mipmap/item_more"
+            tools:text="深圳" />
+        </RelativeLayout>
+
+        <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+          <TextView
+            android:id="@+id/tvLabelBirthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:drawableStartCompat="@drawable/ic_star"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:text="@string/lbl_birthday" />
+
+          <TextView
+            android:id="@+id/tvBirthdayTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvLabelBirthday"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:text="@string/tip_lbl_lbl_birthday"
+            android:textColor="#888888"
+            android:textSize="10sp" />
+
+          <TextView
+            android:id="@+id/tvBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tvLabelBirthday"
+            android:background="@null"
+            android:gravity="end"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textColor="#CBCBCB"
+            android:textSize="14sp"
+            app:drawableEndCompat="@mipmap/item_more"
+            tools:text="2012-01-01" />
+        </RelativeLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:visibility="gone">
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_high"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+          <TextView
+            android:id="@+id/tvHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            app:drawableEndCompat="@mipmap/item_more"
+            android:gravity="end"
+            android:textColor="#CBCBCB"
+            android:textSize="14sp"
+            tools:text="168cm"/>
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:visibility="gone">
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:text="@string/lbl_weight" />
+          <TextView
+            android:id="@+id/tvWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            app:drawableEndCompat="@mipmap/item_more"
+            android:gravity="end"
+            android:textColor="#CBCBCB"
+            android:textSize="14sp"
+            tools:text="50kg"/>
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_intro"
+            android:layout_marginTop="20dp"
+            android:textColor="#ffffffff"
+            android:textSize="16sp" />
+          <EditText
+            android:id="@+id/edtSign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:hint="@string/binding_sign_input"
+            android:imeOptions="actionDone"
+            android:background="@null"
+            android:singleLine="true"
+            android:textColor="#CBCBCB"
+            android:textColorHint="#767779"
+            android:textSize="14sp" />
+        </LinearLayout>
+
+      </LinearLayout>
+
+      <TextView
+        android:id="@+id/tvSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="23dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="127dp"
+        android:paddingRight="127dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/selector_radius_yellow"
+        android:textStyle="bold"
+        android:textColor="#1E1D1F"
+        android:textSize="16sp"
+        android:text="@string/save"/>
+
+    </LinearLayout>
+
+  </ScrollView>
+
+</LinearLayout>

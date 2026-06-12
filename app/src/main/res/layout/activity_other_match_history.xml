@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/bg_content"
+  android:orientation="vertical">
+
+  <include
+    android:id="@+id/lyHeader"
+    layout="@layout/header_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+  <com.jcodecraeer.xrecyclerview.XRecyclerView
+    android:id="@+id/recyclerview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/lyHeader"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+  <RelativeLayout
+    android:id="@+id/ryEmpty"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/lyHeader">
+
+    <ImageView
+      android:id="@+id/ivEmpty"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:background="@mipmap/rank_empty" />
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="25dp"
+      android:layout_below="@+id/ivEmpty"
+      android:text="@string/lbl_empty2"
+      android:textColor="#ffffffff"
+      android:textSize="15sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

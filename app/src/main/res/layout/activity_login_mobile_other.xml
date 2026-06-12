@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/bg_content">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <androidx.cardview.widget.CardView
+        android:layout_width="152dp"
+        android:layout_height="152sp"
+        android:layout_marginTop="-30dp"
+        android:layout_marginRight="-46dp"
+        app:cardCornerRadius="76dp"
+        app:cardBackgroundColor="#F7DC29"
+        android:layout_alignParentRight="true"
+        app:cardElevation="4dp"/>
+
+      <androidx.cardview.widget.CardView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="94dp"
+        android:layout_marginLeft="-6dp"
+        app:cardCornerRadius="76dp"
+        app:cardBackgroundColor="#212022"
+        app:cardElevation="6dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+      android:id="@+id/layContent"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+      <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:contentDescription="@null"
+        android:gravity="center"
+        android:background="@mipmap/btn_close" />
+
+      <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:textSize="20sp"
+        android:text="@string/tip_login_welcome" />
+
+      <RadioGroup
+        android:id="@+id/bgModeTab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        android:divider="@null">
+
+        <RadioButton
+          android:id="@+id/rbModePhone"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:button="@null"
+          android:background="@drawable/selector_tab_bg"
+          android:paddingBottom="8dp"
+          android:gravity="center"
+          android:textColor="@color/selector_tab_text_light"
+          android:textSize="18sp"
+          android:text="@string/lbl_login_mode_phone" />
+
+        <RadioButton
+          android:id="@+id/rbModeEmail"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:button="@null"
+          android:background="@drawable/selector_tab_bg"
+          android:paddingBottom="8dp"
+          android:gravity="center"
+          android:textColor="@color/selector_tab_text_light"
+          android:textSize="16sp"
+          android:text="@string/lbl_login_mode_email"/>
+
+      </RadioGroup>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+          android:id="@+id/layPhone"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+              android:id="@+id/tvNationCode"
+              android:layout_width="54dp"
+              android:layout_height="wrap_content"
+              android:textColor="#ffffffff"
+              android:textSize="16sp"
+              android:theme="@style/MyEditText"
+              android:text="+86" />
+
+            <ImageView
+              android:id="@+id/ivArrowDown"
+              android:layout_width="22dp"
+              android:layout_height="22dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="10dp"
+              android:contentDescription="@null"
+              android:src="@mipmap/arrow_down" />
+
+            <EditText
+              android:id="@+id/edtPhone"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:ems="11"
+              android:hint="@string/binding_phone_input"
+              android:imeOptions="actionDone"
+              android:inputType="phone"
+              android:lines="1"
+              android:maxLength="11"
+              android:textColor="@color/white"
+              android:textColorHint="#666666"
+              android:textSize="18sp"
+              android:theme="@style/MyEditText" />
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+              android:id="@+id/edtSms"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1.0"
+              android:ems="11"
+              android:hint="@string/phone_valid_code"
+              android:imeOptions="actionDone"
+              android:inputType="number"
+              android:lines="1"
+              android:maxLength="6"
+              android:textColor="@color/white"
+              android:textColorHint="#666666"
+              android:textSize="18sp"
+              android:theme="@style/MyEditText" />
+
+            <FrameLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginLeft="20dp">
+
+              <TextView
+                android:id="@+id/tvSmsSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ff767779"
+                android:textSize="@dimen/text_14"
+                android:visibility="gone"
+                tools:text="@string/phone_valid_code_send_again" />
+
+              <TextView
+                android:id="@+id/btnSmsSend"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textSize="@dimen/text_14"
+                android:textColor="#FFFFFF"
+                android:text="@string/phone_send_again" />
+
+<!--              <Button-->
+<!--                android:id="@+id/btnSmsSend"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_gravity="top"-->
+<!--                android:background="@drawable/selector_login_btn"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textSize="@dimen/text_14"-->
+<!--                android:text="@string/phone_send_again" />-->
+
+            </FrameLayout>
+
+          </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:id="@+id/layEmail"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:gravity="center"
+          android:visibility="gone"
+          tools:visibility="gone">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <EditText
+              android:id="@+id/edtEmail"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:ems="11"
+              android:hint="@string/binding_email_input"
+              android:imeOptions="actionDone"
+              android:inputType="textEmailAddress"
+              android:lines="1"
+              android:textColor="@color/white"
+              android:textColorHint="#666666"
+              android:textSize="18sp"
+              android:theme="@style/MyEditText" />
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <EditText
+              android:id="@+id/edtSmsEmail"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1.0"
+              android:ems="11"
+              android:hint="@string/phone_valid_code"
+              android:imeOptions="actionDone"
+              android:inputType="number"
+              android:lines="1"
+              android:maxLength="6"
+              android:textColor="@color/white"
+              android:textColorHint="#666666"
+              android:textSize="18sp"
+              android:theme="@style/MyEditText" />
+
+            <FrameLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_vertical"
+              android:layout_marginLeft="20dp">
+
+              <TextView
+                android:id="@+id/tvSmsSendEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ff767779"
+                android:textSize="@dimen/text_14"
+                android:visibility="gone"
+                tools:text="@string/phone_valid_code_send_again" />
+
+<!--              <Button-->
+<!--                android:id="@+id/btnSmsSendEmail"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:background="@drawable/selector_login_btn"-->
+<!--                android:text="@string/phone_send_again"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textSize="@dimen/text_14" />-->
+
+              <TextView
+                android:id="@+id/btnSmsSendEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:textSize="@dimen/text_14"
+                android:textColor="#FFFFFF"
+                android:text="@string/phone_send_again" />
+
+            </FrameLayout>
+
+          </LinearLayout>
+
+        </LinearLayout>
+
+      </LinearLayout>
+
+      <Button
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/selector_match_btn_sign_up"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#1A1D20"
+        android:text="@string/login"/>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center">
+
+        <CheckBox
+          android:id="@+id/cbSelected"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:button="@drawable/selector_checked2"
+          android:checked="false"
+          android:text="@string/lbl_privacy_pre"
+          android:textColor="#888888"
+          android:textSize="14sp" />
+
+        <TextView
+          android:id="@+id/tvService"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="5dp"
+          android:layout_marginRight="5dp"
+          android:layout_gravity="center"
+          android:textColor="#F7DC29"
+          android:textSize="14sp"
+          android:text="@string/lbl_privacy_privacy" />
+
+        <TextView
+          android:id="@+id/tvAnd"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:text="@string/lbl_privacy_and"
+          android:textColor="#888888"
+          android:textSize="14sp" />
+
+        <TextView
+          android:id="@+id/tvPrivacy"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="5dp"
+          android:layout_marginRight="5dp"
+          android:gravity="center"
+          android:textColor="#F7DC29"
+          android:textSize="14sp"
+          android:text="@string/lbl_privacy_service" />
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+  </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

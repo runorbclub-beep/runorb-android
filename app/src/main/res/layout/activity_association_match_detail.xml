@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/bg_content"
+  android:orientation="vertical">
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    app:navigationIcon="@mipmap/btn_return">
+
+    <TextView
+      android:id="@+id/tvToolBarTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:layout_gravity="center"
+      android:textColor="@android:color/white"
+      android:textSize="16sp"
+      android:text="@string/match_detail_title"/>
+
+  </androidx.appcompat.widget.Toolbar>
+
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:overScrollMode="never"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <ImageView
+        android:id="@+id/ivBanner"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintDimensionRatio="h,110:60"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/match_detail_default" />
+
+      <TextView
+        android:id="@+id/tvMatchStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBanner"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="#33464A71"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:gravity="center"
+        tools:text="待开始"/>
+
+      <LinearLayout
+        android:id="@+id/lyContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvMatchStatus"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+          android:id="@+id/tvMatchName"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
+          tools:text="@string/lbl_match_stage_info"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/rvMatchOptionList"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+          android:nestedScrollingEnabled="false" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:text="@string/lbl_match_stage_info"
+          android:textColor="#ffffffff"
+          android:textSize="14sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recyclerviewStages"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:nestedScrollingEnabled="false" />
+
+      </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:orientation="horizontal">
+
+    <TextView
+      android:id="@+id/btnCheckSignUp"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:padding="11dp"
+      android:background="@drawable/selector_match_btn_sign_up"
+      android:gravity="center"
+      android:textAllCaps="false"
+      android:textColor="@drawable/selector_match_text_sign_up"
+      android:textStyle="bold"
+      android:textSize="14sp"
+      android:visibility="gone"
+      tools:visibility="visible"
+      android:text="@string/match_check_sign_up" />
+
+    <TextView
+      android:id="@+id/btnSignUp"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:padding="11dp"
+      android:background="@drawable/selector_match_btn_sign_up"
+      android:gravity="center"
+      android:textAllCaps="false"
+      android:textColor="@drawable/selector_match_text_sign_up"
+      android:textStyle="bold"
+      android:textSize="14sp"
+      android:visibility="gone"
+      tools:visibility="visible"
+      android:text="@string/match_sign_up" />
+
+    <TextView
+      android:id="@+id/btnCheckRank"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:padding="11dp"
+      android:background="@drawable/selector_match_btn_sign_up"
+      android:gravity="center"
+      android:textAllCaps="false"
+      android:textColor="@drawable/selector_match_text_sign_up"
+      android:textStyle="bold"
+      android:textSize="14sp"
+      android:visibility="gone"
+      tools:visibility="gone"
+      android:text="@string/match_check_rank"/>
+
+    <TextView
+      android:id="@+id/btnEnterMatch"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:padding="11dp"
+      android:background="@drawable/selector_match_btn_sign_up"
+      android:gravity="center"
+      android:textAllCaps="false"
+      android:textColor="@drawable/selector_match_text_sign_up"
+      android:textStyle="bold"
+      android:textSize="14sp"
+      android:visibility="gone"
+      tools:visibility="gone"
+      android:text="@string/match_enter_match"/>
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/layTeamInfo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="17dp"
+    android:paddingBottom="17dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:background="#464A71"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <TextView
+      android:id="@+id/tvTeamName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:textColor="#FFFFFF"
+      android:textSize="13sp"
+      tools:text="aaaa"/>
+
+    <TextView
+      android:id="@+id/tvNemberSum"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="#F5BE0A"
+      android:textSize="12sp"
+      tools:text="成员数：55人"/>
+
+  </LinearLayout>
+
+</LinearLayout>

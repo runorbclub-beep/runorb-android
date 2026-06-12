@@ -1,0 +1,58 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    ndkVersion '22.0.7026061'
+
+    defaultConfig {
+        namespace "com.cloud.runball.share"
+        minSdkVersion 19
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' ,'arm64-v8a' //, 'x86_64', 'x86'  , 'armeabi-v7a' , 'arm64-v8a'
+        }
+    }
+
+    resourcePrefix "share_"
+
+    buildTypes {
+        release {
+//            manifestPlaceholders = [PROVIDER_AUTHORITIES: "com.cloud.runball.fileprovider"]
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+//        debug {
+//            manifestPlaceholders = [PROVIDER_AUTHORITIES: "cloud.runball.bazutest.fileprovider"]
+//        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    api project(path: ':share-common')
+    implementation project(path: ':baseComm')
+    // 友盟基础组件库（所有友盟业务SDK都依赖基础组件库）+友盟sdk+分享，登录
+// OAID目前为目前国内市场主流的Android Q设备标识，可根据需要选择。
+
+    api  'com.umeng.umsdk:common:9.4.2'
+    api  'com.umeng.umsdk:asms:1.4.0'
+    api 'com.umeng.umsdk:apm:1.4.0'
+
+    api  'com.umeng.umsdk:share-core:7.1.6'
+    api  'com.umeng.umsdk:share-wx:7.1.6'
+    api 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.9'
+
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+}

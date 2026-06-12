@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:gravity="center">
+
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:gravity="center">
+
+      <ImageView
+        android:id="@+id/ivClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="17dp"
+        android:contentDescription="@null"
+        android:src="@mipmap/close_gray" />
+
+      <LinearLayout
+        android:id="@+id/layMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/ivClose"
+        android:background="@drawable/bg_dialog_select_team">
+
+        <TextView
+          android:id="@+id/tvTitle"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="28dp"
+          android:gravity="center"
+          android:textSize="16sp"
+          android:textColor="#F7DC29"
+          android:text="@string/clan_create"/>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="1"
+          android:layout_marginTop="40dp"
+          android:paddingLeft="20dp"
+          android:paddingRight="20dp"
+          android:showDividers="middle"
+          android:divider="@drawable/divider_vertical"
+          android:orientation="vertical">
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+              android:id="@+id/tvLabelPortrait"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:text="@string/clan_create_portrait"/>
+            <ImageView
+              android:id="@+id/ivPortrait"
+              android:layout_width="46dp"
+              android:layout_height="46dp"
+              android:layout_marginRight="6dp"
+              android:contentDescription="@null"
+              android:background="@drawable/border_portrait"/>
+            <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:contentDescription="@null"
+              android:src="@mipmap/item_more"/>
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:orientation="vertical">
+            <TextView
+              android:id="@+id/tvLabelClanName"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:text="@string/clan_create_name"/>
+            <EditText
+              android:id="@+id/etClanName"
+              android:layout_width="match_parent"
+              android:layout_marginTop="10dp"
+              android:layout_height="30dp"
+              android:background="@null"
+              android:inputType="text"
+              android:lines="1"
+              android:hint="@string/hint_clan_create_name"
+              android:textColorHint="#888888"
+              android:textColor="#888888"
+              android:textSize="12sp"/>
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:orientation="vertical">
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:text="@string/clan_create_introduction"/>
+            <EditText
+              android:id="@+id/etClanIntroduction"
+              android:layout_width="match_parent"
+              android:layout_marginTop="10dp"
+              android:layout_height="30dp"
+              android:background="@null"
+              android:inputType="text"
+              android:lines="1"
+              android:hint="@string/hint_clan_create_introduction"
+              android:textColorHint="#888888"
+              android:textColor="#888888"
+              android:textSize="12sp"/>
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:orientation="vertical">
+            <TextView
+              android:id="@+id/tvLabelClanArea"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:text="@string/clan_create_area"/>
+            <TextView
+              android:id="@+id/tvClanArea"
+              android:layout_width="match_parent"
+              android:layout_marginTop="10dp"
+              android:layout_height="30dp"
+              android:background="@null"
+              android:hint="@string/hint_clan_create_area"
+              android:gravity="center_vertical"
+              android:textColorHint="#888888"
+              android:textColor="#888888"
+              android:textSize="12sp"/>
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:orientation="vertical">
+            <TextView
+              android:id="@+id/tvLabelContact"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:text="@string/clan_create_contact" />
+            <EditText
+              android:id="@+id/etClanContact"
+              android:layout_width="match_parent"
+              android:layout_marginTop="10dp"
+              android:layout_height="30dp"
+              android:background="@null"
+              android:hint="@string/hint_clan_create_contact"
+              android:textColorHint="#888888"
+              android:textColor="#888888"
+              android:textSize="12sp"
+              android:lines="1"
+              android:inputType="phone"/>
+          </LinearLayout>
+
+          <LinearLayout
+            android:id="@+id/layRemark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+            <TextView
+              android:id="@+id/tvLabelRemark"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:text="@string/clan_create_remark"/>
+            <EditText
+              android:id="@+id/etClanRemark"
+              android:layout_width="match_parent"
+              android:layout_marginTop="10dp"
+              android:layout_height="30dp"
+              android:background="@null"
+              android:hint="@string/hint_clan_create_remark"
+              android:inputType="text"
+              android:lines="1"
+              android:textColorHint="#888888"
+              android:textColor="#888888"
+              android:textSize="12sp"/>
+          </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="28dp"
+          android:layout_marginBottom="28dp"
+          android:gravity="center"
+          android:orientation="horizontal">
+
+          <TextView
+            android:id="@+id/tvSubmit"
+            android:layout_width="226dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="36dp"
+            android:paddingRight="36dp"
+            android:gravity="center"
+            android:background="@drawable/selector_radius_yellow"
+            android:textColor="#25282C"
+            android:textSize="14sp"
+            android:text="@string/btn_ok"/>
+
+        </LinearLayout>
+
+      </LinearLayout>
+
+    </RelativeLayout>
+
+  </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:background="#666666"
+  android:gravity="center"
+  android:orientation="vertical">
+
+  <LinearLayout
+    android:layout_width="332dp"
+    android:layout_height="290dp"
+    android:orientation="vertical"
+    android:background="@drawable/bg_dialog_sysn_data">
+
+    <TextView
+      android:id="@+id/tvTitle"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="27dp"
+      android:gravity="center"
+      android:padding="8dp"
+      android:textSize="16sp"
+      android:textColor="#F7DC29"
+      android:text="@string/title_data_synchronization"/>
+
+    <LinearLayout
+      android:id="@+id/layList"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:orientation="vertical"
+      android:visibility="gone">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:textColor="#ADADAD"
+          android:textSize="11sp"
+          android:text="@string/data_synchronization_date"/>
+
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:textColor="#ADADAD"
+          android:textSize="11sp"
+          android:text="@string/data_synchronization_speed"/>
+
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:textColor="#ADADAD"
+          android:textSize="11sp"
+          android:text="@string/data_synchronization_distance"/>
+
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:textColor="#ADADAD"
+          android:textSize="11sp"
+          android:text="@string/data_synchronization_duration"/>
+
+      </LinearLayout>
+
+      <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDataList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:id="@+id/layEmpty"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:gravity="center"
+      android:orientation="vertical">
+
+      <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/rank_empty"/>
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#767779"
+        android:textSize="14sp"
+        android:text="@string/tip_no_data"/>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:id="@+id/layButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="34dp">
+
+      <TextView
+        android:id="@+id/tvCancel"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tvSubmit"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        android:paddingLeft="36dp"
+        android:paddingRight="36dp"
+        android:background="@drawable/selector_match_btn_cancel"
+        android:gravity="center"
+        android:textColor="#25282C"
+        android:textSize="14sp"
+        android:text="@string/btn_cancel"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+      <TextView
+        android:id="@+id/tvSubmit"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tvCancel"
+        app:layout_constraintRight_toRightOf="parent"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
+        android:paddingLeft="36dp"
+        android:paddingRight="36dp"
+        android:background="@drawable/selector_match_btn_submit"
+        android:gravity="center"
+        android:textColor="#25282C"
+        android:textSize="14sp"
+        android:text="@string/btn_ok"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </LinearLayout>
+
+</LinearLayout>

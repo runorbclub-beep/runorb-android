@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item
+    android:top="-100dp"
+    android:bottom="-100dp"
+    android:left="100dp"
+    android:right="100dp">
+    <rotate
+      android:fromDegrees="15"
+      android:pivotY="50%"
+      android:pivotX="50%">
+      <shape>
+        <solid android:color="#1E1D1F"/>
+      </shape>
+    </rotate>
+  </item>
+
+</layer-list>

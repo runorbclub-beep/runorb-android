@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/bg_content">
+
+  <include
+    android:id="@+id/lyHeader"
+    layout="@layout/header_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+  <ImageView
+    android:id="@+id/ivBanner"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_constraintTop_toBottomOf="@+id/lyHeader"
+    app:layout_constraintDimensionRatio="h,15:6"
+    android:scaleType="fitCenter"/>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/layNotice"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/ivBanner"
+    android:layout_marginTop="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    app:cardBackgroundColor="#F7DC29"
+    app:cardCornerRadius="14dp"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <TextView
+      android:id="@+id/tvNotice"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="5dp"
+      android:layout_marginBottom="5dp"
+      android:layout_marginLeft="15dp"
+      android:layout_marginRight="15dp"
+      android:drawableLeft="@mipmap/icon_notice_black"
+      android:drawablePadding="8dp"
+      android:textColor="#1E1D1F"
+      android:textSize="12sp"
+      tools:text="1号赤兔马现在稳居第一，快来加油助力吧！1号赤兔马现在稳居第一，快来加油助力吧！"/>
+
+  </androidx.cardview.widget.CardView>
+
+  <androidx.cardview.widget.CardView
+    android:id="@+id/laySection"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    app:cardBackgroundColor="#28272A"
+    app:cardCornerRadius="8dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    app:layout_constraintTop_toBottomOf="@+id/layNotice">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingTop="20dp"
+      android:paddingBottom="20dp"
+      android:paddingLeft="10dp"
+      android:paddingRight="10dp"
+      android:orientation="horizontal"
+      android:gravity="center_vertical">
+
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/main_other_match_horse"
+        android:contentDescription="@null" />
+
+      <TextView
+        android:id="@+id/tvMatchTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        tools:text="(06:00-23:30）"/>
+
+      <LinearLayout
+        android:id="@+id/layHelpInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+          android:id="@+id/tvHelperCount"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textSize="12sp"
+          android:textColor="#ffffff"
+          tools:text="助力人数：12323"/>
+
+        <TextView
+          android:id="@+id/tvHelperScore"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textSize="12sp"
+          android:textColor="#ffffff"
+          tools:text="积分奖池：12093"/>
+
+      </LinearLayout>
+
+      <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@mipmap/item_more"
+        android:drawablePadding="5dp"
+        android:textColor="#ADADAD"
+        android:textSize="18sp"
+        tools:text="@string/lbl_other_match_status_0" />
+
+    </LinearLayout>
+
+  </androidx.cardview.widget.CardView>
+
+  <LinearLayout
+    android:id="@+id/tvRecentTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/laySection"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginLeft="15dp"
+    android:orientation="horizontal">
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:textColor="#ffffff"
+      android:textSize="14sp"
+      android:text="@string/lbl_recent_record" />
+
+    <TextView
+      android:id="@+id/tvRecord"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:drawableRight="@mipmap/item_more"
+      android:textColor="#ffffff"
+      android:textSize="14sp"
+      android:text="@string/all" />
+
+  </LinearLayout>
+
+  <com.jcodecraeer.xrecyclerview.XRecyclerView
+    android:id="@+id/recyclerview"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_constraintTop_toBottomOf="@+id/tvRecentTitle"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constrainedHeight="true"
+    android:layout_gravity="center" />
+
+  <RelativeLayout
+    android:id="@+id/ryEmpty"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/tvRecentTitle"
+    app:layout_constraintBottom_toBottomOf="parent">
+    <ImageView
+      android:id="@+id/ivEmpty"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:background="@mipmap/rank_empty" />
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/ivEmpty"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="25dp"
+      android:text="@string/lbl_empty2"
+      android:textColor="#ffffffff"
+      android:textSize="15sp" />
+  </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

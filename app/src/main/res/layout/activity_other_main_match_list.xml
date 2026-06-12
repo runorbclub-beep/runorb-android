@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:background="@color/bg_content"
+  android:orientation="vertical">
+
+<!--  <include-->
+<!--    android:id="@+id/lyHeader"-->
+<!--    layout="@layout/header_layout"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="65dp" />-->
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    app:navigationIcon="@mipmap/btn_return">
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:layout_gravity="center"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/tvToolBarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:text="@string/lbl_other_match"/>
+
+      <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="#fff9e85b"
+        android:textSize="12sp"
+        tools:text="(2021-07-13)" />
+
+    </LinearLayout>
+
+    <TextView
+      android:id="@+id/tvShare"
+      android:layout_width="59dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical|right"
+      android:background="@drawable/bg_power_yaojiayou"
+      android:gravity="center"
+      android:text="@string/lbl_share_text"
+      android:textColor="#50F0FF"
+      android:textSize="16sp"
+      android:textStyle="bold"/>
+
+  </androidx.appcompat.widget.Toolbar>
+
+  <LinearLayout
+    android:id="@+id/layContent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_below="@+id/toolbar">
+
+    <net.lucode.hackware.magicindicator.MagicIndicator
+      android:id="@+id/magicIndicator"
+      android:layout_gravity="center_horizontal"
+      android:layout_width="wrap_content"
+      android:layout_height="48dp"
+      android:background="@color/colorPrimaryDark"
+      app:tabGravity="fill"
+      app:tabMode="fixed" />
+
+    <androidx.viewpager2.widget.ViewPager2
+      android:id="@+id/viewPager"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="none" />
+
+  </LinearLayout>
+
+</RelativeLayout>

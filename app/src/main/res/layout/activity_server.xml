@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_content"
+    android:orientation="vertical">
+
+
+    <include
+        android:id="@+id/lyHeader"
+        layout="@layout/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/lyChina"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
+            android:clickable="true"
+            android:background="@drawable/selector_server_china">
+            <TextView
+                android:id="@+id/tvChina"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffffff"
+                android:text="@string/lbl_china_server"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvChinaServer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="right"
+                android:textAllCaps="false"
+                android:textColor="#1B1D20"
+                android:visibility="gone"
+                android:background="@mipmap/server_select_tip"
+                android:text="@string/lbl_select_server"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/lyNation"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
+            android:clickable="true"
+            android:background="@drawable/selector_server_nation">
+            <TextView
+                android:id="@+id/tvNation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textAllCaps="false"
+                android:textColor="#ffffffff"
+                android:text="@string/lbl_other_server"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvNationServer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="right"
+                android:textAllCaps="false"
+                android:textColor="#1B1D20"
+                android:visibility="gone"
+                android:background="@mipmap/server_select_tip"
+                android:text="@string/lbl_select_server"
+                android:textSize="18sp" />
+        </FrameLayout>
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

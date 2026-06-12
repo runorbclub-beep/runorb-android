@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+  android:paddingTop="3dp"
+  android:paddingBottom="3dp"
+  android:paddingLeft="10dp"
+  android:paddingRight="10dp"
+  tools:background="#FF0000">
+
+  <ImageView
+    android:id="@+id/ivStatus"
+    android:layout_width="5dp"
+    android:layout_height="5dp"
+    android:layout_gravity="center_vertical"
+    android:src="@mipmap/popup_upload_ok"/>
+
+  <TextView
+    android:id="@+id/tvCreateTime"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_gravity="center_vertical"
+    android:gravity="center"
+    android:textColor="#9A9A9A"
+    android:textSize="11sp"
+    tools:text="18.05"/>
+
+  <TextView
+    android:id="@+id/tvMaxRpm"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_gravity="center_vertical"
+    android:gravity="center"
+    android:textColor="#9A9A9A"
+    android:textSize="11sp"
+    tools:text="1200"/>
+
+  <TextView
+    android:id="@+id/tvDistance"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_gravity="center_vertical"
+    android:gravity="center"
+    android:textColor="#9A9A9A"
+    android:textSize="11sp"
+    tools:text="0.008"/>
+
+  <TextView
+    android:id="@+id/tvTime"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_gravity="center_vertical"
+    android:gravity="center"
+    android:textColor="#9A9A9A"
+    android:textSize="11sp"
+    tools:text="00.06"/>
+
+  <ImageView
+    android:layout_width="10dp"
+    android:layout_height="10dp"
+    android:layout_gravity="center_vertical"
+    android:src="@drawable/popup_upload_item_arrow_right"/>
+
+</LinearLayout>

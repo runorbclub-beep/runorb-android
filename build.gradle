@@ -1,0 +1,162 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+
+        maven {
+            allowInsecureProtocol = true
+            url 'https://artifact.bytedance.com/repository/AwemeOpenSDK'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url 'https://repo1.maven.org/maven2/'
+        }
+
+        google()
+        maven {
+            allowInsecureProtocol = true
+            url 'https://maven.aliyun.com/repository/jcenter'
+        }
+        //jcenter()
+        maven {
+            allowInsecureProtocol = true
+            url 'https://maven.aliyun.com/repository/google'
+        }
+//        maven {
+//            allowInsecureProtocol = true
+//             url "http://mvn.leancloud.cn/nexus/content/repositories/public"
+//        }
+        mavenCentral()
+//        maven {
+//            allowInsecureProtocol = true
+//            url "http://mvn.leancloud.cn/nexus/content/repositories/releases"
+//        }
+
+        maven {
+            allowInsecureProtocol = true
+            url "https://dl.bintray.com/thelasterstar/maven/"
+        }
+        maven {
+            allowInsecureProtocol = true
+            url 'https://dl.bintray.com/umsdk/release'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url 'https://dl.bintray.com/aweme-open-sdk-team/public'
+        }
+    }
+    dependencies {
+        classpath('com.android.tools.build:gradle:8.8.2')
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            allowInsecureProtocol = true
+            url 'https://artifact.bytedance.com/repository/AwemeOpenSDK'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url 'https://repo1.maven.org/maven2/'
+        }
+
+        mavenLocal()
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            allowInsecureProtocol = true
+            url("$rootDir/../node_modules/react-native/android")
+        }
+        maven {
+            // Android JSC is installed from npm
+            allowInsecureProtocol = true
+            url("$rootDir/../node_modules/jsc-android/dist")
+        }
+
+
+//        google()
+        maven {
+            allowInsecureProtocol = true
+            url 'https://maven.aliyun.com/repository/jcenter'
+        }
+        //jcenter()
+        maven {
+            allowInsecureProtocol = true
+            url 'https://maven.aliyun.com/repository/google'
+        }
+//        maven {
+//            allowInsecureProtocol = true
+//            url "http://mvn.leancloud.cn/nexus/content/repositories/public"
+//        }
+//        maven {
+//            allowInsecureProtocol = true
+//            url "http://mvn.leancloud.cn/nexus/content/repositories/releases"
+//        }
+        maven {
+            allowInsecureProtocol = true
+            url 'https://www.jitpack.io'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url "https://dl.bintray.com/thelasterstar/maven/"
+        }
+        maven {
+            allowInsecureProtocol = true
+            url 'https://dl.bintray.com/umsdk/release'
+        }
+        maven {
+            allowInsecureProtocol = true
+            url 'https://dl.bintray.com/aweme-open-sdk-team/public'
+        }
+        google()
+        mavenCentral()
+    }
+}
+
+ext {
+    /**
+     * http://10.20.73.77:83
+     *  //https://api.hisport.cloud
+     */
+    // 服务器http地址
+    serverUrl = [
+        chinaTest: "http://apitest.hisport.cloud", // 中国区域测试服务器
+//        china: "https://api.hisport.cloud", // 中国区域服务器
+        china: "https://api.runorb.us", // 中国区域服务器
+        nation: "https://api.runorb.us" // 海外区域服务器
+//        china: "https://qyd.hisport.cloud"
+    ]
+
+    /**
+     * ws://121.40.165.18:8800 网上在线测试地址
+     * wss://10.20.73.77:83/pkroom
+     * wss://api.hisport.cloud/pkroom
+     *  ws://10.20.73.77:83/pkroom
+     *  wss://api.hisport.cloud/pkroom
+     */
+    // 服务器socket地址
+    socketUrl = [
+        chinaTest: "ws://apitest.hisport.cloud/pkroom", // 中国区域测试服务器
+//        china: "wss://api.hisport.cloud/pkroom", //
+        china: "wss://api.runorb.us/pkroom", // 中国区域服务器
+        nation: "wss://api.runorb.us/pkroom" // 海外区域服务器
+//        china: "wss://qyd.hisport.cloud/pkroom";
+    ]
+
+    applicationId = [
+        test: "cloud.runball.bazutest", // 测试包名
+        release: "cloud.runball.bazu" // 正式包名
+    ]
+
+    versionCode = 1020212
+    versionName = "1.2.2.12"
+    testVarsinName = "1.2.2.12"
+
+    // Sdk
+    buildToolsVersion = "35.0.1"
+    minSdkVersion = 23
+    compileSdkVersion = 33
+    targetSdkVersion = 33
+    // App
+    leakCanaryVersion = '1.6.3'
+}

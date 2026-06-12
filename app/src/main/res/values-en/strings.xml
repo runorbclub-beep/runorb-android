@@ -1,0 +1,867 @@
+<resources>
+    <string name="app_name">RunOrb</string>
+    <string name="app_desc">More exercise is healthier</string>
+    <string name="app_vice">YaoPao Ball</string>
+    <string name="app_me_around">I am round you</string>
+
+    <string name="app_location">Use your location</string>
+    <string name="app_location_desc">The BLE bluetooth need location In order to,allow Runorb to use your location all of the time.Runorb will use location in the background to show walks, runs, and bike rides on a map.</string>
+    <string name="app_cancel">Cancel</string>
+    <string name="app_next">Next</string>
+
+    <string name="app_privacy_url">https://hisport.cloud/privacy?lang=en</string>
+    <string name="app_protocol_url">https://hisport.cloud/protocol?lang=en</string>
+
+    <string name="tab_rate">Challenge</string>
+    <string name="tab_mine">Me</string>
+    <string name="tab_match">Competition</string>
+    <string name="tab_match2">Ranking</string>
+    <string name="my_ranks_1">current ranking：%1$s</string>
+    <string name="my_ranks">Team current ranking：%1$s</string>
+    <string name="my_ranks_progress_reach"> Reach %1$s %%，remaining %2$s</string>
+    <string name="lbl_rank_score">Score:</string>
+    <string name="lbl_rank_time">Time:</string>
+    <string name="lbl_rank_index">Index:</string>
+    <string name="lbl_rank_distance">Distance:</string>
+    <string name="lbl_match_cancel_registration">Cancel registration</string>
+    <string name="title_mine_match">Tournament joined</string>
+    <string name="lbl_match_attend">Joined</string>
+    <string name="lbl_match_over">End</string>
+    <string name="lbl_match_sign_now">Join</string>
+    <string name="lbl_match_sign_now2">Join</string>
+    <string name="lbl_match_right_now">Run</string>
+    <string name="lbl_match_ranking">Ranking list</string>
+    <string name="lbl_match_vip">Membership application</string>
+    <string name="lbl_match_market">Purchase channels</string>
+    <string name="lbl_match_ranking_check">Ranking</string>
+    <string name="lbl_match_sign_num">Joined:%1$d</string>
+
+    <!-- 切换服务器-->
+    <string name="title_server">Switch Server</string>
+    <string name="lbl_china_server">China Server</string>
+    <string name="lbl_other_server">International Server</string>
+    <string name="lbl_select_server">Current</string>
+
+    <!--竞速页面-->
+    <string name="turn_speed">Max(rpm)</string>
+    <string name="turn_metre">Distance(km)</string>
+    <string name="turn_time">Time(s)</string>
+    <string name="update_tip">update tip!</string>
+    <string name="tip">tip</string>
+    <string name="tip_warn">Warning</string>
+    <string name="tip_data_error">data error,try again!</string>
+    <string name="tip_country_codes">canot get country codes</string>
+    <string name="tip_server"> Please noted when switching  to a new server requires creating a new account，and the original server data is still retained in old account. Are you sure to switch？</string>
+    <string name="rank_all_1">Adult Leaderboard</string>
+    <string name="rank_all_2">Teen Leaderboard</string>
+    <string name="data_err_tip">Unusual data found</string>
+    <string name="notice_tip">Meters in 3 minutes / Time of half Marathon</string>
+    <string name="tv_run_notice_tip_time">time:</string>
+    <string name="tv_run_notice_tip_cur">Energy Index：%1$s</string>
+    <string name="tv_run_notice_tip_0">Best Energy Index：%1$s</string>
+    <string name="tv_run_notice_tip_1">Run3min，%1$s km</string>
+    <string name="tv_run_notice_tip_2">Time of half marathon，%1$s</string>
+    <string name="tv_run_notice_tip_3">Time of marathon，%1$s</string>
+    <string name="tv_run_notice_tip_4">Meters in Run %1$s minutes，%2$s km</string>
+    <string name="tv_run_notice_tip_5">Time of %1$s km，%2$s</string>
+    <string name="title_rank_prex">ranking</string>
+    <string name="lbl_match_rank_my_grade">My ranking:</string>
+
+    <string name="turn_speed_3">Speed(rpm)</string>
+    <string name="turn_speed_2">Speed</string>
+    <string name="turn_speed_unit_2">(rpm)</string>
+    <string name="turn_one_minute_3">1 minutes(km)</string>
+    <string name="turn_one_minute_2">1 minutes</string>
+    <string name="turn_one_minute_unit_2">(km)</string>
+    <string name="turn_exponent_2">ei</string>
+    <string name="turn_exponent_unit_2">(ei)</string>
+    <string name="turn_marathon_2">Marathon</string>
+    <string name="turn_marathon_unit_2">(time)</string>
+    <string name="turn_duration">time</string>
+
+    <string name="refuse_ble"> Location access denied will not be able to search for BLE devices, please jump to the Settings screen to set</string>
+    <string name="location_ble"> Bluetooth devices can only be found by allowing access to the location</string>
+    <string name="location_ble_tip">This app hardware device needs to use geographic location permission to use and search for and communicate with Bluetooth devices</string>
+    <string name="location_service"> If the location service is not enabled, you will not be able to search the device. Please jump to the setting interface for setting</string>
+    <string name="connected_device_to_play">Bluetooth %1$s connection is successful, please confirm whether to start exercising</string>
+    <string name="connected_device_finished2">Bluetooth connection successful,%1$s</string>
+    <string name="network_error">The network is currently unavailable. Please check your network Settings</string>
+    <string name="wall_ball_disabled">Bluetooth is connecteing ...</string>
+    <string name="wall_ball_disconnected">Bluetooth connected failed, please click to reconnect</string>
+    <string name="wall_ball_to_connected">Please click to reconnect bluetooth</string>
+    <string name="wall_ball_no_connected">RunOrb：(Waiting)</string>
+    <string name="connected_success">Bluetooth connected success</string>
+    <string name="tip_bluetooth_disconnected">The ball is disconnected. Please reconnect it</string>
+    <string name="bluetooth_ble_tip">This app hardware device needs to use Bluetooth permission to search for and communicate with Bluetooth devices</string>
+
+    <!--赛事页面-->
+    <string name="search_match_hit">Search for tournament</string>
+    <string name="search_match_edt_hit">Search tournament and users</string>
+    <string name="search_name_hit">Search by user name</string>
+    <string name="match_detail_title">Details</string>
+    <string name="exit_app_tip">Press click again to exit the program</string>
+    <string name="match_check_sign_up">Check list</string>
+    <string name="match_sign_up">Register now</string>
+    <string name="match_check_rank">Show ranking</string>
+    <string name="match_enter_match">Enter match</string>
+
+    <string name="match_100">100m</string>
+    <string name="match_200">200m</string>
+    <string name="match_800">800m</string>
+    <string name="match_1000">1000m</string>
+    <string name="match_1500">1500m</string>
+    <string name="match_3000">3000m</string>
+    <string name="match_10000">10000m</string>
+    <string name="match_half">Energy Index</string>
+    <string name="match_full">Marathon</string>
+
+    <!-- 赛事-->
+    <string name="match_sub_title">Playoffs in the first quarter of 2021</string>
+    <string name="match_prize">Bonus / Prize</string>
+    <string name="match_point">Point</string>
+    <string name="match_registered">Registered</string>
+    <string name="match_attend">Following</string>
+    <string name="match_registration_requirements">Registration requirements</string>
+    <string name="match_tournament_desc">Tournament description</string>
+    <string name="match_phone">Phone</string>
+
+    <!-- 竞速 -->
+    <string name="title_double_match">Launch 1V1 game</string>
+    <string name="lbl_double_match_time">Minute</string>
+    <string name="title_team_match">Launch team game</string>
+    <string name="title_add_match">Join game</string>
+    <string name="title_add_match_board">Join game</string>
+    <string name="lbl_input_match_tip">please enter</string>
+    <string name="lbl_input_match_person_tip">person limit 10</string>
+    <string name="lbl_input_clip_error_tip">paste error</string>
+    <string name="lbl_error_room_num_tip">Enter the correct game ID</string>
+    <string name="title_match_team">game</string>
+    <string name="lbl_exit_the_pk">Do you want to quit the game?</string>
+    <string name="lbl_not_find_pk_id">Enter the correct game ID</string>
+    <string name="lbl_ready_pk">ready</string>
+    <string name="lbl_ready_cancel">cancel ready</string>
+    <string name="title_pk_rule">Game rule</string>
+    <string name="lbl_set_wound">Wind up ball！</string>
+    <string name="lbl_pk_offline">Offline</string>
+    <string name="lbl_pk_wait_other">Waiting  competitor join…</string>
+    <string name="lbl_pk_net_error">The network is not good, please try again</string>
+    <string name="lbl_pk_match_2">Single game</string>
+    <string name="lbl_pk_match_team">Team game</string>
+    <string name="title_match_record">Game record</string>
+    <string name="lbl_detail">Check Details</string>
+    <string name="lbl_detail2">Details</string>
+    <string name="lbl_speed_max">Max speed</string>
+    <string name="title_match_data_detail">Data</string>
+    <string name="lbl_finish_market">Waiting for result</string>
+    <string name="lbl_exit_tip">The game is still going on, are you sure you want to quit？</string>
+    <string name="lbl_match_pk_id">Game ID:</string>
+    <string name="lbl_match_pk_id_no">Game ID</string>
+    <string name="turn_speed_match">Max speed</string>
+    <string name="turn_metre_match">Distance</string>
+    <string name="lbl_refresh_id">Click to refresh</string>
+    <string name="lbl_team_name">Our team name</string>
+    <string name="lbl_other_team_name">Competitor team name</string>
+    <string name="lbl_match_time">Time</string>
+    <string name="lbl_match_max_person">Number of teams</string>
+    <string name="lbl_match_input_name">Enter</string>
+    <string name="lbl_match_input_name2">Enter</string>
+    <string name="lbl_match_paste">Click to paste</string>
+    <string name="lbl_input_match_person">Enter players number</string>
+    <string name="lbl_input_match_horse">No.%1$d %2$s</string>
+    <string name="lbl_input_match_horse_selected">Are you sure you want to select number %1$d %2$s?</string>
+    <string name="lbl_input_match_person_num">%1$s Players</string>
+    <string name="lbl_match_break_off">Waiting for reconnection…</string>
+    <string name="lbl_match_click_fresh">Click to refresh</string>
+    <string name="lbl_mine_total_distance"> Our（km）    </string>
+    <string name="lbl_other_total_distance">Opponent（km）</string>
+    <string name="lbl_pk_rule">1、Switch team \n If you choose the wrong team, please exit the room, re-enter, and select team again. \n\n 2、Start game \n Please negotiate the time with other players before clicking the start button. \n \n 3、Prepare ball \n Clock up the ball before the game start. \n\n 4、Run ball \n Don’t shake the ball until the game begins. \n\n 5.Offline \n Players who are offline for more than 30 seconds will be  kicked out of the room.</string>
+
+    <!--锦标赛-->
+    <string name="lbl_exit_match_message">Are you leaving temporarily？</string>
+    <string name="lbl_match_before">Soon</string>
+    <string name="lbl_match_ing">Running</string>
+    <string name="lbl_match_over2">End</string>
+    <string name="lbl_match_person">Personal</string>
+    <string name="lbl_match_group">Team</string>
+    <string name="lbl_match_tab_1">Competition</string>
+    <string name="lbl_match_tab_2">Ranking</string>
+
+    <string name="lbl_match_tab_rank_1">Energy Index</string>
+    <string name="lbl_match_tab_rank_2">Max Speed</string>
+    <string name="lbl_match_tab_rank_3">1 minute KM</string>
+    <string name="lbl_match_tab_rank_4">Marathon</string>
+    <string name="lbl_match_tab_rank_5">Max Speed</string>
+
+
+    <string name="lbl_match_attend_title">Congratulations</string>
+    <string name="lbl_match_attend_complete">Complete！</string>
+    <string name="lbl_match_attend_persons"> Players number %1$s</string>
+    <string name="lbl_match_attend_distance">Total distance %1$s km</string>
+    <string name="lbl_match_no_match">There are no games in progress</string>
+    <string name="lbl_match_stage_info">Stage information</string>
+    <string name="lbl_match_status_info_1">Not joined</string>
+    <string name="lbl_match_status_info_2">Joined</string>
+    <string name="lbl_match_status_info_3">End</string>
+    <string name="lbl_match_corner_tip_1">Personal</string>
+    <string name="lbl_match_corner_tip_2">2 player</string>
+    <string name="lbl_match_corner_tip_3">Team</string>
+    <string name="lbl_match_main_total_time">My total time</string>
+    <string name="lbl_match_main_total_distance">My total distance</string>
+    <string name="lbl_match_main_total_countdown">Countdown</string>
+    <string name="lbl_match_main_total_distance2">Race distance</string>
+    <string name="lbl_match_main_stage_rule">Stage rules:</string>
+
+    <!--我的-->
+    <string name="lbl_mine_portrait">Profile</string>
+    <string name="profile_subtitle">Let\'s exercise together for better health!</string>
+    <string name="lbl_default_name">Jack</string>
+    <string name="lbl_default_sign">go head</string>
+    <string name="title_language">language</string>
+    <string name="mine_info_badge">Badge</string>
+    <string name="mine_follow">Following</string>
+    <string name="mine_fans">Follower</string>
+    <string name="mine_match">Game record</string>
+    <string name="mine_device">Device management</string>
+    <string name="mine_socre">Achievements</string>
+    <string name="mine_data">Data</string>
+    <string name="all_piece">%1$d pieces</string>
+    <string name="score_tip">Points will be redeemed for gifts</string>
+    <string name="score_btn">Redeem</string>
+    <string name="item_mine_dynamic">My activity</string>
+    <string name="item_clan">My team</string>
+    <string name="item_medal">My medals</string>
+    <string name="item_record">My records</string>
+    <string name="item_device">My devices</string>
+    <string name="item_feedback">Feedback and help</string>
+    <string name="item_about">About us</string>
+
+    <string name="title_mine_ranking_record">My ranking</string>
+    <string name="title_mine_pk_record">My PK history</string>
+    <string name="title_mine_upup_record">My \'Up Up\'</string>
+    <string name="title_mine_match_record">My event</string>
+
+    <string name="pk_select_mode">Room type</string>
+    <string name="pk_mode_double">1v1 PK</string>
+    <string name="pk_mode_team">Team PK</string>
+    <string name="all">All</string>
+    <string name="pk_win_count">Number of wins</string>
+    <string name="pk_win_percentage">Winning probability</string>
+    <string name="pk_create">Create a room</string>
+    <string name="pk_join">Join the room</string>
+    <string name="title_pk_data_detail">pk details</string>
+    <string name="pk_result_mark_mine">Our side</string>
+    <string name="pk_result_mark_other">Other side</string>
+    <string name="pk_win">Winner</string>
+    <string name="pk_fail">Loser</string>
+    <string name="pk_type_personal">1v1</string>
+    <string name="pk_type_team">Team</string>
+
+    <string name="mine_data_ranking_global_ranking">Ranking</string>
+    <string name="mine_data_ranking_project">Model</string>
+    <string name="mine_data_ranking_achievement">Value</string>
+    <string name="mine_data_ranking_datetime">Time</string>
+
+    <string name="lbl_notify">Message &amp; Notification</string>
+    <string name="lbl_phone">Phone number</string>
+    <string name="lbl_wechat">Wechat</string>
+    <string name="lbl_weibo">Weibo</string>
+    <string name="lbl_qq">QQ</string>
+    <string name="lbl_douyin">TikTok</string>
+
+    <!-- s 我的记录 -->
+    <string name="title_mine_record">My records</string>
+    <string name="mine_record_source">(Mode：%s)</string>
+    <string name="data_error_speed">Abnormal data: started speed is too high!</string>
+    <string name="tab_play_data">Data</string>
+    <string name="tab_play_mode">Modes</string>
+    <!-- e 我的记录 -->
+
+    <!-- 设置 -->
+    <string name="lbl_setting">Settings</string>
+    <string name="lbl_user_info">Personal information</string>
+    <string name="lbl_group_info">Group information</string>
+    <string name="lbl_language_info">language</string>
+    <string name="lbl_account">Account</string>
+    <string name="lbl_privacy">Privacy Policy</string>
+    <string name="lbl_service">Terms of Service</string>
+    <string name="lbl_server">Server</string>
+    <string name="lbl_server_china">China</string>
+    <string name="lbl_server_nation">Nation</string>
+    <string name="lbl_feedback">Feedback and Help</string>
+    <string name="lbl_about">About Us</string>
+    <string name="lbl_about_ver">V%1$s</string>
+    <string name="lbl_exit">Log out</string>
+    <string name="title_about">About Us</string>
+    <string name="lbl_cancel_account">cancel account</string>
+    <string name="tip_cancel_account_title">Sure delete the account?</string>
+    <string name="tip_cancel_account">After the cancelation, you cannot log in with this account！</string>
+
+    <!--关于-->
+    <string name="title_change_phone">New phone number</string>
+    <string name="title_feedback">Help &amp; Feedback</string>
+    <string name="lbl_feedback_desc">Your opinion is the driving force behind RunBall’s progress!</string>
+    <string name="lbl_email">Email feedback</string>
+    <string name="lbl_email_desc">E-mail:</string>
+    <string name="lbl_host_address"> https://Bazu-ranking.cn</string>
+    <string name="lbl_email_address">RunOrbclub@gmail.com</string>
+    <string name="lbl_email_aq">You can email RunBall for feedback!!</string>
+    <string name="lbl_click_copy">Click Copy</string>
+    <string name="lbl_access_host">Official Runball Website</string>
+    <string name="lbl_access_email">Email</string>
+    <string name="lbl_check_update">Check for updates</string>
+    <string name="lbl_add_qq_qun">Join RunOrb facebook group</string>
+    <string name="lbl_add_qq_qun_feedback">You can  get exlusive feedback in RunOrb Facebook  </string>
+    <string name="lbl_add_qq_number">group：555156070</string>
+
+    <!--个人信息-->
+    <string name="title_userinfo">Personal information</string>
+    <string name="lbl_exptitle">Membership expired date：%1$s</string>
+    <string name="lbl_share_code">My invitation code：%1$s</string>
+    <string name="lbl_copy">Copy</string>
+    <string name="lbl_copy_success">Copy success</string>
+
+    <string name="lbl_sex">Sex</string>
+    <string name="tip_lbl_sex">Gender can be changed 3 times within 1 year</string>
+    <string name="format_tip_lbl_sex">%s chance to change</string>
+    <string name="lbl_man">Male</string>
+    <string name="lbl_feman">Female</string>
+    <string name="lbl_name">Name</string>
+    <string name="lbl_birthday">Birthday</string>
+    <string name="tip_lbl_lbl_birthday">Birthday can be changed 3 times within 1 year</string>
+    <string name="format_tip_lbl_birthday">%s chance to change</string>
+    <string name="lbl_birthday_hit">Please input your bitrhday</string>
+    <string name="lbl_high">height</string>
+    <string name="lbl_high_hit">Please enter your height</string>
+    <string name="lbl_weight">weight</string>
+    <string name="lbl_weight_hit">Please enter your weight</string>
+    <string name="lbl_weight_error">weight between 30kg-200kg</string>
+    <string name="lbl_weixin">Contact</string>
+    <string name="format_weixin">Contact:%s</string>
+    <string name="lbl_weixin_hit">Accounts of other social platforms</string>
+    <string name="lbl_city">Country</string>
+    <string name="tip_lbl_city">City can be changed 3 times within 1 year</string>
+    <string name="format_tip_lbl_city">%s chance to change</string>
+    <string name="lbl_city_hit">Please input you address</string>
+
+    <string name="binding_phone">Bind cellphone number</string>
+    <string name="binding_phone_desc">Please verify your cellphone number for the security of your account Login directly with this mobile number after verification</string>
+    <string name="binding_phone_area">+86</string>
+    <string name="binding_phone_input">phone number</string>
+    <string name="binding_email_input">email</string>
+    <string name="binding_name_input">Please input your name</string>
+    <string name="binding_sex_input">Please input your gender</string>
+    <string name="binding_name_group">Name of the team</string>
+    <string name="binding_name_hit_group">Please input your teams name</string>
+    <string name="lbl_my_group_type">My team type</string>
+    <string name="lbl_selected_my_group_type">Please input select a team type</string>
+    <string name="lbl_my_group_type_1">Youth team</string>
+    <string name="lbl_my_group_type_0">Adult team</string>
+    <string name="lbl_nodify_3_times">3 times a year</string>
+
+    <string name="lbl_intro">Profile</string>
+    <string name="binding_sign_input">Profile limited to 27 characters</string>
+    <string name="binding_phone_send_sms_code">Sending SMS verification code</string>
+    <string name="phone_valid_code">Enter code</string>
+    <string name="phone_valid_code_sended">Verification code sent to</string>
+    <string name="phone_valid_code_send_again">Resend after %1$d s</string>
+    <string name="phone_send_again">Send</string>
+    <string name="lbl_change_phone">New phone number</string>
+    <string name="toast_phone_sms_error">Phone number or sms code is incorrect</string>
+    <string name="toast_email_sms_error">Email or sms code is incorrect</string>
+    <string name="toast_check_protocol">Read and agree to the "Service Agreement" and "Privacy Policy" to log in.</string>
+    <string name="title_privacy">RunBall Privacy Policy</string>
+    <string name="title_service">RunBall Terms</string>
+    <string name="lbl_exit_message"> Do you want to log out？</string>
+    <string name="lbl_privacy_service">Conditions and Privacy</string>
+
+
+    <string name="lbl_one_photo">Camera</string>
+    <string name="lbl_album">Photo</string>
+    <string name="lbl_big_photo">Zoom in</string>
+    <string name="hot">hot</string>
+    <string name="category">category</string>
+    <string name="cart">cart</string>
+    <string name="mine">mine</string>
+    <string name="title_data_detail">Data details</string>
+    <string name="title_mine_score">Achievements</string>
+    <string name="title_mine_data">Data</string>
+    <string name="title_mine_edit">Personal information</string>
+    <string name="title_mine_add_device">Select device</string>
+    <string name="title_mine_mgr_device">Manager</string>
+    <string name="title_login_mobile">Phone login</string>
+    <string name="title_login_other">Third Login</string>
+    <string name="title_activity_cat">CatActivity</string>
+    <string name="title_sign_up">Registration</string>
+    <string name="title_setting">Settings</string>
+    <string name="title_notify">Notification</string>
+    <string name="title_mine_badge">Badge</string>
+    <string name="please_checked">checked that please</string>
+
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+
+    <string name="nickname_change">edit</string>
+    <string name="title_edit_nickname">edit name</string>
+    <string name="no_nickname">no custom name</string>
+    <string name="conn_device_self">(connected)</string>
+    <string name="no_conn_device_self">(no connected)</string>
+
+    <string name="device_name">Device</string>
+    <string name="device_belong">(self)</string>
+    <string name="state_connected">Connected</string>
+    <string name="state_disconnected">Not connected</string>
+    <string name="state_bind">Bind</string>
+    <string name="state_disbind">not Bind</string>
+    <string name="connected_devices">Select device</string>
+    <string name="disconnected">Not connected</string>
+    <string name="scanning">Scaning...</string>
+    <string name="connecting">Connecting...</string>
+    <string name="disconnecting">disconnecting...</string>
+
+
+    <string name="facebook_app_id" translatable="false">你的facebook_app_id</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb你的facebook_app_id</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+    <string name="login">Login</string>
+    <string name="finish">Finish</string>
+    <string name="save">Save</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+
+    <string name="week">Week</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+
+    <string name="lbl_duration">Single maximum time</string>
+    <string name="lbl_speex">Single maximum speed (RPM)</string>
+    <string name="lbl_circle">Single maximum turns (10000 laps)</string>
+    <string name="lbl_distance">Single maximum distance (km)</string>
+    <string name="lbl_endurance">single maximum endurance (s)</string>
+    <string name="lbl_win_times">Number of victories(times)</string>
+
+
+    <string name="nodifySuccess">success</string>
+    <string name="topTab_year">%1$d Year</string>
+    <string name="topTab_month">%1$d Month</string>
+    <string name="all_device">Devices %1$d</string>
+    <string name="wcircleUnit">%1$s rpm</string>
+    <string name="all_selected">Full</string>
+    <string name="lbl_empty">Empty</string>
+
+
+    <string name="tip_play_desc">Please slide 3 rounds according to the indicate arrow direction and shake the wrist ball until the Bluetooth indicator flash</string>
+    <string name="tip_play_desc2"> Please keep the core of the ball shaking or running slightly</string>
+
+    <string name="all_know">Operation confirmed</string>
+    <string name="next_step">Next</string>
+    <string name="up_pull_load_more">pull Loading more.</string>
+    <string name="load_more">Loading more</string>
+
+    <string name="please_fill_nick_short">Name limited to 8 characters</string>
+    <string name="please_fill_sign_short">Introduction limited to 18 characters</string>
+    <string name="please_fill_nick_or_sign">Name or Introduction is need</string>
+    <string name="please_fill_nick_or_sign2">还有资料未填写</string>
+    <string name="loading_wait">downing....</string>
+    <string name="item_applicants">%1$d applicants</string>
+    <string name="btn_connect">Connect</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="btn_confirm2">Confirm</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="lbl_select_birthday">Select birthday</string>
+    <string name="lbl_select_city">Select City</string>
+    <string name="lbl_select_weight">Select Weight</string>
+
+
+    <string name="menu_today">Today</string>
+    <string name="menu_week">Week</string>
+    <string name="menu_month">Month</string>
+    <string name="menu_year">Year</string>
+
+    <string name="mine_name">Name</string>
+    <string name="mine_sign">Introduction</string>
+    <string name="lbl_all_checked">All</string>
+
+    <string name="lbl_speed_chart">Speed curve</string>
+    <string name="lbl_speed_between">Speed range</string>
+    <string name="lbl_speed_time">Duration</string>
+
+
+    <string name="lbl_circle_unit">(10000 laps)</string>
+    <string name="lbl_speed_desc">Maximum speed(RPM)</string>
+    <string name="lbl_endurance_desc">Endurance(s)</string>
+    <string name="lbl_time_desc">Time</string>
+
+    <string name="lbl_badge_tip">First challenge</string>
+    <string name="lbl_badge_circle_tip">More than 100 laps</string>
+    <string name="lbl_badge_dese_tip"> Share</string>
+
+    <!-- 分享面板 -->
+    <string name="lbl_share_more">More</string>
+    <string name="lbl_share_btn">Share</string>
+    <string name="lbl_share_text">Share</string>
+    <string name="lbl_share">Share to</string>
+    <string name="lbl_share_qq">QQ</string>
+    <string name="lbl_share_qqzone">Qzone</string>
+    <string name="lbl_share_wechat">Wechat</string>
+    <string name="lbl_share_wechat_circle">TimeLine</string>
+    <string name="lbl_share_album">Save Pic</string>
+
+    <string name="share_qr_code_tip">Scan code to join</string>
+
+    <string name="lbl_title_msg">Message</string>
+    <string name="lbl_title_notify">Notification</string>
+    <string name="hint_search">Search</string>
+
+    <string name="search_label">Search tournament and users</string>
+    <string name="search_hint">Search tournament and users</string>
+
+
+    <!--登录注册-->
+    <string name="tip_login_welcome">Welcome！</string>
+    <string name="lbl_login_phone">Sign in with cellphone number</string>
+    <string name="lbl_login_phone_desc">A new account will be created after the first login</string>
+    <string name="lbl_login_email">Sign in with email</string>
+    <string name="lbl_login_email_desc">A new account will be created after the first login</string>
+    <string name="lbl_login_mode_phone">Login with phone number</string>
+    <string name="lbl_login_mode_email">Login with email</string>
+    <string name="lbl_login_email_error">Please enter the correct mail</string>
+    <string name="lbl_privacy_pre">Registration means that you agree to </string>
+    <string name="lbl_privacy_and">&amp;</string>
+    <string name="lbl_privacy_privacy">Terms</string>
+
+    <string name="lbl_privacy_content">Thank you for your trust and use of Runball app To provide motion scheme based on Bluetooth, we need  Bluetooth access and location data .Please read Runball User Agreement and Runball  Privacy Policy If you agree, please click Agree to begin accepting our services</string>
+    <string name="lbl_privacy_agress">Use</string>
+    <string name="lbl_privacy_noagress">no Use</string>
+    <string name="lbl_privacy_1">Runball User Agreement</string>
+    <string name="lbl_privacy_2">Runball  Privacy Policy</string>
+
+    <string name="lbl_progress_s">%1$d s</string>
+    <string name="lbl_hot_search">Hot searches</string>
+    <string name="lbl_dialog_reg_success">Successful \n registration!</string>
+    <string name="lbl_dialog_return_home">Homepage</string>
+    <string name="no_support_ble">not support ble,canot run soft</string>
+
+    <!-- 添加榜单-->
+    <string name="title_add_rank">Add ranking list</string>
+    <string name="lbl_select_cur">Current:</string>
+    <string name="lbl_age_between">Select your age</string>
+    <string name="lbl_age_between_1">Adult</string>
+    <string name="lbl_age_between_2">Youth</string>
+    <string name="lbl_age_between_3">All</string>
+    <string name="lbl_group_between">Select user type</string>
+    <string name="lbl_group_between_1">Personal</string>
+    <string name="lbl_group_between_2">Team</string>
+    <string name="lbl_group_between_3">All</string>
+    <string name="lbl_reset">Reset</string>
+    <string name="lbl_empty2">empty</string>
+    <string name="tip_message">delete Rank?</string>
+
+    <string name="lbl_rank_recommend">Recommend ranking list</string>
+    <string name="lbl_rank_custom">Custom ranking list</string>
+    <string name="lbl_km_unit">Kilometer</string>
+
+    <string name="tab_personal_rank">SINGLE</string>
+    <string name="tab_clan_rank">TEAM</string>
+
+    <string name="lbl_other_match">Up Up</string>
+    <string name="lbl_other_match_achievement">New Data</string>
+    <string name="lbl_other_match_flag">Up Up</string>
+    <string name="lbl_other_match_status_0">Soon</string>
+    <string name="lbl_other_match_status_1">Up Up</string>
+    <string name="lbl_other_match_status_2">Running</string>
+    <string name="lbl_other_match_status_3">Finished</string>
+    <string name="tip_other_match_status_0">Today\'s \'Up Up\' has not started yet, please wait patiently</string>
+    <string name="tip_other_match_status_1_format">Please help your NO.%s %s</string>
+    <string name="tip_other_match_status_1">Today\'s game is in full swing</string>
+    <string name="tip_other_match_status_2">Today\'s game is about to begin</string>
+    <string name="tip_other_match_status_3">Today\'s game has finished, look forward to continuing it tomorrow</string>
+    <string name="lbl_other_match_record">History</string>
+    <string name="lbl_recent_record">recent Record</string>
+    <string name="lbl_match_score">Score:</string>
+    <string name="title_match_horse_record">Horse Record</string>
+    <string name="title_match_horse_result_detail">Results</string>
+    <string name="lbl_main_match_record_score">My score：</string>
+    <string name="lbl_main_match_record_score_self">Join score：</string>
+    <string name="lbl_main_match_record_help_score_self">Play score：</string>
+    <string name="lbl_main_match_record_distance_self">My distance：</string>
+    <string name="lbl_main_match_record_distance">Distance:%1$s km</string>
+    <string name="lbl_main_match_record_distance2">Distance:%1$s</string>
+    <string name="lbl_main_match_record_speed">Maximum speed：%1$s</string>
+    <string name="lbl_main_match_record_score_1">My score：%1$s</string>
+    <string name="lbl_main_match_record_person_1">%1$d players</string>
+    <string name="lbl_main_match_record_person_2">%1$s players</string>
+    <string name="lbl_match_main_total_integral">Bonus pool</string>
+    <string name="lbl_main_match_index">No.%1$d</string>
+    <string name="lbl_match_main_total_countdown2">Start</string>
+    <string name="lbl_main_match_player_horse">Horse</string>
+    <string name="lbl_main_match_player_count">%s players</string>
+    <string name="lbl_main_match_record_my_distance">My distance: %s</string>
+    <string name="lbl_main_match_match_half_time">half-marathon: %s</string>
+    <string name="lbl_main_match_match_full_time">Marathon: %s</string>
+    <string name="format_helper_count">Helper: %s</string>
+    <string name="format_helper_score">Bonus pool: %s</string>
+
+    <string name="lbl_main_match_match_help_players_label">Players: </string>
+    <string name="lbl_main_match_match_help_distance_label">Distance: </string>
+    <string name="lbl_main_match_match_ranking_label">Top: </string>
+
+    <string name="title_match_helper_detail">Personal ranking</string>
+
+    <string name="title_go_module_all">All types</string>
+    <string name="title_go_module_ranking">Ranking</string>
+    <string name="title_go_module_pk">PK</string>
+    <string name="title_go_module_upup">Up Up</string>
+    <string name="title_go_module_events">Match</string>
+    <string name="title_go_module_free_style">Freestyle</string>
+
+    <string name="title_vice_go_module_free_style">Anywhere Anytime</string>
+    <string name="title_vice_go_module_ranking">Challenge everyone</string>
+    <string name="title_vice_go_module_pk">Pairs pk or team pk</string>
+    <string name="title_vice_go_module_upup">Let\'s yaopao together</string>
+    <string name="title_vice_go_module_events">YaoPao holy land</string>
+
+    <string name="tip_today_distance_sum">Total distance of today</string>
+
+    <string name="tab_rank">Ranking</string>
+    <string name="tab_go">GO</string>
+    <string name="tab_me">Me</string>
+
+    <string name="tip_no_tourist_enter_rank">The tourist account cannot filter the ranking list</string>
+    <string name="filter">Filter</string>
+
+    <string name="global_general_list">Global</string>
+    <string name="global_general_list_man">Global Man</string>
+    <string name="global_general_list_women">Global Women</string>
+
+    <string name="national_general_list">Total</string>
+    <string name="national_general_list_man">Total Man</string>
+    <string name="national_general_list_women">Total Women</string>
+
+    <string name="tip_select_sex">Please select gender\nFor a better experience</string>
+
+    <string name="tip_ranking_exit">Are you sure you want to exit?</string>
+
+    <string name="my">my：</string>
+    <string name="person_count">player</string>
+
+    <string name="title_data_synchronization">Data synchronization</string>
+
+    <string name="data_synchronization_date">Date</string>
+    <string name="data_synchronization_speed">Speed</string>
+    <string name="data_synchronization_distance">Distance</string>
+    <string name="data_synchronization_duration">Duration</string>
+
+    <string name="tip_come_on">Come on</string>
+    <string name="tip_no_conn_device">Unconnected run ball</string>
+    <string name="tip_pleas_play_device">Please start run ball</string>
+    <string name="tip_pleas_speed_up">Speed up! Show your explosive power!</string>
+    <string name="tip_pleas_sprint_to_the_goal">Come on! Sprint to the goal!</string>
+    <string name="tip_test_your_endurance">It is time to test your endurance!</string>
+    <string name="tip_uploading_result">Uploading</string>
+    <string name="tip_upload_result_fail">Failed to upload the result. Do you want to upload the result again</string>
+    <string name="tip_please_stop_and_wind_up_the_ball">Please stop and wind up the ball</string>
+    <string name="tip_whether_to_exit_free_style_mode">Sure to quit?</string>
+    <string name="tip_whether_to_exit_ranking_mode">Whether to exit ranking mode</string>
+    <string name="tip_whether_to_exit_match_mode">Whether to exit match mode</string>
+    <string name="tip_no_data">Nothing now</string>
+    <string name="tip_are_you_sure_to_cancel_your_registration">Are you sure to cancel your registration</string>
+    <string name="tip_confirm_whether_to_select_join">Confirm whether to select join</string>
+
+    <string name="btn_upload">Upload</string>
+    <string name="btn_upload_again">Upload again</string>
+    <string name="btn_upload_later">Later</string>
+    <string name="btn_once_more">Once more</string>
+    <string name="btn_exit">exit</string>
+    <string name="btn_go_to_connect">Go to connect</string>
+    <string name="btn_done">Done</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_synchronous">Synchronous</string>
+
+    <string name="association_match_join_tip">Registration for this activity is limited</string>
+    <string name="association_select_team_tip">Please select your team</string>
+    <string name="association_tab_ranking_personal">Personal ranking</string>
+    <string name="association_tab_ranking_team">Team ranking</string>
+    <string name="association_tab_name_list_personal">List of personal</string>
+    <string name="association_tab_name_list_team">List of team</string>
+    <string name="association_match_status_playing_multiple_stage">On going：</string>
+    <string name="association_match_status_playing_single_stage">On going</string>
+    <string name="association_match_ranking_sign_up">The list</string>
+    <string name="association_match_ranking">Ranking</string>
+    <string name="association_match_check_ranking">Show ranking</string>
+    <string name="association_match_team_chengji">Team\'s result</string>
+    <string name="association_match_team_menber">Team Member</string>
+    <string name="association_match_join_sum">Members %s</string>
+    <string name="hint_dialog_search_team">Search team name</string>
+    <string name="my_team">My team</string>
+    <string name="members_average_result">Average result of members</string>
+
+    <string name="association_match_status_all">All</string>
+    <string name="association_match_status_near">Recent</string>
+    <string name="association_match_status_previous">Past</string>
+
+    <string name="dialog_text_playing_bluetooth_disconnected">Run ball bluetooth disconnected,Whether to stop recording data</string>
+    <string name="dialog_text_playing_stop">The ball has stopped swinging,Whether to stop recording data</string>
+    <string name="dialog_text_stop">Whether to stop recording data</string>
+
+    <string name="dialog_btn_text_continue">Continue</string>
+    <string name="dialog_btn_text_continue_stop">Stop</string>
+    <string name="dialog_btn_text_connect">Connect Bluetooth</string>
+    <string name="dialog_btn_text_shape">Shape</string>
+
+    <string name="association_match_status_no_start">Not started</string>
+    <string name="association_match_status_playing">On going</string>
+    <string name="association_match_status_finish">Finished</string>
+
+    <string name="association_match_join_type_open">Open for registration</string>
+    <string name="association_match_join_close">Closed</string>
+    <string name="association_match_join_vip">VIP</string>
+    <string name="label_association_match_join">Requirement</string>
+    <string name="limit">Limit</string>
+    <string name="join">Join</string>
+
+    <string name="start">start</string>
+
+    <string name="title_runOrb_match">RunOrb match</string>
+
+    <string name="goto_ranking">Go</string>
+
+    <string name="total">统计</string>
+    <string name="achievement">Achievements</string>
+
+
+    <string name="title_page_clock_in">Check in</string>
+    <string name="label_clock_in_target">Targets</string>
+    <string name="more_plan">More</string>
+    <string name="btn_goto_clock_in">Go to check in</string>
+    <string name="btn_add_target">Add goals</string>
+    <string name="btn_no_target"/>
+    <string name="infinite">Infinite</string>
+    <string name="continuity">Continuous</string>
+    <string name="n_month"> Months</string>
+    <string name="monthly"> Every month</string>
+    <string name="day"> Days</string>
+    <string name="every_day">Every day</string>
+    <string name="source">Mode:%s</string>
+    <string name="upload_success">Uploaded</string>
+    <string name="upload_fail">Upload failed</string>
+
+    <string name="play_board_speed">Speed</string>
+    <string name="play_board_speed_unit">(rpm)</string>
+    <string name="play_board_label_max_speed">Speed(rpm)</string>
+    <string name="play_board_label_turn_time">Time</string>
+    <string name="play_board_label_turn_distance">Distance(km)</string>
+
+    <string name="format_start_year_month">Starts in %s-%s</string>
+    <string name="format_month">MM</string>
+    <string name="format_year">yyyy</string>
+    <string name="format_year_month">yyyy-MM</string>
+    <string name="format_year_month_day">yyyy-MM-dd</string>
+
+    <string name="target_day_num">%s days</string>
+    <string name="target_day_distance">%skm per day</string>
+
+    <string name="total_distance">distance：</string>
+
+    <string name="tip_no_load_data">You have data not uploaded！</string>
+
+    <string name="progress_in">Running</string>
+
+    <string name="tip_api_error">error</string>
+
+    <string name="format_brackets">(%s)</string>
+
+    <!-- 俱乐部 -->
+    <string name="label_clan_mine">Team</string>
+    <string name="label_clan_dynamic">Dynamic</string>
+    <string name="title_page_clan_detail">Team details</string>
+    <string name="label_clan_introduction">Team introduction</string>
+    <string name="label_clan_average_score">Average grades</string>
+    <string name="label_clan_average_score_vice">（top 3）</string>
+    <string name="label_clan_admin">Administrator</string>
+    <string name="label_clan_member">Members</string>
+    <string name="tab_clan_homepage">Homepage</string>
+    <string name="tab_clan_member">Members</string>
+    <string name="tab_clan_new_member">New members</string>
+    <string name="tab_clan_settings">More</string>
+    <string name="title_pending_clan_member">Review applicants</string>
+    <string name="clan_team">Yaopao team</string>
+    <string name="clan_create">Create a team</string>
+    <string name="clan_join">Join a team</string>
+    <string name="clan_apply_join">Apply to join</string>
+    <string name="hint_clan_apply_join">Please enter the application information</string>
+    <string name="title_select_clan">Choose a team</string>
+    <string name="title_select_clan_member">Select a member</string>
+    <string name="clan_edit">Edit team info</string>
+    <string name="clan_transfer_admin">Captain transferation</string>
+    <string name="exit_clan">Quit the team</string>
+    <string name="cancel_clan_create">Cancel creation</string>
+    <string name="cancel_clan_join">Cancel to join in</string>
+    <string name="tip_clan_apply_join">（Each user can only join one team）</string>
+    <string name="clan_create_portrait">*Profile</string>
+    <string name="clan_create_name">*Team name</string>
+    <string name="hint_clan_create_name">Please enter name</string>
+    <string name="clan_create_introduction">Introduction</string>
+    <string name="hint_clan_create_introduction">Please enter introduction</string>
+    <string name="clan_create_area">*Region</string>
+    <string name="hint_clan_create_area">Please select region</string>
+    <string name="clan_create_contact">*Contacts</string>
+    <string name="hint_clan_create_contact">Please enter team\'s contact information</string>
+    <string name="clan_create_remark">*Remark application</string>
+    <string name="hint_clan_create_remark">Please input remarks for verify</string>
+    <string name="format_clan_contact">Team Contact ways：%s</string>
+    <string name="format_clan_create_time">Creation date of the team：%s</string>
+    <string name="format_clan_member_count">%s members</string>
+    <string name="captain">Captain</string>
+    <string name="tip_clan_score">（The average of the top 3）</string>
+    <string name="tip_clan_join_confirm">Each user can only join one team</string>
+    <string name="tip_clan_create_pending">The creation is successful. Please wait for the platform to verify</string>
+    <string name="tip_clan_join_pending">Application has been made, please wait for review</string>
+    <string name="tip_name_is_must_not_empty">Name cannot be empty</string>
+    <string name="tip_avatar_is_must_not_empty">Profile cannot be empty</string>
+    <string name="tip_area_is_must_not_empty">Region cannot be empty</string>
+    <string name="tip_contact_is_must_not_empty">Contacts cannot be empty</string>
+    <string name="tip_remark_is_must_not_empty">remark cannot be empty</string>
+    <string name="tip_join_remark_is_must_not_empty">remark cannot be empty</string>
+    <string name="format_join_remark">Remarks:%s</string>
+    <string name="tip_create_join_clan">Create or join a team</string>
+
+
+    <string name="btn_join">Join</string>
+    <string name="btn_status_pending">Review</string>
+    <string name="btn_pending">Wait Review</string>
+    <string name="btn_pending_pass">Agree</string>
+    <string name="btn_pending_fail">Reject</string>
+
+    <string name="state_will_pending">To be verified</string>
+    <string name="tip_pending_join_in">Can be added after review</string>
+
+    <string name="label_introduction_clan">Team introduction</string>
+    <string name="introduction_clan">有专属的俱乐部圈子；\n俱乐部成员共建俱乐部成绩，超过3名成员后可参与俱乐部打榜；\n可参加俱乐部专属赛事，展现俱乐部风采；\n可参加俱乐部PK, 赢取积分；\n可参加线下俱乐部活动；</string>
+    <string name="label_introduction_clan_captain">Captain introduction</string>
+    <string name="introduction_clan_captain">自定义俱乐部昵称，头像和俱乐部介绍；\n专属个人邀请码，享有邀请和审核队员的权利；\n专属客服，福利活动优先参与；\n邀请好友成为摇跑球会员可获得奖励；\n帮助活跃俱乐部内气氛；\n发起俱乐部PK、报名俱乐部赛事；\n参与策划线下活动服务；</string>
+    <string name="label_introduction_clan_create">Requirements of creation</string>
+    <string name="introduction_clan_create">有热爱运动的圈子的优先；\n企业机构等具备营业执照资质的优先；\n网红达人等具有一定量的粉丝群体优先；</string>
+    <string name="dynamic_content_max_speed">刷新了最高转速成绩：%s rpm</string>
+    <string name="dynamic_content_one_minute">刷新了摇跑1分钟成绩：%sKm</string>
+    <string name="dynamic_content_exponent">刷新了活力指数成绩：%s</string>
+    <string name="dynamic_content_marathon">刷新了摇跑马拉松成绩：%s</string>
+    <string name="dynamic_content_create">加入摇跑运动</string>
+
+    <string name="format_age">%s age</string>
+
+    <string name="title_homepage_rank_list">Ranking list</string>
+
+    <string name="unknown">Unknown</string>
+
+    <!-- 新手指引 -->
+    <string name="title_guidance">User guidance</string>
+    <string name="format_guidance_page_index">%s page / Total %s page</string>
+
+    <string name="tip_repeat_clan">You have already joined a team, so you can not join another</string>
+
+</resources>

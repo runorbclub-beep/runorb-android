@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/setting_notify" />
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2021年度总决赛-100米"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:textColor="#ffffffff"
+        android:textSize="@dimen/text_16" />
+
+    <ImageView
+        android:id="@+id/img_service_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="10dp"
+        android:src="@mipmap/item_more" />
+
+</LinearLayout>

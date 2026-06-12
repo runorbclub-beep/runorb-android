@@ -1,0 +1,14 @@
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <item
+    android:id="@+id/action_add"
+    android:title="@string/add"
+    android:icon="@drawable/ic_add_yellew"
+    android:orderInCategory="99"
+    app:actionLayout="@layout/toolbar_add_text"
+    app:showAsAction="always" />
+
+</menu>

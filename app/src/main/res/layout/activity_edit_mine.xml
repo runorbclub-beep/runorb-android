@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_content"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/shape_func_item">
+
+        <ImageView
+            android:id="@+id/img_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="37dp"
+            android:visibility="invisible"
+            android:background="@mipmap/mine_score" />
+
+        <TextView
+            android:id="@+id/tv_info_nickname_pre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/img_data"
+            android:text="@string/mine_name"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:textColor="#ffffffff"
+            android:textSize="16sp" />
+
+
+        <EditText
+            android:id="@+id/tv_info_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:layout_toRightOf="@+id/tv_info_nickname_pre"
+            android:text=""
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/shape_func_item">
+
+        <ImageView
+            android:id="@+id/img_data2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="37dp"
+            android:visibility="invisible"
+            android:background="@mipmap/mine_score" />
+
+        <TextView
+            android:id="@+id/tv_info_sign_pre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/img_data2"
+            android:text="@string/mine_sign"
+            android:textColor="#ffffffff"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/tv_info_sign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:singleLine="true"
+            android:layout_toRightOf="@+id/tv_info_sign_pre"
+            android:text=""
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
+
+
+
+    </RelativeLayout>
+</LinearLayout>

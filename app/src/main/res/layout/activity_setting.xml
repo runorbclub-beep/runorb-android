@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/bg_content"
+  android:orientation="vertical">
+
+  <include
+    android:id="@+id/lyHeader"
+    layout="@layout/header_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+
+      <RelativeLayout
+        android:id="@+id/ryNotify"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <ImageView
+          android:id="@+id/img_fans"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="20dp"
+          android:src="@mipmap/setting_notify" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="20dp"
+          android:layout_toRightOf="@+id/img_fans"
+          android:text="@string/lbl_notify"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+        <CheckBox
+          android:id="@+id/cbSelected"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="20dp"
+          android:button="@drawable/selector_switch"
+          android:checked="false" />
+
+      </RelativeLayout>
+
+      <RelativeLayout
+        android:id="@+id/ryLanguage"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <ImageView
+          android:id="@+id/img_language"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="20dp"
+          android:src="@mipmap/icon_language" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="20dp"
+          android:layout_toRightOf="@+id/img_language"
+          android:text="@string/lbl_language_info"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+        <ImageView
+          android:id="@+id/img_language_more"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="20dp"
+          android:src="@mipmap/item_more" />
+
+      </RelativeLayout>
+
+      <RelativeLayout
+        android:id="@+id/ryUserInfo"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <ImageView
+          android:id="@+id/img_match"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:src="@mipmap/setting_person" />
+
+        <TextView
+          android:id="@+id/tvUserInfo"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:layout_toRightOf="@+id/img_match"
+          android:text="@string/lbl_user_info"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+        <ImageView
+          android:id="@+id/img_user_more"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="10dp"
+          android:src="@mipmap/item_more" />
+
+      </RelativeLayout>
+
+      <RelativeLayout
+        android:id="@+id/ryAccount"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <ImageView
+          android:id="@+id/img_device"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="20dp"
+          android:src="@mipmap/setting_account" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="20dp"
+          android:layout_toRightOf="@+id/img_device"
+          android:text="@string/lbl_account"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+        <ImageView
+          android:id="@+id/img_account_more"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="20dp"
+          android:src="@mipmap/item_more" />
+
+      </RelativeLayout>
+
+      <RelativeLayout
+        android:id="@+id/ryPrivacy"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <ImageView
+          android:id="@+id/img_socre"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:src="@mipmap/setting_privacy" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:layout_toRightOf="@+id/img_socre"
+          android:text="@string/lbl_privacy"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+        <ImageView
+          android:id="@+id/img_privacy_more"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="10dp"
+          android:src="@mipmap/item_more" />
+
+      </RelativeLayout>
+
+      <RelativeLayout
+        android:id="@+id/ryService"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <ImageView
+          android:id="@+id/img_data"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:src="@mipmap/setting_service" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:layout_toRightOf="@+id/img_data"
+          android:text="@string/lbl_service"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+        <ImageView
+          android:id="@+id/img_service_more"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="10dp"
+          android:src="@mipmap/item_more" />
+
+      </RelativeLayout>
+
+      <RelativeLayout
+        android:id="@+id/ryServer"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:visibility="gone">
+
+        <ImageView
+          android:id="@+id/img_server_data"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:src="@mipmap/ic_server" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:layout_toRightOf="@+id/img_server_data"
+          android:text="@string/lbl_server"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+
+        <TextView
+          android:id="@+id/tvServer"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:layout_toLeftOf="@+id/img_server_more"
+          android:text="@string/lbl_server_china"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+        <ImageView
+          android:id="@+id/img_server_more"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="10dp"
+          android:src="@mipmap/item_more" />
+
+      </RelativeLayout>
+
+      <RelativeLayout
+        android:id="@+id/ryFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <ImageView
+          android:id="@+id/img_feedback"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:src="@mipmap/setting_feedback" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:layout_toRightOf="@+id/img_feedback"
+          android:text="@string/lbl_feedback"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+        <ImageView
+          android:id="@+id/img_feedback_more"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="10dp"
+          android:src="@mipmap/item_more" />
+
+      </RelativeLayout>
+
+      <RelativeLayout
+        android:id="@+id/ryAbout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <ImageView
+          android:id="@+id/img_about"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:src="@mipmap/setting_about" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:layout_toRightOf="@+id/img_about"
+          android:text="@string/lbl_about"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+        <TextView
+          android:id="@+id/tv_about_more"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="10dp"
+          android:src="@mipmap/item_more"
+          android:text="@string/lbl_about_ver"
+          android:textColor="#767779"
+          android:textSize="@dimen/text_16" />
+
+      </RelativeLayout>
+
+      <RelativeLayout
+        android:id="@+id/ryCancelAccount"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+          android:id="@+id/img_cancel_account"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:src="@mipmap/ic_server" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerVertical="true"
+          android:layout_marginLeft="10dp"
+          android:layout_toRightOf="@+id/img_cancel_account"
+          android:text="@string/lbl_cancel_account"
+          android:textColor="#ffffffff"
+          android:textSize="16sp" />
+
+        <ImageView
+          android:id="@+id/img_cancel_account_more"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:layout_centerVertical="true"
+          android:layout_marginRight="10dp"
+          android:src="@mipmap/item_more" />
+
+      </RelativeLayout>
+
+    </LinearLayout>
+  </ScrollView>
+
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+      android:id="@+id/btnExit"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:layout_gravity="bottom"
+      android:layout_below="@+id/lyTop"
+      android:layout_marginLeft="30dp"
+      android:layout_marginTop="40dp"
+      android:layout_marginRight="30dp"
+      android:layout_marginBottom="20dp"
+      android:textAllCaps="false"
+      android:background="@drawable/selector_login_btn"
+      android:text="@string/lbl_exit"
+      android:textSize="18sp" />
+  </FrameLayout>
+
+
+</LinearLayout>

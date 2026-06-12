@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:gravity="center"
+  android:orientation="vertical">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="332dp"
+    android:layout_height="366dp"
+    android:background="@mipmap/bg_dialog">
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/rgSex"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      android:gravity="center"
+      android:textSize="20sp"
+      android:textColor="#FFFFFF"
+      android:text="@string/tip_select_sex"/>
+
+    <RadioGroup
+      android:id="@+id/rgSex"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      android:orientation="horizontal">
+
+      <RadioButton
+        android:id="@+id/rbMan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:paddingTop="9dp"
+        android:paddingBottom="9dp"
+        android:paddingLeft="46dp"
+        android:paddingRight="46dp"
+        android:button="@null"
+        android:background="@drawable/bg_btn_status"
+        android:textColor="@drawable/text_btn_status"
+        android:textSize="16sp"
+        tools:checked="true"
+        android:text="@string/lbl_man"/>
+
+      <RadioButton
+        android:id="@+id/rbWoman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:paddingTop="9dp"
+        android:paddingBottom="9dp"
+        android:paddingLeft="46dp"
+        android:paddingRight="46dp"
+        android:button="@null"
+        android:background="@drawable/bg_btn_status"
+        android:textColor="@drawable/text_btn_status"
+        android:textSize="16sp"
+        android:text="@string/lbl_feman"/>
+
+
+    </RadioGroup>
+
+    <TextView
+      android:id="@+id/tvSubmit"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:paddingTop="8dp"
+      android:paddingBottom="8dp"
+      android:paddingLeft="36dp"
+      android:paddingRight="36dp"
+      android:gravity="center"
+      app:layout_constraintTop_toBottomOf="@+id/rgSex"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      android:background="@drawable/selector_ellipse_selected_button2"
+      android:textColor="#F9E85B"
+      android:textSize="18sp"
+      android:text="@string/btn_ok"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

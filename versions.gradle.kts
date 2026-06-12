@@ -1,0 +1,3 @@
+ext {
+    set("abc", "def")
+}

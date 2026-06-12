@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Non foused states-->
+    <item android:state_focused="false" android:state_selected="false" android:state_pressed="false" android:drawable="@mipmap/home" />
+    <item android:state_focused="false" android:state_selected="true" android:state_pressed="false" android:drawable="@mipmap/home_pressed" />
+    <!--Foused states-->
+    <item android:state_focused="true" android:state_selected="false" android:state_pressed="false" android:drawable="@mipmap/home_pressed" />
+    <item android:state_focused="true" android:state_selected="true" android:state_pressed="false" android:drawable="@mipmap/home_pressed" />
+    <!--pressed-->
+    <item android:state_selected="true" android:state_pressed="true" android:drawable="@mipmap/home_pressed" />
+    <item android:state_pressed="true" android:drawable="@mipmap/home_pressed" />
+
+</selector>

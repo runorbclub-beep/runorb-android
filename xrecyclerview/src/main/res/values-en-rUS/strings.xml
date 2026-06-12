@@ -1,0 +1,17 @@
+<resources>
+    <string name="listview_header_hint_normal">pull to refresh</string>
+    <string name="listview_header_hint_release">release to start refresh</string>
+    <string name="listview_loading">loading...</string>
+    <string name="nomore_loading">no more to be loaded</string>
+    <string name="refreshing">refreshing...</string>
+    <string name="refresh_done">refresh done</string>
+    <string name="loading_done">loading done</string>
+    <string name="listview_header_last_time">last update：</string>
+    <string name="lbl_now">right now</string>
+    <string name="lbl_second">second ago</string>
+    <string name="lbl_min">min ago</string>
+    <string name="lbl_hour">hour ago</string>
+    <string name="lbl_day">day ago</string>
+    <string name="lbl_month">month ago</string>
+    <string name="lbl_year">year ago</string>
+</resources>

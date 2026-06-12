@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    android:theme="?attr/actionBarTheme"
+    android:gravity="center_vertical"
+    app:navigationIcon="@mipmap/btn_return">
+
+    <TextView
+      android:id="@+id/tvToolBarTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:layout_gravity="center"
+      android:textColor="@android:color/white"
+      android:textSize="16sp"
+      android:text="@string/title_go_module_pk"/>
+
+    <ImageView
+      android:id="@+id/ivRule"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="right"
+      android:layout_marginRight="13dp"
+      android:src="@mipmap/icon_notice_tip"/>
+
+  </androidx.appcompat.widget.Toolbar>
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <ImageView
+      android:id="@+id/ivIcPk"
+      android:layout_width="57dp"
+      android:layout_height="35dp"
+      android:layout_centerInParent="true"
+      android:background="@mipmap/logo_pk" />
+
+    <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_toLeftOf="@+id/ivIcPk"
+      android:gravity="center"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/tvWinCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        tools:text="12"/>
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:text="@string/pk_win_count"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_alignParentRight="true"
+      android:layout_toRightOf="@+id/ivIcPk"
+      android:gravity="center"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/tvWinPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        tools:text="12%"/>
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:text="@string/pk_win_percentage"/>
+
+    </LinearLayout>
+
+  </RelativeLayout>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp">
+
+    <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent="0.5"/>
+
+    <TextView
+      android:id="@+id/tvCreate"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="@+id/guideline"
+      android:layout_marginRight="-10dp"
+      android:paddingRight="12dp"
+      android:background="@mipmap/pk_left_blue"
+      android:gravity="center"
+      android:textStyle="bold"
+      android:textSize="20sp"
+      android:textColor="#FFFFFF"
+      android:text="@string/pk_create"/>
+
+    <TextView
+      android:id="@+id/tvJoin"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toLeftOf="@+id/guideline"
+      android:layout_marginLeft="-10dp"
+      android:paddingLeft="12dp"
+      android:background="@mipmap/pk_right_yellow"
+      android:gravity="center"
+      android:textStyle="bold"
+      android:textSize="20sp"
+      android:textColor="#1E1D1F"
+      android:text="@string/pk_join"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:orientation="horizontal">
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:textColor="#FFFFFF"
+      android:textSize="14sp"
+      android:text="@string/lbl_recent_record"/>
+
+    <TextView
+      android:id="@+id/tvAll"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="#FFFFFF"
+      android:textSize="14sp"
+      android:drawableRight="@mipmap/arrow_right_gray"
+      android:text="@string/all"/>
+
+  </LinearLayout>
+
+  <com.jcodecraeer.xrecyclerview.XRecyclerView
+    android:id="@+id/recyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+</LinearLayout>

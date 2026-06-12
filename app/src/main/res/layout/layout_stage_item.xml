@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp">
+
+    <View
+        android:id="@+id/vPoint"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/stage_match_circle" />
+
+    <View
+        android:id="@+id/vPointVLine"
+        android:layout_width="1dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/stage_match_divider"
+        android:gravity="center"
+        android:layerType="software" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="长征挑战赛第一赛段"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/text_16" />
+
+            <TextView
+                android:id="@+id/tvStageStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="（已结束）"
+                android:textColor="#ffe26863"
+                android:textSize="@dimen/text_16" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="2021.6.13 10:00-2021.6.17 18:00"
+            android:textColor="#ff767779"
+            android:textSize="@dimen/text_16" />
+
+        <TextView
+            android:id="@+id/tvRule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:drawablePadding="5dp"
+            android:drawableRight="@mipmap/stage_match_icon"
+            android:gravity="center"
+            android:text="@string/lbl_match_main_stage_rule"
+            android:textColor="#ff767779"
+            android:textSize="@dimen/text_16" />
+
+    </LinearLayout>
+</FrameLayout>

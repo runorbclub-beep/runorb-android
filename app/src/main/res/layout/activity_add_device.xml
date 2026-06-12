@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_content"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="65dp" />
+
+    <TextView
+      android:id="@+id/tvTip"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginLeft="50dp"
+      android:layout_marginTop="80dp"
+      android:layout_marginRight="50dp"
+      android:gravity="center"
+      android:text="@string/tip_play_desc"
+      android:textColor="#ffffffff"
+      android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="192dp"
+        android:layout_height="173dp"
+        android:layout_below="@+id/tvTip"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/ball_desc" />
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+      android:id="@+id/recyclerview"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/tvDesc2"
+      android:layout_below="@+id/imageView2"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      android:layout_gravity="center" />
+
+    <TextView
+      android:id="@+id/tvDesc2"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerVertical="true"
+      android:layout_gravity="center"
+      android:layout_marginLeft="20dp"
+      android:layout_marginRight="20dp"
+      android:layout_marginBottom="30dp"
+      android:gravity="center"
+      android:singleLine="false"
+      android:text="@string/tip_play_desc2"
+      android:textColor="#F9E85B"
+      android:textSize="14sp" />
+
+</RelativeLayout>

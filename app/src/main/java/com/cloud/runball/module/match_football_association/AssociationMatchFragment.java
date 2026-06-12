@@ -1,0 +1,1477 @@
+package com.cloud.runball.module.match_football_association;
+
+import android.Manifest;
+import android.app.Activity;
+import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+
+import com.cloud.runball.R;
+import com.cloud.runball.basecomm.page.BaseFragment;
+import com.cloud.runball.basecomm.service.WristBallObserver;
+import com.cloud.runball.basecomm.utils.SPUtils;
+import com.cloud.runball.basecomm.utils.TimeUtils;
+import com.cloud.runball.constant.PlayingDataConstant;
+import com.cloud.runball.constant.QrCodeConstant;
+import com.cloud.runball.module.match_football_association.dialog.AssociationCommonDialog;
+import com.cloud.runball.dialog.PopupWindowIndex;
+import com.cloud.runball.dialog.ShareCardDialog;
+import com.cloud.runball.dialog.ShareTargetDialog;
+import com.cloud.runball.model.AppDataManager;
+import com.cloud.runball.model.ErrSpeed;
+import com.cloud.runball.model.UserInfoModel;
+import com.cloud.runball.module.home.AddDeviceInfoActivity;
+import com.cloud.runball.module.match_football_association.dialog.AssociationCommonTipDialog;
+import com.cloud.runball.module.match_football_association.dialog.AssociationShareCardDialog;
+import com.cloud.runball.module.mine.InfoActivity;
+import com.cloud.runball.module_bluetooth.constant.ServiceNoticeConstant;
+import com.cloud.runball.module_bluetooth.constant.ServiceSendConstant;
+import com.cloud.runball.module_bluetooth.data.event.BallInfo;
+import com.cloud.runball.module_bluetooth.data.event.BallRunDetail;
+import com.cloud.runball.module_bluetooth.data.event.MatchTimingInfo;
+import com.cloud.runball.module_bluetooth.data.event.ServiceNoticeEvent;
+import com.cloud.runball.module_bluetooth.data.event.ServiceSendEvent;
+import com.cloud.runball.module_bluetooth.utils.BleUtils;
+import com.cloud.runball.service.WristBallRetrofitHelper;
+import com.cloud.runball.service.WristBallServer;
+import com.cloud.runball.service.sql.AppDatabase;
+import com.cloud.runball.service.sql.IApiSqlService;
+import com.cloud.runball.service.sql.entity.PlayInfo;
+import com.cloud.runball.service.sql.entity.SpeedDetail;
+import com.cloud.runball.share.ShareManage;
+import com.cloud.runball.utils.AccountUtil;
+import com.cloud.runball.utils.AppLogger;
+import com.cloud.runball.utils.BallUtils;
+import com.cloud.runball.utils.DeviceUtils;
+import com.cloud.runball.utils.SpeechUtils;
+import com.cloud.runball.widget.MagicTextView2;
+import com.cloud.runball.widget.NodeConstant;
+import com.cloud.runball.widget.NodeInfo;
+import com.cloud.runball.widget.PlayingProgressView;
+import com.cloud.runball.widget.PointerImageView;
+import com.cloud.runball.widget.SpeedCircleImageView;
+import com.google.gson.Gson;
+import com.littlejie.circleprogress.CircleProgress;
+import com.orhanobut.logger.Logger;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONObject;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+import com.cloud.runball.databinding.FragmentAssociationMatchBinding;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+
+/**
+ * @ProjectName: wristball
+ * @Package: com.cloud.runball.fragment
+ * @ClassName: XMainFragment
+ * @Description:
+ * @Author: zhd
+ * @CreateDate: 2021/6/7 9:52
+ * @UpdateUser: zhd
+ * @UpdateDate: 2021/6/7 9:52
+ * @UpdateRemark: 更新说明
+ * @Version: 1.0
+ */
+public class AssociationMatchFragment extends BaseFragment {
+  private FragmentAssociationMatchBinding binding;
+
+  Toolbar toolbar;
+  TextView tvToolBarTitle;
+  ImageView ivShareEntry;
+  ImageView ivStop;
+
+  TextView tvDay;
+  TextView tvHour;
+  TextView tvMinute;
+  TextView tvSecond;
+
+  SpeedCircleImageView ivSpeedCircle;
+  PointerImageView ivPointer;
+  // 大圆盘显示转速
+  MagicTextView2 tvSpeedRPMFormat;
+  CircleProgress circleProgressBar;
+
+  LinearLayout layNotice;
+  ImageView ivNoticeSwitch;
+  TextView tvNoticeTip;
+
+  // 最高转速
+  TextView tvTurnHeightSpeedRPM;
+  // 距离
+  TextView tvTurnDistance;
+  // 时间
+  TextView tvTurnTime;
+
+  TextView tvTip;
+  TextView tvAction;
+  TextView tvPower;
+  PlayingProgressView playingProgressView;
+  TextView tvMatchName;
+
+  private AssociationCommonDialog commonDialog = null;
+
+
+  private final IApiSqlService sqlService = AppDatabase.getInstance().apiSqlService();
+
+  protected WristBallServer apiServer = WristBallRetrofitHelper.getInstance().getWristBallService();
+
+  //运动id+开始运动时间
+  private long userPlayId = 0;
+  private long startPlayTime = 0;
+  private long stopTime = 0;
+
+  private boolean isUploading = false;
+
+  //本地保存的转速，以1000ms(即是1s)作为间隔,或者使用ArrayQueue
+  private final List<Integer> speedCache = new ArrayList<>();
+
+  //本地保存的总圈数，以1000ms(即是1s)作为间隔,或者使用ArrayQueue
+  private final List<Integer> circleCache = new ArrayList<>();
+
+  //格式化数字
+  private DecimalFormat mDecimalFormat = new DecimalFormat("0.000");
+
+  // 运动时间
+  private int mKeepPlayTime = 0;
+  // 最高转速
+  private int mHighSpeedRPM = 0;
+  // 当前转速
+  private int mRpmSpeed=0;
+  // 总圈数
+  private int mTotalCircle = 0;
+
+  //分子(指定时间)
+  private final int mExponent_molecular = 60;
+  //分母(指定距离)
+  private final float mExponent_denominator = 21098F;
+
+  // 半马拉松目标距离
+  private final float halfMarathonTarget = 21098F;
+  // 全马拉松目标距离
+  private final float fullMarathonTarget = 42195F;
+
+  //摇跑1分钟的距离/半马耗时
+  //时间提示
+  private final String exponent_molecular_tips_en = "Meters in run 1 minutes";
+  private final String exponent_molecular_tips_zh = "摇跑1分钟距离";
+
+  //距离提示
+  private final String exponent_denominator_tips_en = "Energy Index record";
+  private final String exponent_denominator_tips_zh = "摇跑半马用时";
+
+  /**
+   * 运动数据是否异常
+   */
+  private int isAbnormal = 0;
+
+  //上传指定时间和距离
+  private Boolean[] challengeTarget = new Boolean[]{ false, false, false };
+
+  private float mMeter = 0.0f;
+
+  private Handler mHandler = new Handler();
+
+  //摇跑指数
+  private String runball_exponent = "0";
+
+  private int halfMarathon;
+  private int marathon;
+
+  private PlayInfo playInfo = null;
+
+  private int continueCircle = 0;
+
+  private String title;
+  private String sysMatchId;
+  private String sysSysMatchId;
+  private String matchStageId;
+  private int isQuartets;
+  private Date matchStartTime;
+  private Date matchEndTime;
+
+  private String joinMatchUnits;
+
+  private boolean isFirst = true;
+
+  private ScheduledExecutorService timingExecutor = null;
+
+  private AssociationCommonTipDialog pleaseStopCommonDialog = null;
+  private AssociationCommonDialog stopedCommonDialog = null;
+  private AssociationCommonTipDialog loadupCommonDialog = null;
+
+  public static AssociationMatchFragment newInstance() {
+    return new AssociationMatchFragment();
+  }
+
+  public void setRankMatchParams(
+      String title, String sysSysMatchId, String sysMatchId, String matchStageId, int isQuartets, long matchStartTime, long matchEndTime, String joinMatchUnits
+  ) {
+    this.title = title;
+    this.sysSysMatchId = sysSysMatchId;
+    this.sysMatchId = sysMatchId;
+    this.matchStageId = matchStageId;
+    this.isQuartets = isQuartets;
+    this.joinMatchUnits = joinMatchUnits;
+    if (matchStartTime > 0) {
+      this.matchStartTime = new Date(matchStartTime);
+    } else {
+      this.matchStartTime = null;
+    }
+    if (matchEndTime > 0) {
+      this.matchEndTime = new Date(matchEndTime);
+    } else {
+      this.matchEndTime = null;
+    }
+    startTimingExecutor();
+  }
+
+  @Override
+  protected int setLayoutId() {
+    return R.layout.fragment_association_match;
+  }
+
+  @Override
+  protected void onContentView(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    binding = FragmentAssociationMatchBinding.bind(view);
+    // map views
+    toolbar = binding.toolbar;
+    tvToolBarTitle = binding.tvToolBarTitle;
+    ivShareEntry = binding.ivShareEntry;
+    ivStop = binding.ivStop;
+    tvDay = binding.tvDay;
+    tvHour = binding.tvHour;
+    tvMinute = binding.tvMinute;
+    tvSecond = binding.tvSecond;
+    ivSpeedCircle = binding.ivSpeedCircle;
+    ivPointer = binding.ivPointer;
+    tvSpeedRPMFormat = binding.tvSpeedRPMFormat;
+    circleProgressBar = binding.circleProgressBar;
+    layNotice = binding.layNotice;
+    ivNoticeSwitch = binding.ivNoticeSwitch;
+    tvNoticeTip = binding.tvNoticeTip;
+    tvTurnHeightSpeedRPM = binding.tvTurnHeightSpeedRPM;
+    tvTurnDistance = binding.tvTurnDistance;
+    tvTurnTime = binding.tvTurnTime;
+    tvTip = binding.lyAction.tvTip;
+    tvAction = binding.lyAction.tvAction;
+    tvPower = binding.lyAction.tvPower;
+    playingProgressView = binding.playingProgressView;
+    tvMatchName = binding.tvMatchName;
+
+    EventBus.getDefault().register(this);
+    EventBus.getDefault().post(new ServiceSendEvent<>(ServiceSendConstant.CODE_CIRCLE_CLEAR));
+    new Handler().postDelayed(() -> {
+      EventBus.getDefault().post(new ServiceSendEvent<>(ServiceSendConstant.CODE_REQUEST_ELECTRICITY));
+    }, 1000);
+    toolbar.setNavigationOnClickListener(v -> {
+      Activity activity = getActivity();
+      if (activity != null) {
+        if (activity instanceof AssociationMatchActivity) {
+          ((AssociationMatchActivity) activity).showExitDialog();
+        }
+      }
+    });
+    tvMatchName.setText("（" + title + "）");
+
+
+//    // todo
+//    mExponent_molecular = 30;
+//    mExponent_denominator = 500F;
+//    halfMarathonTarget = 500F;
+//    fullMarathonTarget = 1000F;
+
+    List<NodeInfo> nodeInfoList = new ArrayList<>();
+//    nodeInfoList.add(new NodeInfo(NodeConstant.TYPE_EXPONENT, mExponent_denominator, getString(R.string.lbl_match_tab_rank_1), "(" + mExponent_denominator / 1000 + "km)", "0.00", 0.6F));
+    nodeInfoList.add(new NodeInfo(NodeConstant.TYPE_DISTANCE, fullMarathonTarget, getString(R.string.lbl_match_tab_rank_4), "(" + fullMarathonTarget / 1000 + "km)", "0.00", 1F));
+    playingProgressView.setProgressNode(new NodeInfo(NodeConstant.TYPE_TIME, mExponent_molecular, getString(R.string.lbl_match_tab_rank_3) + "/" + getString(R.string.lbl_match_tab_rank_1), "", "0.000km/0.0", 0.2F), nodeInfoList);
+
+    boolean isOpenNotice = (boolean) SPUtils.get(AssociationMatchFragment.this.getContext(), "isOpenNotice", true);
+    if (isOpenNotice) {
+      ivNoticeSwitch.setImageResource(R.mipmap.icon_notice);
+    } else {
+      ivNoticeSwitch.setImageResource(R.mipmap.icon_notice_stop);
+    }
+
+    // Replace @OnClick with listeners
+    View lyAction = view.findViewById(R.id.lyAction);
+    if (lyAction != null) lyAction.setOnClickListener(this::onClick);
+    ivShareEntry.setOnClickListener(this::onClick);
+    ivStop.setOnClickListener(this::onClick);
+    ivNoticeSwitch.setOnClickListener(this::onClick);
+  }
+
+  @Override
+  protected void onLazyLoad() {
+
+  }
+
+  @Override
+  protected void onFragmentShow() {
+    super.onFragmentShow();
+    reloadUserInfo();
+    showSnackBarChanged();
+
+    if(AccountUtil.isUserAccount()) {
+      if(playInfo != null) {
+        ivShareEntry.setEnabled(true);
+        ivStop.setEnabled(true);
+      } else {
+        ivShareEntry.setEnabled(false);
+        ivStop.setEnabled(false);
+      }
+    } else {
+      ivShareEntry.setEnabled(false);
+      ivStop.setEnabled(false);
+    }
+
+    BluetoothDevice connectedDevice = BleUtils.getConnectedDevice();
+    if (connectedDevice == null) {
+      if (commonDialog != null) {
+        commonDialog.dismiss();
+        commonDialog = null;
+      }
+      commonDialog = new AssociationCommonDialog(AssociationMatchFragment.this.getContext());
+      commonDialog.setContent(getString(R.string.tip), getString(R.string.tip_no_conn_device));
+      commonDialog.addBtn(getString(R.string.btn_cancel), false, commonDialog -> {
+        commonDialog.dismiss();
+      });
+      commonDialog.addBtn(getString(R.string.btn_go_to_connect), true, commonDialog -> {
+        toAddDeviceInfoActivity();
+      });
+      showNoticeTip(getString(R.string.tip_no_conn_device), getString(R.string.tip_no_conn_device));
+    } else {
+      mHandler.postDelayed(() -> {
+        if (mHighSpeedRPM == 0) {
+          showNoticeTip(getString(R.string.tip_pleas_play_device), getString(R.string.tip_pleas_play_device));
+        }
+      }, 1000);
+    }
+  }
+
+  @Override
+  protected void onFragmentHidden() {
+    super.onFragmentHidden();
+  }
+
+  @Override
+  public void onDestroyView() {
+    super.onDestroyView();
+    EventBus.getDefault().post(new ServiceSendEvent<>(ServiceSendConstant.CODE_CIRCLE_CLEAR));
+    EventBus.getDefault().post(new ServiceSendEvent<>(ServiceSendConstant.CODE_CLOSE_MATCH_TIMING));
+    EventBus.getDefault().unregister(this);
+    PopupWindowIndex.self().dismiss();
+    mHandler.removeCallbacksAndMessages(null);
+    stopTimingExecutor();
+  }
+
+  ActivityResultLauncher<Intent> resultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+    EventBus.getDefault().register(this);
+  });
+
+  private void toAddDeviceInfoActivity() {
+    Intent intent = new Intent(getContext(), AddDeviceInfoActivity.class);
+    resultLauncher.launch(intent);
+    EventBus.getDefault().unregister(this);
+  }
+
+  public void uploadSurplusData() {
+    if (playInfo == null) {
+      return;
+    }
+    playStop(true, false);
+  }
+
+  private void reloadUserInfo() {
+    if (AppDataManager.getInstance().getUserInfoModel() == null) {
+      String token = String.valueOf(SPUtils.get(getActivity(), "token", ""));
+      if (TextUtils.isEmpty(token) || token.equalsIgnoreCase("null")) {
+        autoLogin();
+      } else {
+        WristBallRetrofitHelper.getInstance().updateToken(token);
+        requestUserInfo();
+      }
+    }else{
+      //请求去更新摇跑指数
+      if (AccountUtil.isUserAccount()) {
+        requestUserInfo();
+//        requestExponent();
+      } else {
+
+      }
+    }
+  }
+
+  /**
+   * 自动登录
+   */
+  private void autoLogin() {
+    HashMap<String, Object> map = new HashMap<>();
+    map.put("sys_country", AppDataManager.getInstance().getCountry());
+    map.put("device_uid", AppDataManager.getInstance().getAndroidId());
+    RequestBody requestBody = RequestBody.create(MediaType.parse("Content-Type, application/json"), new JSONObject(map).toString());
+    Observable<UserInfoModel> observable = apiServer.autoLogin(requestBody);
+
+    disposable.add(
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(new WristBallObserver<UserInfoModel>() {
+              @Override
+              public void onSuccess(UserInfoModel userInfoModel) {
+                //把token保存起来
+                if (userInfoModel != null) {
+                  AppLogger.d("---autoLogin--token=" + userInfoModel.getUser_info().getToken());
+                  SPUtils.put(getContext(), "token", userInfoModel.getUser_info().getToken() + "");
+                  AppDataManager.getInstance().setUserInfoModel(userInfoModel);
+                  WristBallRetrofitHelper.getInstance().updateToken(userInfoModel.getUser_info().getToken() + "");
+                  AppLogger.d(userInfoModel.getUser_info().toString());
+                }
+              }
+
+              @Override
+              public void onError(int code, String msg) {
+                //Logger.d(msg);
+              }
+            }
+        )
+    );
+  }
+
+  private void requestUserInfo() {
+    AppLogger.d("--------autoLogin----------" + AppDataManager.getInstance().getAndroidId());
+    Observable<UserInfoModel> observable = apiServer.getUserInfo();
+    disposable.add(
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(new WristBallObserver<UserInfoModel>() {
+              @Override
+              public void onSuccess(UserInfoModel userInfoModel) {
+                AppLogger.d("--MainFragment--获取个人信息成功----" + userInfoModel);
+                AppDataManager.getInstance().setUserInfoModel(userInfoModel);
+                //把token保存起来
+                WristBallRetrofitHelper.getInstance().updateToken(userInfoModel.getUser_info().getToken());
+                SPUtils.put(getActivity(), "token", userInfoModel.getUser_info().getToken());
+
+                //判断是否已经设置了团队或者个人
+                if(AccountUtil.isUserAccount() && userInfoModel.getUser_info().getIs_group() == -1) {
+                  startActivity(new Intent(getActivity(), InfoActivity.class));
+                }
+              }
+
+              @Override
+              public void onError(int code, String msg) {
+                Logger.d(msg);
+                if (code == 2) {
+                  WristBallRetrofitHelper.getInstance().updateToken(null);
+                  autoLogin();
+                }
+              }
+            }
+        )
+    );
+  }
+
+  private void stopRotateAnim() {
+    ivSpeedCircle.stop();
+  }
+
+  /**
+   * 初始化摇跑球相关数据
+   */
+  private void initWallData() {
+    userPlayId = 0;
+    challengeTarget = new Boolean[]{ false, false, false, false };
+    stopTime = 0;
+    isAbnormal = 0;
+    mMeter = 0.0f;
+    mRpmSpeed = 0;
+    mKeepPlayTime = 0;
+    mHighSpeedRPM = 0;
+    mTotalCircle = 0;
+    circleCache.clear();
+    speedCache.clear();
+    setPlayingBoard(0, 0);
+    setTimingBoard(0);
+    setSpeedBoard(0, true, false);
+    initSpeedBoard();
+
+    isMiddleKeepPlayTimeTarget = false;
+    isMiddleHalfMarathonTarget = false;
+    isSprintHalfMarathonTarget = false;
+    isMiddleMarathonTarget = false;
+    isSprintMarathonTarget = false;
+  }
+
+  /**
+   * 初始化表盘数据
+   */
+  private void initSpeedBoard() {
+    //百分比
+    circleProgressBar.initValue(0);
+    //角度
+    ivPointer.initValue(0);
+    //显示转速
+    tvSpeedRPMFormat.initValue(0);
+    //红色外圈
+    ivSpeedCircle.setValue(0);
+  }
+
+  /**
+   * 更新表盘数据
+   * @param currentRpm
+   * @param anim
+   * @param stop
+   */
+  private void setSpeedBoard(int currentRpm, boolean anim, boolean stop) {
+    //百分比
+    circleProgressBar.setValue(BallUtils.getPercentWithSpeedRPM(currentRpm), anim);
+    //角度
+    ivPointer.setValue(BallUtils.getAngleWithSpeedRPM(currentRpm), anim);
+    //显示转速
+    tvSpeedRPMFormat.setValue(currentRpm, anim, stop);
+    //红色外圈
+    ivSpeedCircle.setValue(BallUtils.getAngleWithSpeedRPM(currentRpm));
+  }
+
+  /**
+   * 更新运动数据
+   * @param maxRpm      最高转速
+   * @param totalCircle 累计圈数(单位千米)
+   */
+  public void setPlayingBoard(int maxRpm, int totalCircle) {
+    //最高速率
+    tvTurnHeightSpeedRPM.setText(String.valueOf(maxRpm));
+    //直径为5.28cm ，周长16.588cm,单位 km
+    float meter = BallUtils.getTotalMeter(totalCircle) / 1000;
+    tvTurnDistance.setText(mDecimalFormat.format(meter));
+    checkChallenge(meter * 1000, totalCircle);
+  }
+
+  /**
+   *
+   * @param timingTime 累计时间
+   */
+  private void setTimingBoard(int timingTime) {
+    mKeepPlayTime = timingTime;
+    tvTurnTime.setText(TimeUtils.formatDuration(timingTime));
+  }
+
+  private boolean isMiddleKeepPlayTimeTarget = false;
+
+  private boolean isMiddleHalfMarathonTarget = false;
+  private boolean isSprintHalfMarathonTarget = false;
+
+  private boolean isMiddleMarathonTarget = false;
+  private boolean isSprintMarathonTarget = false;
+
+  /**
+   * Tip提示
+   * @param m_meter     米
+   * @param totalCircle 圈数
+   */
+  private void checkChallenge(float m_meter, int totalCircle) {
+
+    if (mKeepPlayTime >= 10 && !isMiddleKeepPlayTimeTarget) {
+      isMiddleKeepPlayTimeTarget = true;
+      showNoticeTip(getString(R.string.tip_pleas_speed_up), getString(R.string.tip_pleas_speed_up));
+    }
+
+    if (m_meter >= halfMarathonTarget / 2 && !isMiddleHalfMarathonTarget) {
+      isMiddleHalfMarathonTarget = true;
+      showNoticeTip(getString(R.string.tip_test_your_endurance), getString(R.string.tip_test_your_endurance));
+    }
+
+    if (m_meter >= halfMarathonTarget * 5 / 6 && !isSprintHalfMarathonTarget) {
+      isSprintHalfMarathonTarget = true;
+      showNoticeTip(getString(R.string.tip_pleas_sprint_to_the_goal), getString(R.string.tip_pleas_sprint_to_the_goal));
+    }
+
+    if (m_meter >= fullMarathonTarget / 2 && !isMiddleMarathonTarget) {
+      isMiddleMarathonTarget = true;
+      showNoticeTip(getString(R.string.tip_test_your_endurance), getString(R.string.tip_test_your_endurance));
+    }
+
+    if (m_meter >= fullMarathonTarget * 11 / 12 && !isSprintMarathonTarget) {
+      isSprintMarathonTarget = true;
+      showNoticeTip(getString(R.string.tip_pleas_sprint_to_the_goal), getString(R.string.tip_pleas_sprint_to_the_goal));
+    }
+
+    //半马
+    if (m_meter >= halfMarathonTarget && !challengeTarget[0]) {
+      challengeTarget[0] = true;
+      halfMarathon = mKeepPlayTime;
+      String textTip = String.format(getString(R.string.tv_run_notice_tip_2), TimeUtils.formatDurationFull(mKeepPlayTime));
+      String voiceTip = isZhCn() ? textTip.replace("s","秒") : textTip.replace("s","second");
+      showNoticeTip(textTip, voiceTip);
+    }
+
+    //全马
+    if (m_meter >= fullMarathonTarget && !challengeTarget[1]) {
+      challengeTarget[1] = true;
+      marathon = mKeepPlayTime;
+      String textTip = String.format(getString(R.string.tv_run_notice_tip_3), TimeUtils.formatDurationFull(marathon));
+      String voiceTip = isZhCn() ? textTip.replace("s","秒") : textTip.replace("s","second");
+      showNoticeTip(textTip, voiceTip);
+      playingProgressView.setArriveTip(2, TimeUtils.formatDurationFull(marathon));
+      //全马数据提交
+      if(AccountUtil.isUserAccount()) {
+
+//        playInfo.setMarathon(5400);
+        //todo
+        playInfo.setMarathon(marathon);
+        sqlService.insertOrUpdatePlayInfo(playInfo);
+        playStop(true, true);
+      }
+    }
+
+    //新增指定时间，指定距离提交数据
+    if (mKeepPlayTime >= mExponent_molecular && mExponent_molecular > 0 && mKeepPlayTime <= mExponent_molecular && !challengeTarget[2]) {
+      challengeTarget[2] = true;
+      mMeter = m_meter;
+      String msg = mDecimalFormat.format(mMeter / 1000);
+      String tipShow = isZhCn() ? exponent_molecular_tips_zh + "，" + msg + " km" : exponent_molecular_tips_en + "," + msg + " km";
+      //语音,km中英文需要转化
+      String voiceTip = tipShow.replace("km", getString(R.string.lbl_km_unit));
+      //时间提示
+      showNoticeTip(tipShow, voiceTip);
+
+//      playingProgressView.setArriveTip(1, msg + "(km)");
+
+      //摇跑指定时间数据提交
+      if(AccountUtil.isUserAccount()) {
+        playInfo.setExponentMolecular((int) BallUtils.getTotalMeter(totalCircle));
+        sqlService.insertOrUpdatePlayInfo(playInfo);
+      }
+    }
+
+//    指定距离
+//    if (m_meter >= mExponent_denominator && mExponent_denominator > 0 && !challengeTarget[3]) {
+    if (mKeepPlayTime == mExponent_molecular && !challengeTarget[3]) {
+      challengeTarget[3] = true;
+      String tipShow = isZhCn() ? exponent_denominator_tips_zh + " " + TimeUtils.formatDurationFull(mKeepPlayTime) : exponent_denominator_tips_en + " " + TimeUtils.formatDurationFull(mKeepPlayTime);
+      //距离提示
+      showNoticeTip(tipShow, null);
+
+//      float value = new BigDecimal(mMeter + "").divide(new BigDecimal(mKeepPlayTime), 4, BigDecimal.ROUND_DOWN).multiply(new BigDecimal("60")).floatValue();
+//      float value = new BigDecimal(mMeter + "").multiply(new BigDecimal("60")).divide(new BigDecimal(mKeepPlayTime + ""), 2, BigDecimal.ROUND_HALF_UP).floatValue();
+      float value = new BigDecimal(mHighSpeedRPM).multiply(new BigDecimal(mMeter)).divide(new BigDecimal(1000 * 1000), 2, RoundingMode.HALF_UP).floatValue();
+      runball_exponent = value + "";
+      playingProgressView.setArriveTip(1, mDecimalFormat.format(mMeter / 1000) + "/" + value);
+      //半马数据提交
+      if(AccountUtil.isUserAccount()) {
+        playInfo.setDistance(mMeter);
+        playInfo.setExponentSpeedMax(mHighSpeedRPM);
+        playInfo.setExponent(value);
+        sqlService.insertOrUpdatePlayInfo(playInfo);
+      }
+    }
+  }
+
+  private boolean isZhCn(){
+    Locale locale = getResources().getConfiguration().locale;
+    String language = locale.getLanguage();
+    return language.startsWith("zh");
+  }
+
+  /**
+   * 开始运动
+   */
+  private void requestStartPlay() {
+    userPlayId = System.currentTimeMillis();
+    startPlayTime = System.currentTimeMillis() / 1000;
+    if(AccountUtil.isUserAccount()) {
+      playInfo = new PlayInfo();
+      playInfo.setUploadStatus(PlayingDataConstant.Update.STATUS_UPDATE_DEFAULT);
+      playInfo.setSqlId(userPlayId);
+      playInfo.setSource(PlayingDataConstant.PlayingSource.MATCH);
+      playInfo.setCreatedUid(Long.parseLong(AppDataManager.getInstance().getUserInfoModel().getUser_info().getUser_id()));
+      playInfo.setStartTime(startPlayTime);
+      playInfo.setInterval(500);
+      playInfo.setIsQuartets(isQuartets);
+      playInfo.setSysMatchId(sysMatchId);
+      playInfo.setSysSysMatchId(sysSysMatchId);
+      playInfo.setMatchStageId(matchStageId);
+
+      BluetoothDevice connectedDevice = BleUtils.getConnectedDevice();
+      if (connectedDevice != null) {
+        playInfo.setMac(connectedDevice.getAddress());
+      }
+      sqlService.insertOrUpdatePlayInfo(playInfo);
+    } else {
+      userPlayId = 0;
+    }
+  }
+
+  /**
+   * 运动过程中(客户端上传数据)(上传后把圈数缓存清理掉)
+   * @param circleDetail 当前运动中每个时刻的圈数
+   */
+  private void playingBetween(List<Integer> circleDetail, List<Integer> speedDetail) {
+    if (circleDetail.size() > 0) {
+      int[] tempCircleDetail = new int[circleDetail.size()];
+      for (int i = 0; i < circleDetail.size(); i++) {
+        tempCircleDetail[i] = circleDetail.get(i);
+      }
+
+      int[] tempSpeedsDetail = new int[speedDetail.size()];
+      for (int i = 0; i < speedDetail.size(); i++) {
+        tempSpeedsDetail[i] = speedDetail.get(i);
+      }
+
+      long userPlayId = playInfo.getSqlId();
+      for (int itemData : tempSpeedsDetail) {
+        SpeedDetail newSpeedDetail = new SpeedDetail();
+        newSpeedDetail.setUserPlayId(userPlayId);
+        newSpeedDetail.setSpeed(itemData);
+        sqlService.insertOrUpdateSpeedDetail(newSpeedDetail);
+      }
+      stopTime = System.currentTimeMillis() / 1000;
+      playInfo.setStopTime(stopTime);
+      playInfo.setCircleCount(mTotalCircle);
+      playInfo.setMaxSpeed(mHighSpeedRPM);
+      //       playInfo.setMaxEndurance();
+      float distance = BallUtils.getTotalMeter(mTotalCircle);
+      playInfo.setDistance(distance);
+      playInfo.setDuration(mKeepPlayTime);
+      playInfo.setUploadStatus(PlayingDataConstant.Update.STATUS_UPDATE_DEFAULT);
+      sqlService.insertOrUpdatePlayInfo(playInfo);
+    }
+  }
+
+  /**
+   * 发送结束标记
+   */
+  private void playStop(boolean isFinish, boolean isShowCard) {
+    if (isUploading) {
+      return;
+    }
+    if (playInfo == null) {
+      return;
+    }
+    if(AccountUtil.isUserAccount()) {
+      PlayInfo data = sqlService.queryPlayInfo(userPlayId);
+      uploadLocalMatchPlayV3(data, isFinish, isShowCard);
+    }
+  }
+
+  private void uploadLocalMatchPlayV3(PlayInfo data, boolean isFinish, boolean isShowCard) {
+    isUploading = true;
+    if (data == null) {
+      if (getActivity() != null) {
+        getActivity().finish();
+      }
+      return;
+    }
+    List<SpeedDetail> speedDetailData = sqlService.querySpeedDetail(data.getSqlId());
+    List<Integer> speedDetail = new ArrayList<>();
+    for (int i = 0; i < speedDetailData.size(); i++) {
+      SpeedDetail itemSpeedDetail = speedDetailData.get(i);
+      speedDetail.add(itemSpeedDetail.getSpeed());
+    }
+    Integer[] speedDetailArr = speedDetail.toArray(new Integer[0]);
+//    data.setSpeedDetail(new Gson().toJson(speedDetailArr));
+    data.setUploadStatus(PlayingDataConstant.Update.STATUS_UPDATE_UPLOADING);
+
+    if (loadupCommonDialog == null) {
+      loadupCommonDialog = new AssociationCommonTipDialog(AssociationMatchFragment.this.getContext());
+      loadupCommonDialog.setContent(getString(R.string.tip_uploading_result));
+    }
+    HashMap<String, Object> map = new HashMap<>();
+    map.put("source", data.getSource());
+    map.put("exponent_molecular", data.getExponentMolecular());
+    map.put("endurance_max", data.getMaxEndurance());
+    map.put("is_abnormal", data.getIsAbnormal());
+    map.put("sys_match_id", data.getSysMatchId());
+    map.put("sys_sys_match_id", data.getSysSysMatchId());
+    map.put("matchs_stage_id", data.getMatchStageId());
+    map.put("stop_time", data.getStopTime());
+    map.put("start_time", data.getStartTime());
+    map.put("interval", data.getInterval());
+    map.put("created_uid", data.getCreatedUid());
+    map.put("speed_max", data.getMaxSpeed());
+    map.put("exponent", data.getExponent());
+    map.put("marathon", data.getMarathon());
+    map.put("is_quartets", data.getIsQuartets());
+    map.put("duration", data.getDuration());
+    map.put("distance", data.getDistance());
+    map.put("circle_count", data.getCircleCount());
+    map.put("exponent_denominator", data.getExponentDenominator());
+    map.put("exponent_speed_max", data.getExponentSpeedMax());
+    map.put("speed_detail", new Gson().toJson(speedDetailArr));
+    RequestBody requestBody = RequestBody.create(MediaType.parse("Content-Type, application/json"), new JSONObject(map).toString());
+    Observable<Object> observable = apiServer.uploadLocalMatchPlayV3(requestBody);
+    disposable.add(
+        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(new WristBallObserver<Object>() {
+              @Override
+              public void onSuccess(Object o) {
+//                data.setUploadStatus(PlayingDataConstant.Update.STATUS_UPDATE_SUCCESS);
+//                sqlService.insertOrUpdatePlayInfo(data);
+                sqlService.deletePlayInfo(data.getSqlId());
+                sqlService.deleteSpeedDetail(data.getSqlId());
+                isUploading = false;
+                if (loadupCommonDialog != null) {
+                  loadupCommonDialog.dismiss();
+                  loadupCommonDialog = null;
+                }
+                if (stopedCommonDialog != null) {
+                  stopedCommonDialog.dismiss();
+                  stopedCommonDialog = null;
+                }
+                if (isShowCard) {
+                  showShareCardDialog(isFinish);
+                }
+              }
+              @Override
+              public void onError(int code, String msg) {
+                data.setUploadStatus(PlayingDataConstant.Update.STATUS_UPDATE_FAIL);
+                sqlService.insertOrUpdatePlayInfo(data);
+                if (loadupCommonDialog != null) {
+                  loadupCommonDialog.dismiss();
+                  loadupCommonDialog = null;
+                }
+                AssociationCommonDialog loadupErrorDialog = new AssociationCommonDialog(AssociationMatchFragment.this.getContext());
+                loadupErrorDialog.setContent(getString(R.string.tip), getString(R.string.tip_upload_result_fail));
+                loadupErrorDialog.addBtn(getString(R.string.btn_upload_later), false, commonDialog -> {
+                  isUploading = false;
+                  commonDialog.dismiss();
+                });
+                loadupErrorDialog.addBtn(getString(R.string.btn_upload_again), true, commonDialog -> {
+                  commonDialog.dismiss();
+                  uploadLocalMatchPlayV3(data, isFinish, isShowCard);
+                });
+              }
+            })
+    );
+  }
+
+//  private void uploadLocalMatchPlayV2(PlayInfo data, boolean isFinish, boolean isShowCard) {
+//    if (data == null) {
+//      if (getActivity() != null) {
+//        getActivity().finish();
+//      }
+//      return;
+//    }
+//    List<SpeedDetail> speedDetailData = sqlService.querySpeedDetail(data.getSqlId());
+//    List<Integer> speedDetail = new ArrayList<>();
+//    for (int i = 0; i < speedDetailData.size(); i++) {
+//      SpeedDetail itemSpeedDetail = speedDetailData.get(i);
+//      speedDetail.add(itemSpeedDetail.getSpeed());
+//    }
+//    Integer[] speedDetailArr = speedDetail.toArray(new Integer[0]);
+//    data.setSpeedDetail(speedDetailArr);
+//    data.setStatus(PlayingDataConstant.Update.STATUS_UPDATE_UPLOADING);
+//    File file = new File(AssociationMatchFragment.this.getContext().getExternalFilesDir(null).getAbsolutePath() + "/play_data.json");
+//    try {
+//      if(!file.exists()){
+//        file.createNewFile();
+//      }
+//      FileWriter fileWriter = new FileWriter(file);
+//      fileWriter.write(new Gson().toJson(data));
+//      fileWriter.close();
+//    } catch (IOException e) {
+//      e.printStackTrace();
+//      return;
+//    }
+//    if (loadupCommonDialog == null) {
+//      loadupCommonDialog = new AssociationCommonTipDialog(AssociationMatchFragment.this.getContext());
+//      loadupCommonDialog.setContent("正在上传成绩");
+//    }
+//
+//    MultipartBody.Part part = uploadFile("file", file);
+//    UpLoadInfoModel upLoadInfoModel = App.self().getUpLoadInfoModel();
+//    Observable<ResponseBody> observable = apiServer.uploadLocalMatchPlayV2(upLoadInfoModel.getDomainName() + upLoadInfoModel.getPlayUrl(), part);
+//    disposable.add(
+//        observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+//            .subscribeWith(new WristBallObserver<ResponseBody>() {
+//              @Override
+//              public void onSuccess(ResponseBody o) {
+//                data.setStatus(PlayingDataConstant.Update.STATUS_UPDATE_SUCCESS);
+//                sqlService.insertOrUpdatePlayInfo(data);
+//                if (loadupCommonDialog != null) {
+//                  loadupCommonDialog.dismiss();
+//                  loadupCommonDialog = null;
+//                }
+//                if (stopedCommonDialog != null) {
+//                  stopedCommonDialog.dismiss();
+//                  stopedCommonDialog = null;
+//                }
+//                if (isShowCard) {
+//                  showShareCardDialog(isFinish);
+//                }
+//              }
+//              @Override
+//              public void onError(int code, String msg) {
+//                data.setStatus(PlayingDataConstant.Update.STATUS_UPDATE_FAIL);
+//                sqlService.insertOrUpdatePlayInfo(data);
+//                if (loadupCommonDialog != null) {
+//                  loadupCommonDialog.dismiss();
+//                  loadupCommonDialog = null;
+//                }
+//                AssociationCommonDialog loadupErrorDialog = new AssociationCommonDialog(AssociationMatchFragment.this.getContext());
+//                loadupErrorDialog.setContent(getString(R.string.tip), "成绩上传失败，是否重新上传？");
+//                loadupErrorDialog.addBtn("稍后重传", false, commonDialog -> {
+//                  commonDialog.dismiss();
+//                });
+//                loadupErrorDialog.addBtn("重新上传", true, commonDialog -> {
+//                  commonDialog.dismiss();
+//                  uploadLocalMatchPlayV2(data, isFinish, isShowCard);
+//                });
+//              }
+//            })
+//    );
+//  }
+//
+//  public MultipartBody.Part uploadFile(String fileName, File file){
+//    RequestBody requestBody = getRequestBody(file);
+//    MultipartBody.Part part = MultipartBody.Part.createFormData(fileName, file.getName(), requestBody);
+//    return part;
+//  }
+//
+//  public RequestBody getRequestBody(File file){
+//    MediaType mediaType = MediaType.parse("text/x-markdown; charset=utf-8");
+//    RequestBody fileBody = RequestBody.create(mediaType, file);
+//    return fileBody;
+//  }
+
+  @Subscribe(threadMode = ThreadMode.MAIN)
+  public void onServiceNoticeEvent(ServiceNoticeEvent event) {
+    switch (event.getCode()) {
+//            case ServiceNoticeConstant.CODE_SCAN_START: {
+//
+//            } break;
+//            case ServiceNoticeConstant.CODE_SCAN_DEVICE: {
+//
+//            } break;
+//            case ServiceNoticeConstant.CODE_SCAN_FINISHED: {
+//
+//            } break;
+//            case ServiceNoticeConstant.CODE_CONNECT_START: {
+//
+//            } break;
+      case ServiceNoticeConstant.CODE_CONNECT_SUCCESS: {
+        if (playInfo == null) {
+          initWallData();
+        }
+        BallInfo data = (BallInfo) event.getData();
+        String name = data.getName();
+        name = DeviceUtils.getDeviceNickname(this.getContext(), name);
+        String str = String.format(getString(R.string.connected_device_finished2), name);
+        showSnackBarInConnecting(str);
+      } break;
+//            case ServiceNoticeConstant.CODE_CONNECT_FAIL: {
+//
+//            } break;
+      case ServiceNoticeConstant.CODE_CONNECT_FINISHED: {
+        stopRotateAnim();
+        setSpeedBoard(0, true, false);
+        initSpeedBoard();
+        continueCircle = mTotalCircle;
+        showSnackBarNotConnect(getString(R.string.wall_ball_disconnected));
+
+        if (commonDialog != null) {
+          commonDialog.dismiss();
+          commonDialog = null;
+        }
+        if (stopedCommonDialog != null) {
+          stopedCommonDialog.dismiss();
+          stopedCommonDialog = null;
+        }
+        if (!AssociationShareCardDialog.isShowing()) {
+          commonDialog = new AssociationCommonDialog(AssociationMatchFragment.this.getContext());
+          commonDialog.setContent(null, this.getString(R.string.dialog_text_playing_bluetooth_disconnected));
+          commonDialog.addBtn(getString(R.string.dialog_btn_text_connect), true, commonDialog -> {
+            toAddDeviceInfoActivity();
+          });
+          commonDialog.addBtn(getString(R.string.dialog_btn_text_continue_stop), false, commonDialog -> {
+            commonDialog.dismiss();
+            playStop(true, true);
+          });
+        }
+      } break;
+      case ServiceNoticeConstant.CODE_NOTIFY_RUN_START: {
+        if (isUploading) {
+          return;
+        }
+        isFirst = false;
+        // 运动准备
+        BluetoothDevice connectedDevice = BleUtils.getConnectedDevice();
+        if (connectedDevice == null) {
+          return;
+        }
+        if (playInfo == null || !playInfo.getMac().equals(connectedDevice.getAddress())) {
+          hiddenNoticeTip();
+          initWallData();
+          requestStartPlay();
+          EventBus.getDefault().post(new ServiceSendEvent<>(ServiceSendConstant.CODE_START_MATCH_TIMING));
+          continueCircle = 0;
+        }
+      } break;
+      case ServiceNoticeConstant.CODE_NOTIFY_RUNNING: {
+        if (isUploading) {
+          return;
+        }
+        if (isFirst) {
+          if (pleaseStopCommonDialog == null) {
+            pleaseStopCommonDialog = new AssociationCommonTipDialog(AssociationMatchFragment.this.getContext());
+            pleaseStopCommonDialog.setContent(getString(R.string.tip_please_stop_and_wind_up_the_ball));
+            pleaseStopCommonDialog.setReturn(() -> {
+              Activity activity = getActivity();
+              if (activity != null) {
+                activity.finish();
+              }
+            });
+          }
+        } else {
+          if (pleaseStopCommonDialog != null) {
+            pleaseStopCommonDialog.dismiss();
+            pleaseStopCommonDialog = null;
+          }
+          if (commonDialog != null) {
+            commonDialog.dismiss();
+            commonDialog = null;
+          }
+          if(AccountUtil.isUserAccount()) {
+            if(playInfo != null) {
+              if (!ivShareEntry.isEnabled()) {
+                ivShareEntry.setEnabled(true);
+              }
+              if (!ivStop.isEnabled()) {
+                ivStop.setEnabled(true);
+              }
+            }
+          }
+        }
+
+        if (isFirst) {
+          return;
+        }
+
+        BallRunDetail ballDetail = (BallRunDetail) event.getData();
+        int circle = ballDetail.getCircle();
+        int speed = ballDetail.getSpeed();
+//        int runningTime = ballDetail.getTime();
+//        mKeepPlayTime = runningTime;
+        mRpmSpeed = speed;
+        //最大转速
+        mHighSpeedRPM = Math.max(mHighSpeedRPM, speed);
+        //总圈数
+        mTotalCircle = continueCircle + circle;
+
+        AppLogger.d(
+            "PRETTY_LOGGER --腕力球圈数---" +
+                " circle = " + mTotalCircle +
+                " runningTime = " + mKeepPlayTime +
+                " speed = " + mRpmSpeed +
+                " maxSpeed = " + mHighSpeedRPM
+        );
+
+        // 检查作弊
+        checkCheat(mRpmSpeed);
+
+        setSpeedBoard(speed, true, true);
+        setPlayingBoard(mHighSpeedRPM, mTotalCircle);
+
+        circleCache.add(circle);
+        speedCache.add(speed);
+      } break;
+      case ServiceNoticeConstant.CODE_NOTIFY_RUN_FINISH: {
+        continueCircle = mTotalCircle;
+        stopRotateAnim();
+        setSpeedBoard(0, true, false);
+        initSpeedBoard();
+
+        if (isUploading) {
+          return;
+        }
+
+        if (commonDialog != null) {
+          commonDialog.dismiss();
+          commonDialog = null;
+        }
+        if (stopedCommonDialog != null) {
+          stopedCommonDialog.dismiss();
+          stopedCommonDialog = null;
+        }
+        if (pleaseStopCommonDialog == null && !AssociationShareCardDialog.isShowing()) {
+          stopedCommonDialog = new AssociationCommonDialog(AssociationMatchFragment.this.getContext());
+          stopedCommonDialog.setContent(getString(R.string.tip), this.getString(R.string.dialog_text_playing_stop));
+          stopedCommonDialog.addBtn(getString(R.string.dialog_btn_text_continue), false, commonDialog -> {
+            commonDialog.dismiss();
+            stopedCommonDialog = null;
+          });
+          stopedCommonDialog.addBtn(getString(R.string.dialog_btn_text_continue_stop), true, commonDialog -> {
+            playStop(true, true);
+          });
+        } else {
+          pleaseStopCommonDialog.dismiss();
+          pleaseStopCommonDialog = null;
+          showNoticeTip(getString(R.string.tip_pleas_play_device), getString(R.string.tip_pleas_play_device));
+        }
+
+      } break;
+      case ServiceNoticeConstant.CODE_NOTIFY_TOTAL_TIME: {
+
+      } break;
+      case ServiceNoticeConstant.CODE_NOTIFY_ELECTRICITY: {
+        int electricity = (int) event.getData();
+        if (electricity <= 20) {
+          tvPower.setTextColor(Color.parseColor("#E26863"));
+        } else {
+          tvPower.setTextColor(Color.parseColor("#FFFFFF"));
+        }
+        tvPower.setText(electricity + "%");
+      } break;
+      case ServiceNoticeConstant.CODE_NOTIFY_MATCH_TIME: {
+        MatchTimingInfo data = (MatchTimingInfo) event.getData();
+        int timingTime = data.getTime();
+        boolean isRunning = data.isPlaying();
+        setTimingBoard(timingTime);
+
+        AppLogger.d("ServiceNoticeConstant.CODE_NOTIFY_MATCH_TIME matchRunningTime = " + timingTime + ", isRunning = " + isRunning);
+
+        playingProgressView.setProgressValue(mKeepPlayTime, BallUtils.getTotalMeter(mTotalCircle));
+        if (mKeepPlayTime == 60 && mMeter <= 0) {
+          String msg = mDecimalFormat.format(BallUtils.getTotalMeter(mTotalCircle) / 1000);
+          String tipShow = isZhCn() ? exponent_molecular_tips_zh + "，" + msg + " km" : exponent_molecular_tips_en + "," + msg + " km";
+          //语音,km中英文需要转化
+          String voiceTip = tipShow.replace("km", getString(R.string.lbl_km_unit));
+          //时间提示
+          showNoticeTip(tipShow, voiceTip);
+          playingProgressView.setArriveTip(1, msg + "(km)/0.0");
+        }
+
+        if (mKeepPlayTime > 0 && mKeepPlayTime % 3 == 0) {
+          if (isRunning) {
+            if (circleCache.size() == 0) {
+              circleCache.add(0);
+            }
+            if (speedCache.size() == 0) {
+              speedCache.add(0);
+            }
+          }
+          // 圈数
+          List<Integer> tempCircles = new ArrayList<>(circleCache);
+          circleCache.clear();
+          // 转速
+          List<Integer> tempSpeeds = new ArrayList<>(speedCache);
+          speedCache.clear();
+
+          //运动过程中传递数据(差异数据)
+          if (tempCircles.size() > 0 && tempSpeeds.size() > 0) {
+            if (userPlayId > 0) {
+              playingBetween(tempCircles, tempSpeeds);
+            }
+          }
+        }
+      } break;
+    }
+  }
+
+  private void startTimingExecutor() {
+    stopTimingExecutor();
+    timingExecutor = Executors.newScheduledThreadPool(1);
+    timingExecutor.scheduleAtFixedRate(() -> {
+      long curSeconds = new Date().getTime() / 1000;
+      long endSeconds = matchEndTime.getTime();
+      if (curSeconds < endSeconds) {
+        long surplusSeconds = (endSeconds - curSeconds);
+        long day = surplusSeconds / 60 / 60 / 24;
+        long hour = (surplusSeconds - day * 60 * 60 * 24) / 60 / 60;
+        long minute = (surplusSeconds - day * 60 * 60 * 24 - hour * 60 * 60) / 60 ;
+        long second = surplusSeconds - day * 60 * 60 * 24 - hour * 60 * 60 - minute * 60;
+        mHandler.postDelayed(() -> {
+          if (day < 10) {
+            tvDay.setText("0" + day);
+          } else {
+            tvDay.setText(day + "");
+          }
+          if (hour < 10) {
+            tvHour.setText("0" + hour);
+          } else {
+            tvHour.setText(hour + "");
+          }
+          if (minute < 10) {
+            tvMinute.setText("0" + minute);
+          } else {
+            tvMinute.setText(minute + "");
+          }
+          if (second < 10) {
+            tvSecond.setText("0" + second);
+          } else {
+            tvSecond.setText(second + "");
+          }
+        }, 1);
+      } else {
+        stopTimingExecutor();
+        if (playInfo != null) {
+          playStop(true, true);
+        }
+      }
+    }, 1, 1, TimeUnit.SECONDS);
+  }
+
+  private void stopTimingExecutor() {
+    if (timingExecutor != null) {
+      timingExecutor.shutdownNow();
+      timingExecutor = null;
+    }
+  }
+
+//  @Subscribe(threadMode = ThreadMode.MAIN)
+//  public void onMessageEvent(MessageEvent event) {
+//    if (event.getEvetId() == MessageEvent.STATE_APP_TO_BACKSTAGE) {
+//
+//    } else if (event.getEvetId() == MessageEvent.STATE_APP_TO_FOREGROUND) {
+//
+//    }
+//  }
+
+  public void onClick(View v) {
+    if(v.getId() == R.id.lyAction){
+      toAddDeviceInfoActivity();
+    } else if (v.getId() == R.id.ivShareEntry) {
+      showShareCardDialog(false);
+    } else if (v.getId() == R.id.ivStop) {
+      AssociationCommonDialog stopDialog = new AssociationCommonDialog(this.getContext());
+      stopDialog.setContent(null, getString(R.string.dialog_text_stop));
+      stopDialog.addBtn(getString(R.string.dialog_btn_text_continue), false, commonDialog -> {
+        commonDialog.dismiss();
+      });
+      stopDialog.addBtn(getString(R.string.dialog_btn_text_continue_stop), true, commonDialog -> {
+        commonDialog.dismiss();
+        playStop(true, true);
+      });
+    } else if (v.getId() == R.id.ivNoticeSwitch) {
+      boolean isOpenNotice = (boolean) SPUtils.get(AssociationMatchFragment.this.getContext(), "isOpenNotice", true);
+      if (isOpenNotice) {
+        SPUtils.put(AssociationMatchFragment.this.getContext(), "isOpenNotice", false);
+        ivNoticeSwitch.setImageResource(R.mipmap.icon_notice_stop);
+      } else {
+        SPUtils.put(AssociationMatchFragment.this.getContext(), "isOpenNotice", true);
+        ivNoticeSwitch.setImageResource(R.mipmap.icon_notice);
+      }
+    }
+  }
+
+  public void showSnackBarChanged() {
+    BluetoothDevice connectedDevice = BleUtils.getConnectedDevice();
+    if (connectedDevice == null) {
+      showSnackBarNotConnect(getString(R.string.wall_ball_to_connected));
+      return;
+    }
+    if (commonDialog != null) {
+      commonDialog.dismiss();
+      commonDialog = null;
+    }
+    String deviceName = connectedDevice.getName();
+    deviceName = DeviceUtils.getDeviceNickname(this.getContext(), deviceName);
+    String str = String.format(getString(R.string.connected_device_finished2), deviceName);
+    showSnackBarInConnecting(str);
+  }
+
+  private void showSnackBarInConnecting(CharSequence text) {
+    tvTip.setText(text);
+    tvPower.setVisibility(View.VISIBLE);
+    tvAction.setVisibility(View.GONE);
+  }
+
+  private void showSnackBarNotConnect(CharSequence text) {
+    tvTip.setText(text);
+    tvPower.setVisibility(View.GONE);
+    tvAction.setVisibility(View.VISIBLE);
+  }
+
+  private void showShareTargetDialog(Bitmap bitmap, boolean isEnd) {
+    if (getActivity() == null || getActivity().isFinishing()) {
+      return;
+    }
+    ShareTargetDialog dialog = new ShareTargetDialog();
+    dialog.show(AssociationMatchFragment.this.getContext(), new ShareTargetDialog.ConfirmCallBack() {
+      @Override
+      public void onCancel() {
+
+      }
+      @Override
+      public void onShareTarget(ShareTargetDialog.ShareTarget shareTarget) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+          if (ActivityCompat.checkSelfPermission(AssociationMatchFragment.this.requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(AssociationMatchFragment.this.requireActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 188);
+            return;
+          }
+        }
+        ShareManage shareManage = new ShareManage();
+        shareManage.shareBitmap(AssociationMatchFragment.this.getActivity(), shareTarget.getType(), bitmap, new ShareManage.ShareCallback() {
+          @Override
+          public void onStart() {
+
+          }
+          @Override
+          public void onResult() {
+            AssociationShareCardDialog.dismiss();
+            ShareCardDialog.dismiss();
+            if (isEnd) {
+              Activity activity = getActivity();
+              if (activity != null) {
+                activity.finish();
+              }
+            }
+          }
+          @Override
+          public void onError(Throwable throwable) {
+
+          }
+          @Override
+          public void onCancel() {
+            AssociationShareCardDialog.dismiss();
+          }
+        });
+      }
+    });
+  }
+
+  private void showShareCardDialog(boolean isEnd) {
+    if (getActivity() == null || getActivity().isFinishing()) {
+      return;
+    }
+    AssociationShareCardDialog.show(
+        AssociationMatchFragment.this.getContext(),
+        joinMatchUnits,
+        AppDataManager.getInstance().getUserInfoModel().getUser_info().getUser_name(),
+        AppDataManager.getInstance().getUserInfoModel().getUser_info().getAddress(),
+        AppDataManager.getInstance().getUserInfoModel().getUser_info().getUser_img(),
+        stopTime * 1000, mMeter / 1000, Float.parseFloat(runball_exponent),
+        halfMarathon, marathon,
+        mHighSpeedRPM + "",
+        BallUtils.getTotalMeter(mTotalCircle) / 1000,
+        TimeUtils.formatDuration(mKeepPlayTime),
+        QrCodeConstant.WECHAT_OFFICIAL_ACCOUNTS_URL,
+        new AssociationShareCardDialog.ConfirmCallBack() {
+          @Override
+          public void onOther() {
+            AssociationCommonDialog dialog = new AssociationCommonDialog(AssociationMatchFragment.this.getContext());
+            dialog.setContent(getString(R.string.tip), getString(R.string.tip_whether_to_exit_match_mode));
+            dialog.addBtn(getString(R.string.btn_once_more), false, commonDialog -> {
+              commonDialog.dismiss();
+              hiddenNoticeTip();
+              initWallData();
+//              requestStartPlay();
+              playInfo = null;
+              isFirst = true;
+
+              EventBus.getDefault().post(new ServiceSendEvent<>(ServiceSendConstant.CODE_CLOSE_MATCH_TIMING));
+//              stopTimingExecutor();
+
+              List<NodeInfo> nodeInfoList = new ArrayList<>();
+//              nodeInfoList.add(new NodeInfo(NodeConstant.TYPE_EXPONENT, mExponent_denominator, getString(R.string.lbl_match_tab_rank_1), "(" + mExponent_denominator / 1000 + "km)", "0.00", 0.6F));
+              nodeInfoList.add(new NodeInfo(NodeConstant.TYPE_DISTANCE, fullMarathonTarget, getString(R.string.lbl_match_tab_rank_4), "(" + fullMarathonTarget / 1000 + "km)", "0.00", 1F));
+              playingProgressView.setProgressNode(new NodeInfo(NodeConstant.TYPE_TIME, mExponent_molecular, getString(R.string.lbl_match_tab_rank_3) + "/" + getString(R.string.lbl_match_tab_rank_1), "(60s)/0.0", "0.000km/0.0", 0.2F), nodeInfoList);
+            });
+            dialog.addBtn(getString(R.string.btn_exit), true, commonDialog -> {
+              commonDialog.dismiss();
+              Activity activity = getActivity();
+              if (activity != null) {
+                activity.finish();
+              }
+            });
+          }
+          @Override
+          public void onCancel() {
+
+          }
+          @Override
+          public void onMore() {
+            if (commonDialog != null) {
+              commonDialog.dismiss();
+              commonDialog = null;
+            }
+            hiddenNoticeTip();
+            initWallData();
+//              requestStartPlay();
+            isFirst = true;
+            playInfo = null;
+            EventBus.getDefault().post(new ServiceSendEvent<>(ServiceSendConstant.CODE_CLOSE_MATCH_TIMING));
+
+            List<NodeInfo> nodeInfoList = new ArrayList<>();
+//            nodeInfoList.add(new NodeInfo(NodeConstant.TYPE_EXPONENT, mExponent_denominator, getString(R.string.lbl_match_tab_rank_1), "(" + mExponent_denominator / 1000 + "km)", "0.00", 0.6F));
+            nodeInfoList.add(new NodeInfo(NodeConstant.TYPE_DISTANCE, fullMarathonTarget, getString(R.string.lbl_match_tab_rank_4), "(" + fullMarathonTarget / 1000 + "km)", "0.00", 1F));
+            playingProgressView.setProgressNode(new NodeInfo(NodeConstant.TYPE_TIME, mExponent_molecular, getString(R.string.lbl_match_tab_rank_3) + "/" + getString(R.string.lbl_match_tab_rank_1), "(60s)/0.0", "0.000km/0.0", 0.2F), nodeInfoList);
+          }
+          @Override
+          public void onShare(Bitmap bitmap) {
+            showShareTargetDialog(bitmap, isEnd);
+          }
+        }, isEnd);
+  }
+
+  private void showNoticeTip(String textTip, String voiceTip) {
+    layNotice.setVisibility(View.VISIBLE);
+    tvNoticeTip.setText(textTip);
+    tvNoticeTip.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+    tvNoticeTip.setSingleLine(true);
+    tvNoticeTip.setSelected(true);
+    if (!TextUtils.isEmpty(voiceTip) && (boolean) SPUtils.get(AssociationMatchFragment.this.getContext(), "isOpenNotice", true)) {
+      SpeechUtils.getInstance(getContext()).speakText(voiceTip);
+    }
+  }
+
+  private void hiddenNoticeTip() {
+    layNotice.setVisibility(View.INVISIBLE);
+  }
+
+  /**
+   * 作弊提示
+   * @param rpmSpeed
+   */
+  private void checkCheat(int rpmSpeed){
+    if (AppDataManager.getInstance().getErrSpeeds().size() > 0) {
+      int len = AppDataManager.getInstance().getErrSpeeds().size();
+      for(int index = 0; index < len; index++){
+        ErrSpeed err = AppDataManager.getInstance().getErrSpeeds().get(index);
+        if ((int) (err.getTime()) == mKeepPlayTime && err.getMax_speed() <= rpmSpeed) {
+//                   Toast.makeText(getContext(), R.string.data_err_tip, Toast.LENGTH_LONG).show();
+          isAbnormal = 1;
+          if(AccountUtil.isUserAccount()) {
+            playInfo.setIsAbnormal(isAbnormal);
+            sqlService.insertOrUpdatePlayInfo(playInfo);
+          }
+          break;
+        }
+      }
+    }
+  }
+
+}

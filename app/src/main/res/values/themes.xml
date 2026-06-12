@@ -1,0 +1,30 @@
+<resources>
+
+  <style name="AppTheme.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+  </style>
+
+  <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+  <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+  <style name="progressbar_close_in" parent="@android:style/Widget.ProgressBar.Horizontal">
+    <item name="android:height">6dp</item>
+    <item name="android:indeterminateOnly">false</item>
+    <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
+  </style>
+
+<!--  <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">-->
+<!--    <item name="android:textSize">18sp</item>-->
+<!--    <item name="android:textColor">#FFFFFF</item>-->
+<!--    <item name="android:gravity">center</item>-->
+<!--  </style>-->
+
+<!--  <style name="Toolbar.Subtitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">-->
+<!--    <item name="android:textSize">12sp</item>-->
+<!--    <item name="android:textColor">#FFF6A7</item>-->
+<!--    <item name="android:gravity">center</item>-->
+<!--  </style>-->
+
+</resources>

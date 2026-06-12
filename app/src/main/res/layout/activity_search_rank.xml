@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+      android:id="@+id/ivReturn"
+      android:layout_width="26dp"
+      android:layout_height="26dp"
+      android:layout_gravity="center"
+      android:layout_marginLeft="10dp"
+      android:src="@mipmap/btn_return"/>
+
+    <androidx.cardview.widget.CardView
+      android:layout_width="0dp"
+      android:layout_height="30dp"
+      app:cardCornerRadius="14dp"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      app:cardBackgroundColor="#28272A"
+      android:layout_weight="1">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
+        android:gravity="center_vertical">
+
+        <EditText
+          android:id="@+id/etSearch"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@null"
+          android:drawableLeft="@mipmap/ic_search_gary"
+          android:inputType="text"
+          android:lines="1"
+          android:textSize="14sp"
+          android:textColor="#FFFFFF"
+          android:textColorHint="#ADADAD"
+          android:hint="@string/hint_search"/>
+
+      </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+      android:id="@+id/tvMenu"
+      android:layout_width="26dp"
+      android:layout_height="26dp"
+      android:layout_centerVertical="true"
+      android:layout_gravity="center"
+      android:layout_marginRight="10dp"
+      android:src="@mipmap/filter" />
+
+  </LinearLayout>
+
+  <TextView
+    android:id="@+id/tvArea"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
+    android:gravity="center"
+    android:textColor="#FFFFFF"
+    android:textSize="20sp"
+    tools:text="aaaaa"/>
+
+  <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    app:cardBackgroundColor="#28272A"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:showDividers="middle"
+      android:divider="@drawable/divider_horizontal"
+      android:dividerPadding="4dp"
+      android:orientation="horizontal">
+
+      <TextView
+        android:id="@+id/tabPersonalRank"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#F7DC29"
+        android:text="@string/tab_personal_rank"/>
+
+      <TextView
+        android:id="@+id/tabClanRank"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#888888"
+        android:text="@string/tab_clan_rank"/>
+
+    </LinearLayout>
+
+  </androidx.cardview.widget.CardView>
+
+  <net.lucode.hackware.magicindicator.MagicIndicator
+    android:id="@+id/personalIndicator"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    app:tabGravity="fill"
+    app:tabMode="fixed"
+    android:visibility="gone"
+    tools:visibility="visible"/>
+
+  <androidx.viewpager2.widget.ViewPager2
+    android:id="@+id/personalViewPager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:scrollbars="none"
+    android:visibility="gone"
+    tools:visibility="visible" />
+
+  <net.lucode.hackware.magicindicator.MagicIndicator
+    android:id="@+id/teamIndicator"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    app:tabGravity="fill"
+    app:tabMode="fixed"
+    android:visibility="gone" />
+
+  <androidx.viewpager2.widget.ViewPager2
+    android:id="@+id/teamViewPager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:scrollbars="none"
+    android:visibility="gone" />
+
+</LinearLayout>

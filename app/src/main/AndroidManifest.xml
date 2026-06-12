@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.cloud.runball">
+
+  <!-- 网络访问权限 -->
+  <uses-permission android:name="android.permission.BLUETOOTH" />
+  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <!-- google play store 您需要将READ_PHONE_STATE权限屏蔽掉或者移除，否则可能会被下架-->
+  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+  <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+  <!-- Declare the Bluetooth permission Android6.0系统以上开启蓝牙还需要定位权限，定位权限属于危险权限，需要动态申请 android Q版本-->
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+  <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+  <uses-permission
+    android:name="android.permission.READ_LOGS"
+    tools:ignore="ProtectedPermissions" />
+
+  <!--必须要有硬件设备-->
+  <uses-feature
+    android:name="android.hardware.bluetooth_le"
+    android:required="true" />
+
+  <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+  <application
+    android:name=".App"
+    android:allowBackup="false"
+    android:icon="@mipmap/logo"
+    android:label="@string/app_name"
+    android:largeHeap="true"
+    android:configChanges="locale"
+    android:networkSecurityConfig="@xml/network_config"
+    android:resizeableActivity="false"
+    android:theme="@style/AppTheme">
+
+    <!--设置多渠道打包的变量-->
+    <meta-data
+      android:name="UMENG_CHANNEL"
+      android:value="${UMENG_CHANNEL_VALUE}" />
+    <meta-data
+      android:name="UMENG_APPKEY"
+      android:value="60069a05f1eb4f3f9b6605ee" />
+
+    <!--facebook需要
+    <meta-data
+        android:name="com.facebook.sdk.ApplicationId"
+        android:value="@string/facebook_app_id" />
+
+    <activity
+        android:name="com.facebook.FacebookActivity"
+        android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        android:label="@string/app_name" />
+    <activity
+        android:name="com.facebook.CustomTabActivity"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="com.bubbledragon.bubble" />
+        </intent-filter>
+    </activity>
+
+    <provider
+        android:name="com.facebook.FacebookContentProvider"
+        android:authorities="com.facebook.app.FacebookContentProvider920607028308613"
+        android:exported="true" />
+
+     -->
+
+    <!--        <provider-->
+    <!--            android:name="androidx.core.content.FileProvider"-->
+    <!--            android:authorities="${applicationId}.fileprovider"-->
+    <!--            android:exported="false"-->
+    <!--            android:grantUriPermissions="true">-->
+    <!--            <meta-data-->
+    <!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+    <!--                tools:replace="android:resource"-->
+    <!--                android:resource="@xml/file_paths" />-->
+    <!--        </provider>-->
+
+    <activity
+      android:name=".module.mine.MineScoreActivity"
+      android:label="@string/title_mine_score"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:theme="@style/AppTheme.NoActionBar"/>
+
+    <activity
+      android:name=".module.mine.MineDataDetailActivity"
+      android:label="@string/title_data_detail"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:theme="@style/AppTheme.NoActionBar"/>
+
+    <activity
+      android:name=".module.match.MatchDetailActivity"
+      android:theme="@style/AppTheme2"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/match_detail_title"/>
+
+    <activity
+      android:name=".module.mine.MatchSignUpActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_sign_up"/>
+
+    <activity
+      android:name=".module.mine.UserInfoActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:launchMode="singleTop"
+      android:windowSoftInputMode="stateHidden"
+      android:label="@string/title_sign_up" />
+
+    <activity
+      android:name=".module.mine.ClipImageActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/lbl_user_info" />
+
+    <activity
+      android:name=".module.mine.SettingActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_setting" />
+
+    <activity
+      android:name=".module.mine.AccountActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/lbl_account" />
+
+    <activity
+      android:name=".module.mine.FeedBackActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_feedback" />
+
+    <activity
+      android:name=".module.login.ChangePhoneActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_change_phone" />
+
+    <activity
+      android:name=".module.mine.AboutActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_about" />
+
+    <activity
+      android:name=".module.mine.MineDataActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_mine_data"/>
+
+    <activity
+      android:name=".module.home.AddDeviceInfoActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_mine_add_device" />
+
+    <activity
+      android:name=".module.mine.ManagerDeviceInfoActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_mine_mgr_device" />
+
+    <activity
+      android:name=".module.login.LoginMobileActivity"
+      android:windowSoftInputMode="adjustResize|stateHidden"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_login_mobile"/>
+
+    <activity
+      android:name=".module.login.LoginOtherActivity"
+      android:windowSoftInputMode="adjustResize|stateHidden"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_login_other"/>
+
+    <activity
+      android:name=".module.match.SearchableActivity"/>
+
+    <activity
+      android:name=".module.race.CreateMatchActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_double_match"/>
+
+    <activity
+      android:name=".module.race.CreateMatchTeamActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_team_match"/>
+
+    <activity
+      android:name=".module.race.CreateMatchAddActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_add_match"/>
+
+    <activity
+      android:name=".module.race.CreateMatchAdd2Activity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_add_match"/>
+
+    <activity
+      android:name=".module.race.MatchMainActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:launchMode="singleTask"
+      android:label="@string/title_add_match" />
+
+    <activity
+      android:name=".module.race.CreateMatchAddOverActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_match_team"/>
+
+    <activity
+      android:name=".module.mine.MatchRecordDetailActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_match_data_detail"/>
+
+    <activity
+      android:name=".module.mine.MatchRecordTeamDetailActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_match_data_detail"/>
+
+
+    <activity
+      android:name=".module.mine.LanguageActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_language"/>
+
+    <activity
+      android:name=".module.mine.BigImageActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/app_name"/>
+
+
+    <activity
+      android:name=".SplashActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/app_name"
+      android:configChanges="locale"
+      android:windowSoftInputMode="adjustResize"
+        android:exported="true">
+      <!--要想在别的App上能成功调起App，必须添加intent过滤器-->
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+      <intent-filter>
+        <!--协议部分，随便设置-->
+        <data android:host="bazu" android:path="/query" android:scheme="bazu" />
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+      </intent-filter>
+    </activity>
+
+    <activity
+      android:name=".module.login.LoginActivity"
+      android:label="@string/app_name"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:windowSoftInputMode="adjustResize" />
+
+    <activity
+      android:name=".module.WristBallActivity"
+      android:label="@string/app_name"
+      android:configChanges="locale"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+
+    <activity
+      android:name=".module.match.RankMatchMainActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_add_match" />
+
+    <activity
+      android:name=".module.match.MatchRankActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_add_match" />
+
+    <activity
+      android:name=".module.mine.MineMatchActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_mine_match" />
+
+    <activity
+      android:name=".module.race.CreateRankMatchAddActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_add_match" />
+
+    <activity
+      android:name=".module.match.MatchMainActivity2"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_add_match" />
+
+    <activity
+      android:name=".module.mine.MineBadgeActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_mine_badge" />
+
+    <activity
+      android:name=".module.mine.BadgeActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_mine_badge"
+      android:theme="@style/ImmersionTransparentTheme" />
+
+    <activity
+      android:name=".module.WebActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/app_name" />
+
+    <activity
+      android:name=".module.rank.RankingActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/lbl_match_ranking" />
+
+    <activity
+      android:name=".module.mine.RankingSwitchActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/lbl_match_ranking" />
+
+    <activity
+      android:name=".module.mine.ServerActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"
+      android:label="@string/title_server" />
+
+    <activity
+      android:name=".module.mine.InfoActivity"
+      android:launchMode="singleTask"
+      android:windowSoftInputMode="stateHidden"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.mine.AddRankActivity"
+      android:label="@string/title_add_rank"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+
+    <activity
+      android:name=".module.home.OtherMatchActivity"
+      android:label="@string/lbl_other_match"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.home.OtherMatchHistoryActivity"
+      android:label="@string/title_match_horse_record"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.yjy.history.OtherMainMatchListActivity"
+      android:label="@string/title_match_horse_record"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.home.OtherMainMatchActivity"
+      android:label="@string/title_match_horse_record"
+      android:theme="@style/AppTheme2"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.yjy.history.YJYMatchHelperDetailListActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"/>
+
+    <activity
+      android:name=".module.ranking.RankingActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"/>
+
+    <activity
+      android:name=".module.pk.PkActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"/>
+
+    <activity
+      android:name=".module.match.MatchActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"/>
+
+    <activity
+      android:name=".module.match_football_association.AssociationMatchMenuActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.match_football_association.AssociationMatchDetailActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"/>
+
+    <activity
+      android:name=".module.match_football_association.AssociationRankingActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"/>
+
+    <activity
+      android:name=".module.match_football_association.AssociationMatchActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"/>
+
+    <activity
+      android:name=".module.match_football_association.AssociationTeamDetailRankingActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"/>
+
+    <activity
+      android:name=".module.mine_record.MineRecordActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"/>
+
+    <activity
+      android:name=".module.mine_record.MinePlayDataDetailActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.mine_record.MinePkRecordActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.mine_record.MineRankingRecordActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.mine_record.MineMatchRecordActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.pk.PkModeActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.clock_in.ClockInActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity"/>
+
+    <activity
+      android:name=".module.free_style.FreeStyleActivity"
+      android:screenOrientation="portrait" 
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.clan.ClanActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.clan.ClanMemberScoreActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.social.MineHomepageActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.rank.SearchRankActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <activity
+      android:name=".module.guidance.GuidanceActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+    <meta-data
+      android:name="design_width_in_dp"
+      android:value="375"/>
+
+    <meta-data
+      android:name="design_height_in_dp"
+      android:value="812"/>
+
+    <activity
+        android:name="com.squareup.leakcanary.internal.DisplayLeakActivity"
+        android:exported="true"
+        tools:node="merge"/>
+
+  </application>
+
+</manifest>

@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/bg_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:layout_width="70dp"
+        android:layout_height="70dp">
+
+        <ImageView
+            android:id="@+id/img_info_avatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@mipmap/default_head" />
+
+        <ImageView
+            android:id="@+id/img_info_avatar_online"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="right|top"
+            android:adjustViewBounds="true"
+            android:background="@mipmap/default_head_online" />
+
+        <TextView
+            android:id="@+id/tv_offline"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_pk_offline"
+            android:layout_gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="12sp"
+            />
+
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:ellipsize="none"
+        android:maxEms="5"
+        android:text="西瓜"
+        android:textColor="#ffffffff"
+        android:textSize="16sp" />
+</LinearLayout>

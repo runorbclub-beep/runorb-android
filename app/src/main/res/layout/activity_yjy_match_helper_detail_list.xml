@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:background="@color/bg_content"
+  android:orientation="vertical">
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    app:navigationIcon="@mipmap/btn_return">
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:layout_gravity="center"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/tvToolBarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:text="@string/lbl_other_match"/>
+
+      <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="#fff9e85b"
+        android:textSize="12sp"
+        tools:text="(2021-07-13)" />
+
+    </LinearLayout>
+
+  </androidx.appcompat.widget.Toolbar>
+
+<!--  <androidx.recyclerview.widget.RecyclerView-->
+<!--    android:id="@+id/rvRank"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_above="@+id/lyBottom"-->
+<!--    android:layout_below="@+id/toolbar" />-->
+
+  <com.jcodecraeer.xrecyclerview.XRecyclerView
+    android:id="@+id/rvRank"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/lyBottom"
+    android:layout_below="@+id/toolbar" />
+
+  <RelativeLayout
+    android:id="@+id/ryEmpty"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="150dp">
+
+    <ImageView
+      android:id="@+id/ivEmpty"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:background="@mipmap/rank_empty" />
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="25dp"
+      android:layout_below="@+id/ivEmpty"
+      android:text="@string/lbl_empty2"
+      android:textColor="#ffffffff"
+      android:textSize="15sp" />
+
+  </RelativeLayout>
+
+  <LinearLayout
+    android:id="@+id/lyBottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="#ff464a71"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
+
+    <TextView
+      android:id="@+id/tvRankNum"
+      android:layout_width="55dp"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:textColor="#fff9e85b"
+      android:textSize="12sp"
+      tools:text="101" />
+
+    <ImageView
+      android:id="@+id/ivHead"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_gravity="center"
+      android:adjustViewBounds="true"
+      tools:background="@mipmap/match_range_head_box" />
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:layout_marginLeft="15dp"
+      android:layout_marginRight="10dp"
+      android:gravity="center"
+      android:orientation="vertical">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+          android:id="@+id/tvIndex"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center|right"
+          android:text="@string/lbl_main_match_index"
+          android:textColor="#ffffffff"
+          android:textSize="12sp" />
+
+        <TextView
+          android:id="@+id/tvName"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center|right"
+          android:layout_marginLeft="10dp"
+          android:gravity="center|right"
+          android:textColor="@color/white"
+          android:textSize="12sp"
+          tools:text="绝影" />
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:gravity="center|left"
+          android:text="@string/lbl_main_match_record_distance_self"
+          android:textColor="@color/white"
+          android:textSize="12sp" />
+
+        <TextView
+          android:id="@+id/tvDistance"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginLeft="10dp"
+          android:gravity="center|left"
+          android:textColor="#fff9e85b"
+          android:textSize="12sp"
+          tools:text="0km" />
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="10dp"
+      android:gravity="center"
+      android:orientation="vertical">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:gravity="center|left"
+          android:text="@string/lbl_main_match_record_score_self"
+          android:textColor="@color/white"
+          android:textSize="12sp" />
+
+        <TextView
+          android:id="@+id/tvScore"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginLeft="10dp"
+          android:layout_weight="1.0"
+          android:gravity="center|left"
+          android:text="0"
+          android:textColor="#fff9e85b"
+          android:textSize="12sp" />
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:gravity="center|left"
+          android:text="@string/lbl_main_match_record_help_score_self"
+          android:textColor="@color/white"
+          android:textSize="12sp" />
+
+        <TextView
+          android:id="@+id/tvHelpScore"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:layout_marginLeft="10dp"
+          android:layout_weight="1.0"
+          android:gravity="center|left"
+          android:text="0"
+          android:textColor="#fff9e85b"
+          android:textSize="12sp" />
+      </LinearLayout>
+
+    </LinearLayout>
+
+  </LinearLayout>
+</RelativeLayout>

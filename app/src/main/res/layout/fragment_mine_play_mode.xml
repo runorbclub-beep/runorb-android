@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#1E1D1F">
+
+  <LinearLayout
+    android:id="@+id/layItemRanking"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:background="#28272A"
+    android:orientation="horizontal">
+
+    <ImageView
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:src="@mipmap/ic_module_ranking"/>
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginLeft="14dp"
+      android:layout_gravity="center_vertical"
+      android:textColor="#FFFFFF"
+      android:textSize="14sp"
+      android:text="@string/title_go_module_ranking"/>
+
+    <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:src="@drawable/ic_arrow_right"/>
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/layItemPK"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:background="#28272A"
+    android:orientation="horizontal">
+
+    <ImageView
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:src="@mipmap/ic_module_pk"/>
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginLeft="14dp"
+      android:layout_gravity="center_vertical"
+      android:textColor="#FFFFFF"
+      android:textSize="14sp"
+      android:text="@string/title_go_module_pk"/>
+
+    <TextView
+      android:id="@+id/tvItemPKText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:paddingRight="10dp"
+      android:textSize="14sp"
+      android:textColor="#F7DC29"
+      tools:text="胜 892718次"/>
+
+    <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:src="@drawable/ic_arrow_right"/>
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/layItemUpUp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:background="#28272A"
+    android:orientation="horizontal">
+
+    <ImageView
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:src="@mipmap/ic_module_upup"/>
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginLeft="14dp"
+      android:layout_gravity="center_vertical"
+      android:textColor="#FFFFFF"
+      android:textSize="14sp"
+      android:text="@string/title_go_module_upup"/>
+
+    <TextView
+      android:id="@+id/tvItemUpUpText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:paddingRight="10dp"
+      android:textSize="14sp"
+      android:textColor="#F7DC29"
+      tools:text="892718场"/>
+
+    <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:src="@drawable/ic_arrow_right"/>
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/layItemEvents"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:background="#28272A"
+    android:orientation="horizontal">
+
+    <ImageView
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:src="@mipmap/ic_module_events"/>
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginLeft="14dp"
+      android:layout_gravity="center_vertical"
+      android:textColor="#FFFFFF"
+      android:textSize="14sp"
+      android:text="@string/title_go_module_events"/>
+
+    <TextView
+      android:id="@+id/tvItemEventsText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:paddingRight="10dp"
+      android:textSize="14sp"
+      android:textColor="#F7DC29"
+      tools:text="892718场"/>
+
+    <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:src="@drawable/ic_arrow_right"/>
+
+  </LinearLayout>
+
+</LinearLayout>

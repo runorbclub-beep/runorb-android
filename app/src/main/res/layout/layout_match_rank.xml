@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical">
+
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rvRank"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"/>
+
+  <LinearLayout
+    android:id="@+id/lyBottom"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:layout_alignParentBottom="true"
+    android:background="#464A71"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <TextView
+      android:id="@+id/tvRankNum"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="21dp"
+      android:gravity="center_vertical"
+      android:textColor="#fff9e85b"
+      android:textSize="12sp"
+      tools:text="101" />
+
+    <ImageView
+      android:id="@+id/ivHead"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_gravity="center"
+      android:layout_marginLeft="18dp"
+      android:layout_marginRight="18dp"
+      android:adjustViewBounds="true"
+      tools:background="@mipmap/match_range_head_box" />
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2.5dp"
+        android:orientation="horizontal"
+        android:paddingRight="14dp">
+
+        <TextView
+          android:id="@+id/tvUserName"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:drawableLeft="@mipmap/ic_man"
+          android:drawablePadding="5dp"
+          android:gravity="center_vertical"
+          android:textColor="#FFFFFF"
+          android:textSize="13sp"
+          tools:text="笑看人生" />
+
+        <TextView
+          android:id="@+id/tvUserSpeed"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="#F5BE0A"
+          android:textSize="12sp"
+          tools:text="342.33(rpm)" />
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingRight="14dp">
+
+        <TextView
+          android:id="@+id/tvArea"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:textColor="#C7C7C7"
+          android:textSize="9sp"
+          tools:text="深圳" />
+
+        <TextView
+          android:id="@+id/tvRankTime"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="#C7C7C7"
+          android:textSize="9sp"
+          tools:text="上榜时间：2021-6-1 17:55:34" />
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+  <!--    <LinearLayout-->
+  <!--      android:id="@+id/lyBottom"-->
+  <!--      android:layout_width="match_parent"-->
+  <!--      android:layout_height="90dp"-->
+  <!--      android:layout_alignParentBottom="true"-->
+  <!--      android:layout_gravity="bottom"-->
+  <!--      android:background="@drawable/selector_rank_board"-->
+  <!--      android:orientation="horizontal">-->
+
+  <!--        <TextView-->
+  <!--          android:id="@+id/tvRank"-->
+  <!--          android:layout_width="match_parent"-->
+  <!--          android:layout_height="wrap_content"-->
+  <!--          android:layout_gravity="center|right"-->
+  <!--          android:layout_weight="1.0"-->
+  <!--          android:gravity="center|right"-->
+  <!--          android:text="@string/lbl_match_rank_my_grade"-->
+  <!--          android:textColor="@color/white"-->
+  <!--          android:textSize="@dimen/text_24" />-->
+
+  <!--        <TextView-->
+  <!--          android:id="@+id/tvRankNum"-->
+  <!--          android:layout_width="match_parent"-->
+  <!--          android:layout_height="wrap_content"-->
+  <!--          android:layout_gravity="center"-->
+  <!--          android:layout_marginLeft="10dp"-->
+  <!--          android:layout_weight="1.0"-->
+  <!--          android:gravity="center|left"-->
+  <!--          android:text=""-->
+  <!--          android:textColor="#fff9e85b"-->
+  <!--          android:textSize="@dimen/text_24" />-->
+  <!--    </LinearLayout>-->
+
+</LinearLayout>

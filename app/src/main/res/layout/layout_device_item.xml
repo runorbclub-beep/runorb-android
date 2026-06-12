@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/shape_func_item">
+
+    <CheckBox
+        android:id="@+id/chbSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="35dp"
+        android:button="@drawable/selector_checked"
+        android:checked="false"
+        android:gravity="center|left"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_device_info_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textColor="#ffffffff"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:text="@string/device_name"
+            tools:text="RunBD718A686A83E(未连接)" />
+
+        <TextView
+            android:id="@+id/tv_device_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="#FFFD9833"
+            android:textSize="16sp"
+            android:text="@string/device_name" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvChangeNickname"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="2.0"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/nickname_change"
+        android:textColor="#FFFD9833"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/bg_content"
+  android:orientation="vertical">
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    app:navigationIcon="@mipmap/btn_return">
+
+    <TextView
+      android:id="@+id/tvToolBarTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:textColor="@android:color/white"
+      android:textSize="16sp"
+      android:text="@string/association_match_team_chengji" />
+
+  </androidx.appcompat.widget.Toolbar>
+
+  <TextView
+    android:id="@+id/tvClanName"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:gravity="center"
+    android:textColor="#FFFFFF"
+    android:textSize="22sp"
+    tools:text="奢望发动换查欧的团队" />
+
+  <TextView
+    android:id="@+id/tvMemberCount"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="13dp"
+    android:gravity="center"
+    android:textColor="#B7B7B7"
+    android:textSize="14sp"
+    tools:text="成员数：1222人" />
+
+  <net.lucode.hackware.magicindicator.MagicIndicator
+    android:id="@+id/indicator"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    app:tabGravity="fill"
+    app:tabMode="fixed"/>
+
+  <androidx.viewpager2.widget.ViewPager2
+    android:id="@+id/viewPager"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:orientation="horizontal"
+    android:scrollbars="none" />
+
+</LinearLayout>

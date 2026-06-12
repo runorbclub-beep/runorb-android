@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#1A1D20"
+  android:orientation="vertical">
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    app:navigationIcon="@mipmap/btn_return">
+
+    <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:layout_gravity="center"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/tvToolBarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        tools:text="@string/lbl_match_ranking"/>
+
+      <TextView
+        android:id="@+id/tvMatchStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#B7B7B7"
+        android:textSize="11sp"
+        tools:text="(进行中)"/>
+
+    </LinearLayout>
+
+    <ImageView
+      android:id="@+id/ivUpload"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="right"
+      android:layout_marginRight="15dp"
+      android:src="@drawable/ic_sync"/>
+
+  </androidx.appcompat.widget.Toolbar>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+      android:id="@+id/tvMatchTile"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:paddingLeft="80dp"
+      android:paddingRight="80dp"
+      android:layout_gravity="center_horizontal"
+      android:gravity="center"
+      android:textColor="#FFFFFF"
+      android:textSize="24sp"
+      tools:text="中国职工足球队云端摇跑比赛"/>
+
+    <TextView
+      android:id="@+id/tvMatchTime"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="4dp"
+      android:gravity="center"
+      android:textColor="#B7B7B7"
+      android:textSize="14sp"
+      tools:text="2021.10.27-2021.10.31"/>
+
+    <LinearLayout
+      android:id="@+id/layMatchSponsor"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="10dp"
+      android:orientation="horizontal">
+
+      <ImageView
+        android:id="@+id/ivQuartetsIcon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        tools:src="@mipmap/log_match_action_association"
+        android:layout_marginRight="7.5dp"/>
+
+      <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="#707070"/>
+
+      <ImageView
+        android:id="@+id/logo"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        tools:src="@mipmap/logo"
+        android:layout_marginLeft="7.5dp"/>
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+  <LinearLayout
+    android:id="@+id/layTabSwitch"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:layout_marginTop="22dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:orientation="horizontal">
+
+      <TextView
+        android:id="@+id/tvPersonal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:text="@string/association_tab_ranking_personal"
+        android:background="@drawable/bg_ranking_switch_select_yes"
+        android:textColor="#1E1D1F"
+        android:gravity="center"/>
+
+      <TextView
+        android:id="@+id/tvTeam"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:text="@string/association_tab_ranking_team"
+        android:background="@drawable/bg_ranking_switch_select_no"
+        android:textColor="#FFFFFF"
+        android:gravity="center"/>
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+  <net.lucode.hackware.magicindicator.MagicIndicator
+    android:id="@+id/personalMagicIndicator"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="48dp"
+    app:tabGravity="fill"
+    app:tabMode="fixed" />
+
+  <androidx.viewpager2.widget.ViewPager2
+    android:id="@+id/personalViewPager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none" />
+
+  <net.lucode.hackware.magicindicator.MagicIndicator
+    android:id="@+id/teamMagicIndicator"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="48dp"
+    app:tabGravity="fill"
+    app:tabMode="fixed"
+    android:visibility="gone"/>
+
+  <androidx.viewpager2.widget.ViewPager2
+    android:id="@+id/teamViewPager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:visibility="gone" />
+
+</LinearLayout>

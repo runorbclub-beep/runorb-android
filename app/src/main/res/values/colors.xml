@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#1A1D20</color>
+    <!-- 信号量那栏更暗-->
+    <color name="colorPrimaryDark">#1A1D20</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="btn_color">#ff1a1d20</color>
+    <color name="btn_color_grey">#7f1a1d20</color>
+    <color name="dividerColor">#1C417F</color>
+    <color name="btn_color_yellow_grey">#7fFDE833</color>
+    <color name="btn_color_yellow">#FDE833</color>
+
+    <color name="tab_select">#FDE833</color>
+    <color name="tab_unSelect">#767779</color>
+
+    <color name="lightgray">#FFEEEEEE</color>
+    <color name="gray">#FFDDDDDD</color>
+
+
+    <color name="main_match_disabled">#ff767779</color>
+    <color name="main_match_enabled">#F9E85B</color>
+
+    <color name="main_match_horse_box">#33FFFFFF</color>
+    <color name="main_match_horse_box_selected">#33FFFFFF</color>
+    <color name="main_match_horse_box_selected2">#A30483</color>
+
+    <!--手动加入-->
+    <color name="blackBg">#FF4081</color>
+    <color name="writeTx">#FF4081</color>
+    <!--底部菜单背景色-->
+    <color name="undersidebg">#dbdbdb</color>
+
+    <!--锦标赛-->
+    <color name="match_status">#11C867</color>
+    <color name="match_status_over">#E26863</color>
+    <color name="match_status_ing">#11C867</color>
+
+    <color name="match_status_yellow">#F9E85B</color>
+    <color name="match_status_green">#11C867</color>
+    <color name="match_status_deep_red">#E26863</color>
+
+    <color name="primary">#009688</color>
+    <color name="primary_dark">#00897b</color>
+    <color name="primary_light">#B2DFDB</color>
+    <color name="accent">#ffb74d</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+    <color name="light_grey">#E8E8E8</color>
+    <color name="white">#ffffff</color>
+
+    <color name="ble_tip_clolor">#767779</color>
+    <color name="ble_tip_clolor2">#00FFF1</color>
+
+    <color name="window_background">#FFF5F5F5</color>
+    <color name="tab_bgcolor">#eeeeee</color>
+
+    <color name="google_red">#d62d20</color>
+    <color name="google_blue">#0057e7</color>
+    <color name="google_green">#008744</color>
+    <color name="google_yellow">#ffa700</color>
+
+
+    <color name="dialog_bg_color">#373940</color>
+    <color name="dialog_cancel_color">#767779</color>
+    <color name="dialog_submit_color">#FDE833</color>
+
+    <color name="lbl_color">#767779</color>
+    <color name="lbl_app_title_color">#FFFFFF</color>
+
+    <color name="line">#ff767779</color>
+    <color name="vline">#99D9C623</color>
+    <color name="bg_content">#1E1D1F</color>
+    <color name="circle_bg">#00FDE833</color>
+    <color name="tabUnSelectedTextColor">#ff838383</color>
+    <color name="tabSelectedTextColor">#FDE833</color>
+    <color name="xyAxisTextColor">#767779</color>
+    <color name="pop_color_e6e6e6">#e6e6e6</color>
+    <color name="pop_color_454a4d">#454a4d</color>
+
+    <color name="arcColor1">#fde833</color>
+    <color name="arcColor2">#fe5e58</color>
+    <color name="arcColor3">#ffad8e</color>
+
+    <color name="arcColor32">#00FFF1</color>
+    <color name="circle_bg2">#0053C7</color>
+
+    <integer-array name="gradient_arc_color">
+        <item>@color/arcColor1</item>
+        <item>@color/arcColor3</item>
+        <item>@color/arcColor2</item>
+        <item>@color/arcColor2</item>
+        <item>@color/arcColor3</item>
+        <item>@color/arcColor3</item>
+        <item>@color/arcColor3</item>
+        <item>@color/arcColor3</item>
+        <item>@color/arcColor3</item>
+    </integer-array>
+
+    <integer-array name="gradient_arc_color2">
+        <item>@color/arcColor32</item>
+        <item>@color/arcColor32</item>
+        <item>@color/arcColor32</item>
+        <item>@color/arcColor32</item>
+    </integer-array>
+
+    <color name="no_nickname">#FF666666</color>
+    <color name="device_nickname">#FFFD9833</color>
+
+    <color name="no_conn">#FF666666</color>
+    <color name="conn">#FFFD9833</color>
+
+    <color name="match_btn_text_enabled_true">#25282C</color>
+    <color name="match_btn_text_enabled_false">#FFFFFF</color>
+
+</resources>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CityModule</string>
+    <string name="cp_search_hint_text">城市中文名或拼音</string>
+    <string name="cp_no_result">没有找到，换个词试试~</string>
+    <string name="cp_locate_failed">定位失败</string>
+    <string name="cp_locating">正在定位…</string>
+
+    <string name="lbl_search_city"> 搜索国家、城市名称</string>
+    <string name="lbl_current">当前</string>
+    <string name="lbl_hot_city">热门城市</string>
+
+    <string name="global">全国</string>
+
+</resources>

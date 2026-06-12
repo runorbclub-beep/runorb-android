@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#1A1D20"
+  android:orientation="vertical">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="5dp">
+    <ImageView
+      android:id="@+id/ivReturn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="16dp"
+      android:layout_marginRight="15dp"
+      android:scaleType="fitCenter"
+      android:background="@mipmap/btn_return" />
+
+    <LinearLayout
+      android:id="@+id/cp_search_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginRight="20dp"
+      android:background="@drawable/city_module_selector_search_city"
+      android:gravity="center_vertical"
+      android:paddingLeft="16dp">
+
+      <EditText
+        android:id="@+id/cp_search_box"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:drawableLeft="@mipmap/city_module_search"
+        android:hint="@string/lbl_search_city"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:textCursorDrawable="?attr/cpSearchCursorDrawable"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#ff767779"
+        android:textSize="16sp" />
+
+      <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="20dp"
+        android:scaleType="fitCenter"
+        android:background="@mipmap/city_module_delete" />
+
+    </LinearLayout>
+  </LinearLayout>
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+      android:id="@+id/tvCurCityTag"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="#FFFFFF"
+      android:textSize="18sp"
+      android:text="@string/lbl_current" />
+
+    <TextView
+      android:id="@+id/tvCurCity"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:layout_marginLeft="10dp"
+      android:layout_marginRight="10dp"
+      android:drawableLeft="@mipmap/icon_pos"
+      android:textColor="#fff9e85b"
+      android:textSize="18sp"
+      android:shadowColor="#29000000"
+      android:shadowDx="0"
+      android:shadowDy="3"
+      android:shadowRadius="3.0"
+      android:text="" />
+
+    <TextView
+      android:id="@+id/tvAll"
+      android:layout_width="88dp"
+      android:layout_height="28dp"
+      android:gravity="center"
+      android:background="@drawable/city_module_selector_ellipse_button"
+      android:textColor="#767779"
+      android:textSize="18sp"
+      android:text="@string/global" />
+
+  </LinearLayout>
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp">
+    <TextView
+      android:id="@+id/tvHotCity"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true"
+      android:gravity="center_horizontal"
+      android:text="@string/lbl_hot_city"
+      android:textColor="#ffc7c7c7"
+      android:textSize="18sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/ryHotCity"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/tvHotCity"
+      android:layout_marginTop="10dp" />
+  </RelativeLayout>
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="2dp"
+    android:background="#292D31"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_below="@+id/ryHotCity" />
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/cp_city_recyclerview"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
+
+    <TextView
+      android:id="@+id/cp_overlay"
+      android:layout_width="?attr/cpOverlayWidth"
+      android:layout_height="?attr/cpOverlayHeight"
+      android:visibility="gone"
+      android:gravity="center"
+      android:layout_centerInParent="true"
+      android:textSize="?attr/cpOverlayTextSize"
+      android:textColor="?attr/cpOverlayTextColor"
+      android:background="?attr/cpOverlayBackground"/>
+
+    <!--右侧字母导航-->
+    <com.cloud.city.view.XSideIndexBar
+      android:id="@+id/cp_side_index_bar"
+      android:layout_width="@dimen/cp_index_bar_width"
+      android:layout_height="match_parent"
+      android:background="#37393F"
+      android:layout_alignParentRight="true"
+      android:layout_alignParentEnd="true"/>
+
+    <include layout="@layout/cp_empty_view"/>
+
+  </RelativeLayout>
+
+
+
+</LinearLayout>

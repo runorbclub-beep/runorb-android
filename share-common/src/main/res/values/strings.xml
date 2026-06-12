@@ -1,0 +1,7 @@
+<resources>
+    <string name="share_success">分享完成</string>
+    <string name="share_fail">分享失败</string>
+    <string name="share_cancel">分享取消</string>
+    <string name="share_save_success">保存成功</string>
+    <string name="share_save_fail">保存失败</string>
+</resources>

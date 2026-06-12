@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_content"
+    android:orientation="vertical">
+
+
+    <include
+        layout="@layout/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/ryTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tv_title_Distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="#ffffffff"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/tvDistanceUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_alignBaseline="@+id/tv_title_Distance"
+            android:layout_toRightOf="@+id/tv_title_Distance"
+            android:gravity="center"
+            android:text="@string/turn_metre"
+            android:textColor="#ffffffff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_alignBaseline="@+id/tv_title_Distance"
+            android:layout_toRightOf="@+id/tv_title_Distance"
+            android:layout_marginLeft="40dp"
+            android:gravity="bottom"
+            android:text="@string/lbl_circle_unit"
+            android:textColor="#ffffffff"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="12/18 20:20"
+            android:textColor="#ffffffff"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/mine_data_detail_1">
+
+
+                <LinearLayout
+                    android:id="@+id/lyTop1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+                        android:id="@+id/tvSpeedMax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="1.0"
+                        android:gravity="left"
+                        android:text="0"
+                        android:textColor="#ffffffff"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tvEnduranceMax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1.0"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="#ffffffff"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tvDurationMax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight="1.0"
+                        android:gravity="right"
+                        android:text="00:00:00"
+                        android:textColor="#ffffffff"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lyTop1"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="0.8"
+                        android:gravity="left"
+                        android:text="@string/lbl_speed_desc"
+                        android:textColor="#ff767779"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1.0"
+                        android:gravity="left"
+                        android:text="@string/lbl_endurance_desc"
+                        android:textColor="#ff767779"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight="1.0"
+                        android:gravity="center_horizontal"
+                        android:text="@string/lbl_time_desc"
+                        android:textColor="#ff767779"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/mine_data_detail_2">
+
+                <LinearLayout
+                    android:id="@+id/vProgressTag"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dp"
+                    android:visibility="invisible"
+                    android:background="@drawable/shape_circle"
+                    android:orientation="horizontal">
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lyTop2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="1.0"
+                        android:gravity="left"
+                        android:text="@string/lbl_speed_between"
+                        android:textColor="#ffffffff"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_weight="1.0"
+                        android:gravity="right"
+                        android:text="@string/lbl_speed_time"
+                        android:textColor="#ffffffff"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+
+              <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ryTurns"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lyTop2"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginBottom="10dp"
+                    />
+
+                <ScrollView
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+                    <LinearLayout
+                      android:id="@+id/lyTurns"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical">
+
+                    </LinearLayout>
+                </ScrollView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/mine_data_detail_2">
+
+                <LinearLayout
+                    android:id="@+id/lyTop3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="1.0"
+                        android:gravity="left"
+                        android:text="@string/lbl_speed_chart"
+                        android:textColor="#ffffffff"
+                        android:textSize="18sp" />
+
+
+                </LinearLayout>
+
+                <com.github.mikephil.charting.charts.LineChart
+                  android:id="@+id/lcTurnCharts"
+                  android:layout_width="match_parent"
+                  android:layout_height="180dp"
+                  android:layout_below="@+id/lyTop3"
+                  android:layout_marginLeft="20dp"
+                  android:layout_marginRight="20dp"
+                  android:layout_marginBottom="10dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:width="1000dp" android:height="1000dp">
+        <shape android:shape="rectangle">
+            <!--渐变填充 45的整数倍-->
+            <gradient
+                android:angle="180"
+                android:startColor="#ffad8e"
+                android:centerColor="#fe5e58"
+                android:endColor="#fde833"
+                android:type="linear"
+                android:centerX="0.5"
+                android:centerY="0.5"
+                android:useLevel="true" />
+
+
+            <!--单色填充-->
+            <!--<solid android:color="#ffffff"/>-->
+            <!--宽高比1:2是垂直半圆，宽高比2:1是水平半圆-->
+
+            <size android:width="400dp" android:height="200dp" />
+            <!--4个角的任意两个角度（不小于宽高最小值）相同，且在同一边（上下左右）
+                      如bottomLeftRadius，topLeftRadius都在左边，则为左半圆-->
+            <corners
+                android:bottomLeftRadius="0dp"
+                android:bottomRightRadius="0dp"
+                android:topLeftRadius="400dp"
+                android:topRightRadius="400dp" />
+        </shape>
+    </item>
+</selector>

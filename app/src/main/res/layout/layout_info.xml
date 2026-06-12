@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:fitsSystemWindows="true"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="#1A1D20">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <ImageView
+      android:id="@+id/ivClose"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="20dp"
+      android:layout_alignParentRight="true"
+      android:contentDescription="@null"
+      android:clickable="true"
+      android:focusable="true"
+      android:background="@mipmap/close_gray" />
+
+    <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="15dp"
+      android:layout_marginRight="15dp"
+      android:layout_marginTop="67dp"
+      android:layout_marginBottom="50dp">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@drawable/selector_info"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:paddingTop="15dp"
+          android:paddingBottom="15dp"
+          android:gravity="center_vertical"
+          android:orientation="horizontal">
+
+          <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:text="@string/lbl_mine_portrait"/>
+
+          <ImageView
+            android:id="@+id/tvPortrait"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:padding="1dp"
+            android:background="@drawable/border_portrait"/>
+
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/item_more"/>
+
+        </LinearLayout>
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginLeft="3dp"
+          android:layout_marginRight="3dp"
+          android:background="#333333"/>
+
+        <TextView
+          android:id="@+id/tvName"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:drawableStart="@drawable/ic_star"
+          android:textColor="#ffffff"
+          android:textSize="16sp"
+          android:text="@string/lbl_name" />
+
+        <EditText
+          android:id="@+id/edtName"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:hint="@string/binding_name_input"
+          android:imeOptions="actionDone"
+          android:singleLine="true"
+          android:textColor="@color/white"
+          android:textColorHint="#888888"
+          android:textSize="12sp"
+          android:theme="@style/MyEditText" />
+
+        <TextView
+          android:id="@+id/tvLabelWeixin"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:textColor="#ffffff"
+          android:textSize="16sp"
+          android:text="@string/lbl_weixin" />
+
+        <EditText
+          android:id="@+id/edtWeixin"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:hint="@string/lbl_weixin_hit"
+          android:imeOptions="actionDone"
+          android:singleLine="true"
+          android:textColor="@color/white"
+          android:textColorHint="#888888"
+          android:textSize="12sp"
+          android:theme="@style/MyEditText" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:textColor="#ffffffff"
+          android:textSize="16sp"
+          android:text="@string/lbl_intro" />
+
+        <EditText
+          android:id="@+id/edtSign"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:hint="@string/binding_sign_input"
+          android:imeOptions="actionDone"
+          android:singleLine="true"
+          android:textColor="@color/white"
+          android:textColorHint="#888888"
+          android:textSize="12sp"
+          android:theme="@style/MyEditText" />
+
+        <TextView
+          android:id="@+id/tvBirthday"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:textColor="#ffffffff"
+          android:drawableStart="@drawable/ic_star"
+          android:textSize="16sp"
+          android:text="@string/lbl_birthday" />
+
+        <EditText
+          android:id="@+id/edtBirthday"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:focusable="false"
+          android:hint="@string/lbl_birthday_hit"
+          android:imeOptions="actionDone"
+          android:inputType="none"
+          android:singleLine="true"
+          android:textColor="@color/white"
+          android:textColorHint="#888888"
+          android:textSize="12sp"
+          android:theme="@style/MyEditText" />
+
+        <TextView
+          android:id="@+id/tvSex"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:text="@string/lbl_sex"
+          android:textColor="#ffffffff"
+          android:drawableStart="@drawable/ic_star"
+          android:textSize="16sp" />
+
+        <EditText
+          android:id="@+id/edtSex"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:focusable="false"
+          android:imeOptions="actionDone"
+          android:inputType="none"
+          android:singleLine="true"
+          android:textColor="@color/white"
+          android:textColorHint="#888888"
+          android:textSize="12sp"
+          android:theme="@style/MyEditText"
+          tools:text="男"/>
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:text="@string/lbl_high"
+          android:textColor="#ffffffff"
+          android:textSize="16sp"
+          android:visibility="gone" />
+
+        <EditText
+          android:id="@+id/edtHeight"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:focusable="false"
+          android:hint="@string/lbl_high_hit"
+          android:imeOptions="actionDone"
+          android:inputType="number"
+          android:singleLine="true"
+          android:textColor="@color/white"
+          android:textColorHint="#ff373940"
+          android:textSize="12sp"
+          android:theme="@style/MyEditText"
+          android:visibility="gone" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:text="@string/lbl_weight"
+          android:textColor="#ffffffff"
+          android:textSize="16sp"
+          android:visibility="gone" />
+
+        <EditText
+          android:id="@+id/edtWeight"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:focusable="false"
+          android:hint="@string/lbl_weight_hit"
+          android:imeOptions="actionDone"
+          android:inputType="number"
+          android:singleLine="true"
+          android:textColor="@color/white"
+          android:textColorHint="#ff373940"
+          android:textSize="12sp"
+          android:theme="@style/MyEditText"
+          android:visibility="gone" />
+
+        <TextView
+          android:id="@+id/tvCity"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:textColor="#ffffff"
+          android:drawableStart="@drawable/ic_star"
+          android:textSize="16sp"
+          android:text="@string/lbl_city" />
+
+        <EditText
+          android:id="@+id/edtCity"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:focusable="false"
+          android:hint="@string/lbl_city_hit"
+          android:imeOptions="actionDone"
+          android:singleLine="true"
+          android:textColor="@color/white"
+          android:textColorHint="#767779"
+          android:textSize="12sp"
+          android:theme="@style/MyEditText" />
+
+
+        <TextView
+          android:id="@+id/tvGroupType"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:visibility="gone"
+          android:text="@string/lbl_group_type"
+          android:textColor="#ffffffff"
+          android:textSize="@dimen/text_18" />
+
+        <RadioGroup
+          android:id="@+id/rgGroupType"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:visibility="gone"
+          android:layout_marginTop="15dp"
+          android:orientation="horizontal">
+
+          <RadioButton
+            android:id="@+id/rbTeen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:button="@drawable/selector_info_radio"
+            android:textAllCaps="false"
+            android:checked="true"
+            android:gravity="center"
+            android:text="青少年团体"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+          <RadioButton
+            android:id="@+id/rbAdult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:button="@drawable/selector_info_radio"
+            android:textAllCaps="false"
+            android:checked="false"
+            android:gravity="center"
+            android:text="成年团队"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        </RadioGroup>
+
+        <TextView
+          android:id="@+id/tvLabelClan"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:textColor="#ffffffff"
+          android:drawableStart="@drawable/ic_star"
+          android:drawableEnd="@mipmap/item_more"
+          android:textSize="16sp"
+          android:text="@string/label_clan_mine"
+          android:visibility="gone"/>
+
+        <EditText
+          android:id="@+id/edtClan"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:focusable="false"
+          android:hint="@string/tip_create_join_clan"
+          android:imeOptions="actionDone"
+          android:inputType="none"
+          android:singleLine="true"
+          android:textColor="@color/white"
+          android:textColorHint="#888888"
+          android:textSize="12sp"
+          android:theme="@style/MyEditText"
+          android:visibility="gone"/>
+
+        <TextView
+          android:id="@+id/btnConfirm"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:paddingTop="12dp"
+          android:paddingBottom="12dp"
+          android:paddingLeft="86dp"
+          android:paddingRight="86dp"
+          android:layout_gravity="center_horizontal"
+          android:layout_marginTop="30dp"
+          android:background="@mipmap/match_pk_confirm"
+          android:textStyle="bold"
+          android:textColor="#1E1D1F"
+          android:textSize="14sp"
+          android:text="@string/btn_confirm2" />
+
+      </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+  </RelativeLayout>
+
+</FrameLayout>

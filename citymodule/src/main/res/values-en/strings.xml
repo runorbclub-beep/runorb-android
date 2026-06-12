@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CityModule</string>
+    <string name="cp_search_hint_text">Search region name</string>
+    <string name="cp_no_result">not found try again?~</string>
+    <string name="cp_locate_failed">Location fail</string>
+    <string name="cp_locating">Location…</string>
+
+    <string name="lbl_search_city"> earch region name</string>
+    <string name="lbl_current">Current</string>
+    <string name="lbl_hot_city">Hot city</string>
+
+    <string name="global">global</string>
+
+</resources>

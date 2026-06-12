@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_content"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/lyHeader"
+        layout="@layout/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择队伍"
+            android:textColor="#ffffffff"
+            android:textSize="16sp" />
+
+    </FrameLayout>
+
+
+    <RadioGroup
+        android:id="@+id/rgTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/rbRed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSend"
+            android:layout_marginRight="10dp"
+            android:button="@drawable/selector_checked"
+            android:checked="true"
+            android:text="湖北队"
+            android:textAllCaps="false"
+            android:textColor="#767779"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rbBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSend"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="10dp"
+            android:button="@drawable/selector_checked"
+            android:checked="false"
+            android:text="深圳队"
+            android:textAllCaps="false"
+            android:textColor="#767779"
+            android:textSize="14sp" />
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top|center"
+        android:layout_margin="20dp"
+        android:background="@drawable/selector_login_btn"
+        android:text="@string/btn_confirm"
+        android:textAllCaps="false"
+        android:textSize="@dimen/text_14" />
+</LinearLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_marginTop="5dp"
+  android:layout_marginBottom="5dp"
+  android:paddingTop="28dp"
+  android:paddingBottom="28dp"
+  android:gravity="center_vertical"
+  android:background="#28272A"
+  android:orientation="horizontal">
+
+  <TextView
+    android:id="@+id/tvRank"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    android:textSize="16sp"
+    android:textColor="#FFFFFF"
+    android:gravity="center"
+    tools:text="12"/>
+
+  <TextView
+    android:id="@+id/tvObject"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toRightOf="@+id/tvRank"
+    app:layout_constraintRight_toLeftOf="@+id/tvAchievement"
+    android:textSize="12sp"
+    android:textColor="#FFFFFF"
+    android:gravity="center"
+    tools:text="最高转速(rpm)"/>
+
+  <TextView
+    android:id="@+id/tvAchievement"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toRightOf="@+id/tvObject"
+    app:layout_constraintRight_toLeftOf="@+id/tvDatetime"
+    android:textSize="16sp"
+    android:textColor="#FDE833"
+    android:gravity="center"
+    tools:text="13260"/>
+
+  <TextView
+    android:id="@+id/tvDatetime"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:textSize="9sp"
+    android:textColor="#ADADAD"
+    android:gravity="center"
+    tools:text="2021-3-30 13:45"/>
+
+</LinearLayout>

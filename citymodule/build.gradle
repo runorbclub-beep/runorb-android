@@ -1,0 +1,67 @@
+if(!isCityEnabled.toBoolean()){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        if(!isCityEnabled.toBoolean()){
+            applicationId "com.cloud.city"
+        }
+        namespace "com.cloud.city"
+        minSdkVersion 19
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName :project.getName() ]
+            }
+        }
+    }
+
+    sourceSets{
+        main{
+            // 单独调试与集成调试时使用不同的 AndroidManifest.xml 文件
+            if(!isCityEnabled.toBoolean()){
+                manifest.srcFile("src/main/manifest/AndroidManifest.xml")
+            }else{
+                manifest.srcFile("src/main/AndroidManifest.xml")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(path: ':baseComm')
+    implementation project(path: ':pickerview')
+    //rxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.6'
+    //rxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation'com.alibaba:arouter-api:1.3.1'
+    annotationProcessor'com.alibaba:arouter-compiler:1.1.4'
+}

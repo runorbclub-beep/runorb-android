@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal">
+
+  <FrameLayout
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:layout_gravity="center_vertical">
+
+    <ImageView
+      android:id="@+id/img_rank"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+      android:adjustViewBounds="true"
+      android:background="@mipmap/match_range_1" />
+
+    <TextView
+      android:id="@+id/tvRank"
+      android:layout_width="30dp"
+      android:layout_height="30dp"
+      android:visibility="gone"
+      android:gravity="center"
+      android:textColor="#ffffffff"
+      android:textSize="18sp"
+      tools:visibility="visible"
+      tools:text="2"/>
+
+  </FrameLayout>
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="5dp">
+
+    <LinearLayout
+      android:id="@+id/lyItem"
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_gravity="center_vertical"
+      android:layout_marginLeft="-25dp"
+      android:layout_toRightOf="@+id/fyHead"
+      android:background="@drawable/shape_person_item"
+      android:gravity="center_vertical"
+      android:orientation="vertical">
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+          android:id="@+id/tvHelperName"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="10dp"
+          android:drawablePadding="5dp"
+          tools:drawableLeft="@mipmap/ic_man"
+          android:textColor="#FFFFFF"
+          android:textSize="13sp"
+          tools:text="某某某" />
+
+      </LinearLayout>
+
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+          android:id="@+id/tvDistance"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:text="@string/lbl_main_match_record_distance"
+          android:textColor="#F5BE0A"
+          android:textSize="10sp" />
+
+        <TextView
+          android:id="@+id/tvScore"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="5dp"
+          android:text="@string/lbl_main_match_record_score_1"
+          android:textColor="#F5BE0A"
+          android:textSize="10sp" />
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+      android:id="@+id/fyHead"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:background="@mipmap/match_range_head_box">
+
+      <ImageView
+        android:id="@+id/ivHead"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="3dp"
+        android:layout_gravity="center"
+        android:adjustViewBounds="true" />
+
+    </FrameLayout>
+
+    <LinearLayout
+      android:id="@+id/layTag"
+      android:layout_width="wrap_content"
+      android:layout_height="20dp"
+      android:layout_alignTop="@+id/lyItem"
+      android:layout_alignParentRight="true"
+      android:background="@drawable/selector_rect_corner"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      android:paddingLeft="9dp"
+      android:paddingRight="9dp">
+
+      <TextView
+        android:id="@+id/tvIndex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#F9E85B"
+        android:textSize="12sp"
+        tools:text="@string/lbl_main_match_index" />
+
+      <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textColor="#F9E85B"
+        android:textSize="12sp"
+        tools:text="爪黄飞电" />
+
+    </LinearLayout>
+
+  </RelativeLayout>
+
+</LinearLayout>

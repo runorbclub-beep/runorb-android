@@ -1,0 +1,311 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/main_content"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff15264c"
+    android:orientation="vertical">
+
+    <FrameLayout
+      android:id="@+id/fyBanner"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:orientation="horizontal">
+
+      <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@mipmap/rank_match_main_clipped2" />
+
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="46dp"
+        android:background="@mipmap/other_main_match_title"
+        android:clickable="true" />
+
+      <ImageView
+        android:id="@+id/img_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:background="@mipmap/match_exit1"
+        android:clickable="true" />
+
+      <TextView
+        android:id="@+id/tvShare"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:paddingLeft="5dp"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:background="@drawable/bg_power_yaojiayou"
+        android:textColor="#50F0FF"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="@string/lbl_share_text"/>
+
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/layBottom"
+      android:layout_below="@+id/fyBanner">
+
+      <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <com.cloud.runball.view.HorseSurfaceView
+          android:id="@+id/lyHorsesRoad"
+          android:layout_width="match_parent"
+          android:layout_height="380dp"
+          android:layout_marginTop="3dp"/>
+
+        <com.cloud.runball.module.home.adapter.OtherMainMatchHorseAdapter
+          android:id="@+id/lyHorses"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"/>
+
+      </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <FrameLayout
+      android:id="@+id/layBottom"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_marginTop="10dp">
+
+      <LinearLayout
+        android:id="@+id/lyBottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:background="@drawable/rank_match_bg"
+        android:orientation="vertical">
+
+        <FrameLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="bottom">
+
+          <FrameLayout
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="0dp"
+            android:adjustViewBounds="true"
+            android:background="@mipmap/canvas_circle_bg2"
+            android:scaleType="fitCenter">
+
+            <com.littlejie.circleprogress.CircleProgress
+              android:id="@+id/circle_progress_bar"
+              android:layout_width="130dp"
+              android:layout_height="130dp"
+              android:layout_gravity="center"
+              app:animTime="@integer/animation_duration"
+              app:antiAlias="true"
+              app:arcColors="@array/gradient_arc_color2"
+              app:arcWidth="@dimen/small2"
+              app:bgArcColor="@color/circle_bg"
+              app:bgArcWidth="@dimen/small2"
+              app:hint=""
+              app:hintColor="#fff7b2"
+              app:hintSize="@dimen/text_size_15"
+              app:maxValue="100"
+              app:startAngle="150"
+              app:sweepAngle="240"
+              app:textOffsetPercentInRadius="0.5"
+              app:unit=""
+              app:unitColor="#fff7b2"
+              app:unitSize="@dimen/text_size_15"
+              app:value="50"
+              app:valueColor="#00fff7b2"
+              app:valueSize="@dimen/text_size_64" />
+
+            <com.cloud.runball.widget.MagicTextView2
+              android:id="@+id/tvSpeedRPMFormat"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:text="0"
+              android:textColor="#ffffff"
+              android:textSize="@dimen/text_size_22"
+              android:textStyle="bold"
+              app:animTime="@integer/animation_duration" />
+
+            <com.cloud.runball.widget.PointerImageView
+              android:id="@+id/ivPointer"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:adjustViewBounds="true"
+              android:background="@mipmap/canvas_circle_pointer2"
+              android:rotation="0.0"
+              android:scaleType="fitCenter"
+              app:animTime="@integer/animation_duration" />
+
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:layout_marginBottom="20dp"
+              android:text="SPEED"
+              android:textColor="#ffffff"
+              android:textSize="@dimen/text_size_12" />
+
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:layout_marginTop="20dp"
+              android:text="RPM"
+              android:textColor="#ffffff"
+              android:textSize="@dimen/text_size_12" />
+
+          </FrameLayout>
+
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/lbl_main_match_player_horse"
+              android:textColor="#FFFFFF"
+              android:textSize="12sp" />
+
+            <TextView
+              android:id="@+id/tvPersonTime"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              tools:text="白龙马"
+              android:textColor="#FFFFFF"
+              android:textSize="14sp" />
+
+            <View
+              android:layout_width="90dp"
+              android:layout_height="2dp"
+              android:layout_marginTop="10dp"
+              android:background="@drawable/rank_match_divider2"
+              android:layerType="software" />
+
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:text="@string/lbl_match_main_total_distance"
+              android:textColor="#FFFFFF"
+              android:textSize="12sp" />
+
+            <TextView
+              android:id="@+id/tvPersonDistance"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#FFFFFF"
+              android:textSize="14sp"
+              android:text="0" />
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="10dp"
+            android:gravity="right|center"
+            android:orientation="vertical">
+
+            <TextView
+              android:id="@+id/tvMatchCountdownTag"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/lbl_match_main_total_countdown2"
+              android:textColor="#FFFFFF"
+              android:textSize="12sp" />
+
+            <TextView
+              android:id="@+id/tvMatchCountdown"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="24:00:00"
+              android:textColor="#FFFFFF"
+              android:textSize="14sp" />
+
+            <View
+              android:layout_width="90dp"
+              android:layout_height="2dp"
+              android:layout_marginTop="10dp"
+              android:background="@drawable/rank_match_divider2"
+              android:layerType="software" />
+
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:text="@string/lbl_match_main_total_integral"
+              android:textColor="#FFFFFF"
+              android:textSize="12sp" />
+
+            <TextView
+              android:id="@+id/tvIntegral"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="100"
+              android:textColor="#FFFFFF"
+              android:textSize="14sp" />
+          </LinearLayout>
+
+        </FrameLayout>
+
+        <include
+          android:id="@+id/lyAction"
+          layout="@layout/layout_ble_tip"
+          android:layout_width="match_parent"
+          android:layout_height="40dp" />
+
+      </LinearLayout>
+
+      <FrameLayout
+        android:id="@+id/fyBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        tools:visibility="gone">
+
+        <include
+          android:id="@+id/lyOtherMainMatchBottom"
+          layout="@layout/layout_other_main_match_bottom"
+          android:layout_width="match_parent"
+          android:layout_height="190dp"
+          android:layout_marginBottom="10dp" />
+
+      </FrameLayout>
+
+    </FrameLayout>
+
+  </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

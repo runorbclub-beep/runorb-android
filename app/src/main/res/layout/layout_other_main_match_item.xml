@@ -1,0 +1,102 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    tools:background="#999999">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="#1C417F"
+        />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:max="100"
+        android:progress="0"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:progressDrawable="@drawable/match_progressbar" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        tools:text="江西农业大学"
+        android:textColor="#80ffffff"
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvNo"
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:background="@drawable/selector_horse_no"
+            android:textColor="#66FFFFFF"
+            android:textSize="14sp"
+            tools:text="6" />
+
+        <com.cloud.runball.view.HorseView
+            android:id="@+id/ivFlag"
+            app:animTime="2650"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/tvNo"
+            android:layout_toLeftOf="@+id/layRight"
+            android:layout_width="match_parent"
+            android:layout_height="48dp" />
+
+        <LinearLayout
+            android:id="@+id/layRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1.0"
+                android:gravity="right|center"
+                android:text="0Km"
+                android:textColor="#ffffffff"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvPerson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1.0"
+                android:gravity="right|center"
+                android:text="@string/lbl_main_match_record_person_1"
+                android:textColor="#80ffffff"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</FrameLayout>

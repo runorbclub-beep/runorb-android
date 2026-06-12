@@ -1,0 +1,17 @@
+rootProject.name = "wristball"
+
+include ':app'
+include ':citymodule'
+include ':baseComm'
+include ':share-common'
+include ':share'
+include ':share-google'
+include ':passlibrary'
+include ':circleprogress'
+include ':pickerview'
+include ':wheelview'
+include ':blelib'
+include 'xrecyclerview'
+include ':module-bluetooth'
+include ':widget-progress'
+include ':FastBleLib'

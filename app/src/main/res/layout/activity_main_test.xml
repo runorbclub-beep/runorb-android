@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 上面的搜索框 -->
+        <EditText
+            android:id="@+id/et_searchview"
+            android:layout_marginTop="5dip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@android:drawable/ic_menu_search"
+            android:layout_gravity="top"
+            android:hint="请输入关键字"
+            android:singleLine="true"
+            android:paddingLeft="10dp"
+            android:layout_margin="10dp"
+            android:textSize="15sp" />
+<!--        android:background="@drawable/alphabet_searchview_background"-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@id/et_searchview"
+            android:orientation="horizontal">
+            <ListView
+                android:id="@+id/name_listview"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:divider="@null" />
+            <!-- 右侧供选择的列表 -->
+            <com.cloud.runball.module.match_football_association.widget.widget.SideBarView
+                android:id="@+id/sidrbar"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

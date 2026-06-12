@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<resources>-->
+<!--    <paths>-->
+<!--        <root-path-->
+<!--            name="external_files"-->
+<!--            path="" />-->
+<!--        &lt;!&ndash; 这个是保存拍照图片的路径,必须配置。-->
+<!--        <external-files-path-->
+<!--            name="images"-->
+<!--            path="Pictures" />&ndash;&gt;-->
+<!--    </paths>-->
+<!--</resources>-->
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+  <external-files-path name="images" path="Pictures" />
+  <external-files-path name="umeng_cache" path="umeng_cache/"/>
+</paths>

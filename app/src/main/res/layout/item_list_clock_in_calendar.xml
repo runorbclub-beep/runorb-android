@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:paddingTop="8dp"
+  android:paddingBottom="8dp"
+  android:paddingLeft="4dp"
+  android:paddingRight="4dp"
+  android:gravity="center">
+
+  <TextView
+    android:id="@+id/tvDay"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintDimensionRatio="h,1:1"
+    android:padding="1dp"
+    tools:background="@drawable/bg_item_clock_in_today"
+    android:gravity="center"
+    android:textStyle="bold"
+    android:textSize="20sp"
+    android:textColor="#FFFFFF"
+    tools:text="1"/>
+
+  <TextView
+    android:id="@+id/tvDistance"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@+id/tvDay"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    android:layout_marginTop="4dp"
+    android:visibility="gone"
+    tools:visibility="visible"
+    tools:background="@drawable/bg_item_clock_in_distance_gray"
+    android:gravity="center"
+    android:textSize="9sp"
+    android:textColor="#FFFFFF"
+    tools:text="42km"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

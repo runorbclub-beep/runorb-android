@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:background="#666666"
+  android:orientation="vertical">
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    app:navigationIcon="@mipmap/btn_return"
+    android:visibility="gone"
+    tools:visibility="visible"/>
+
+  <LinearLayout
+    android:layout_width="332dp"
+    android:layout_height="68dp"
+    android:orientation="vertical"
+    android:layout_centerInParent="true"
+    android:background="@mipmap/bg_dialog_tip">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      android:orientation="vertical">
+
+      <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="#F7DC29"
+        tools:text="是否离开？"/>
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="share_success">share finish</string>
+    <string name="share_fail">share fail</string>
+    <string name="share_cancel">share cancel</string>
+    <string name="share_save_success">save success</string>
+    <string name="share_save_fail">save fail</string>
+</resources>

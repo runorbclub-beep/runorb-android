@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <declare-styleable name="PlayingProgressView">
+<!--    <attr name="civ_border_width" format="dimension" />-->
+    <attr name="bar_height" format="dimension" />
+    <attr name="bar_bg_color" format="color" />
+    <attr name="bar_progress_color_start" format="color" />
+    <attr name="bar_progress_color_end" format="color" />
+    <attr name="bar_start_text" format="string"/>
+    <attr name="bar_start_text_padding" format="dimension"/>
+    <attr name="bar_text_color" format="color"/>
+    <attr name="bar_text_size" format="dimension"/>
+    <attr name="node_arrive_text_color" format="color"/>
+    <attr name="node_arrive_text_size" format="dimension"/>
+    <attr name="node_text_padding" format="dimension"/>
+    <attr name="node_size" format="dimension"/>
+    <attr name="node_color_light" format="color"/>
+    <attr name="node_color_dark" format="color"/>
+    <attr name="progress_init" format="float"/>
+  </declare-styleable>
+
+</resources>
